@@ -1,0 +1,82 @@
+.Footer {
+  width: 100%;
+  background: rgba(255, 168, 0, 0.0509803922);
+  padding: 25px 125px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.logo {
+  height: 100px;
+  width: auto;
+  object-fit: contain;
+}
+
+.infoGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.headline {
+  color: #232141;
+}
+
+.infoItems {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.infoItem {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+  color: #171717;
+  text-decoration: none;
+  user-select: none;
+}
+
+.itemImage {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  object-position: center center;
+}
+
+@media screen and (max-width: 893px) {
+  .Footer {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 576px) {
+  .Footer {
+    padding: 25px;
+  }
+}
+
+/*# sourceMappingURL=footer.module.css.map */

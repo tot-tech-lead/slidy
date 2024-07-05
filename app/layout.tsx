@@ -3,6 +3,7 @@ import "./globals.css";
 import type {Metadata} from "next";
 import {nunitoSans} from "@/app/ui/fonts";
 import Header from "@/app/ui/header/header"
+import Footer from "@/app/ui/footer/footer"
 
 import StoreProvider from "@/app/StoreProvider";
 
@@ -22,7 +23,7 @@ export default function RootLayout(
             <body className={nunitoSans.className}>
             <Header/>
             {children}
-            <footer></footer>
+            <Footer />
             </body>
             </html>
         </StoreProvider>
