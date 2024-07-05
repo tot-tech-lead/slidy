@@ -28,4 +28,4 @@ export const { show, hide } = burgerSlice.actions
 
 export const selectBurger = (state: RootState) => state.burger.isShown
 
-export default burgerSlice.reducer<ReducerType>
+export default burgerSlice.reducer

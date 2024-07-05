@@ -32,4 +32,4 @@ export const {setData, logIn, logOut} = authSlice.actions
 
 export const selectAuth = (state: RootState) => state.auth
 
-export default authSlice.reducer<ReducerType>
+export default authSlice.reducer
