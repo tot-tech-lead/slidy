@@ -1,10 +1,7 @@
 "use client"
 
-import defAvatar from "@/public/assets/SVG/default-avatar.svg"
 import logo from "@/public/assets/SVG/logo.svg"
-import {roles} from "@/app/lib/data-define"
 
-import {deleteCookie} from "@/app/lib/cookie-parser";
 import React, {useEffect} from "react";
 import {usePathname, useRouter} from "next/navigation";
 
@@ -21,7 +18,7 @@ import styles from "./header.module.css"
 
 import clsx from "clsx";
 
-
+import AuthBlock from "@/app/ui/header/authBlock";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -88,14 +85,14 @@ export default function Header() {
 
 
     return (<header className={clsx([styles.Header], {
-        [styles.Header_active] : location == "/"
+        [styles.Header_active]: location == "/"
     })}>
         <Link href={"/"}>
             <Image src={logo.src}
-                 height={50}
-                 width={50}
-                 alt="Сліди слайді сліді слійді слідв екскурсовод"
-                 className={styles.logo}
+                   height={50}
+                   width={50}
+                   alt="Сліди слайді сліді слійді слідв екскурсовод"
+                   className={styles.logo}
             />
         </Link>
 
@@ -117,28 +114,7 @@ export default function Header() {
         </nav>
 
         <div className={styles.rightPart}>
-            {auth.isLogin ? <>
-                <div className={styles.avatar}>
-                    <Image height={50} width={50} src={auth.data.avatar ? auth.data.avatar : defAvatar}
-                         alt="користувач"
-                         className={styles.logo}/>
-
-                    <div className={styles.loginDataText}>
-                        <p className={`${styles.loginText_bold} ${preStyle.textBigBold}`}>{auth.data.surname} {auth.data.name}</p>
-                        <div className={`${styles.loginText} ${preStyle.textBig}`}>{roles[auth.data.role]}</div>
-                    </div>
-                    <button onClick={() => {
-                        dispatch({type: "auth/set-log-out"})
-                        deleteCookie("TOKEN")
-                    }}>logout
-                    </button>
-                </div>
-                <button className={styles.burgerBtn} onClick={handleBurgerClick}>
-                    <span className={styles.burgerBtnBullet}></span>
-                    <span className={styles.burgerBtnBullet}></span>
-                    <span className={styles.burgerBtnBullet}></span>
-                </button>
-            </> : <>
+            {(auth.isLogin) ? <AuthBlock {...{...auth.data}} /> : <>
                 {!location.includes("/authorization/") && <>
                     <a
                         href={`/authorization/login`}
@@ -160,13 +136,13 @@ export default function Header() {
                        }}
                     >Реєстрація
                     </a>
-                    <button className={styles.burgerBtn} aria-label="Відкрити меню"
-                            onClick={handleBurgerClick}>
-                        <span className={styles.burgerBtnBullet}></span>
-                        <span className={styles.burgerBtnBullet}></span>
-                        <span className={styles.burgerBtnBullet}></span>
-                    </button>
                 </>}
+                <button className={styles.burgerBtn} aria-label="Відкрити меню"
+                        onClick={handleBurgerClick}>
+                    <span className={styles.burgerBtnBullet}></span>
+                    <span className={styles.burgerBtnBullet}></span>
+                    <span className={styles.burgerBtnBullet}></span>
+                </button>
             </>}
         </div>
     </header>)

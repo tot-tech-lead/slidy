@@ -4,7 +4,18 @@ import {RootState} from "@/app/lib/store";
 
 interface AuthState {
     isLogin: boolean,
-    data: object
+    data: {
+        name?: string,
+        surname?: string,
+        patronymic?: string,
+        email?: string,
+        phoneNumber?: string,
+        country?: string,
+        dateOfBirth?: string,
+        username?: string,
+        profession?: string,
+        role?: string
+    }
 }
 
 const initialState: AuthState = {
