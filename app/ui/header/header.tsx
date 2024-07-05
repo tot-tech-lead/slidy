@@ -119,7 +119,7 @@ export default function Header() {
         <div className={styles.rightPart}>
             {auth.isLogin ? <>
                 <div className={styles.avatar}>
-                    <img height={50} width={50} src={auth.data.avatar ? auth.data.avatar : defAvatar}
+                    <Image height={50} width={50} src={auth.data.avatar ? auth.data.avatar : defAvatar}
                          alt="користувач"
                          className={styles.logo}/>
 

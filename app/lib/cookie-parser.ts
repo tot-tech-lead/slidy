@@ -12,7 +12,14 @@ function getCookieByKey(key: string): string | null {
 }
 
 
-function setCookie(key: string, value: string, options: object = {}) : void {
+interface options {
+    expires?: Date | string,
+    path?: string,
+    domain?: string,
+    secure?: boolean,
+}
+
+function setCookie(key: string, value: string, options: options = {}) : void {
     let cookieString = `${encodeURIComponent(key)}=${encodeURIComponent(value)}`;
 
     if (options.expires) {
