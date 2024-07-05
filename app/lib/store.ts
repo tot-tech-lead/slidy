@@ -1,4 +1,4 @@
-import { configureStore } from '@reduxjs/toolkit'
+import {configureStore} from "@reduxjs/toolkit";
 
 import burgerReducer from "@/app/lib/features/burger/burger";
 import authReducer from "@/app/lib/features/auth/auth"

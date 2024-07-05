@@ -145,57 +145,53 @@
     border-radius: 0 0 10px 10px;
     box-shadow: none;
 
-    .navigation {
-      .menu {
-        display: none;
-      }
+  }
+
+  .menu {
+    display: none;
+  }
+  .button {
+    display: none;
+
+    &:nth-child(2) {
+      display: none;
+    }
+  }
+  .loginData {
+    display: none;
+  }
+
+  .burgerBtnBullet {
+    height: 3px;
+    width: 100%;
+    background: $gray;
+    border-radius: 3px;
+    display: block;
+
+    &:nth-child(1) {
+      --own-offset: -6px;
+      --active-offset: 3px;
+      --own-ratio: -45deg;
+      transform: translateY(var(--own-offset));
+    }
+
+    &:nth-child(3) {
+      --own-offset: 6px;
+      --active-offset: -2px;
+      --own-ratio: 45deg;
+      transform: translateY(var(--own-offset));
     }
   }
 
-  .rightPart {
-    .button {
-      display: none;
-
-      &:nth-child(2) {
-        display: none;
-      }
-    }
-
-    .loginData {
-      display: none;
-    }
-
-    .burger-btn {
-      display: block;
-      position: relative;
-      height: 25px;
-      width: 35px;
-      border: none;
-      outline: none;
-      background: transparent;
-      cursor: pointer;
-
-      .burger-btn-bullet {
-        height: 3px;
-        width: 100%;
-        background: $gray;
-        border-radius: 3px;
-        display: block;
-
-        &:nth-child(1) {
-          --own-offset: -6px;
-          --active-offset: 3px;
-          --own-ratio: -45deg;
-          transform: translateY(var(--own-offset));
-        }
-
-        &:nth-child(3) {
-          --own-offset: 6px;
-          --active-offset: -2px;
-          --own-ratio: 45deg;
-          transform: translateY(var(--own-offset));
-        }
-      }
-    }
+  .burgerBtn {
+    display: block;
+    position: relative;
+    height: 25px;
+    width: 35px;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
   }
 }
+

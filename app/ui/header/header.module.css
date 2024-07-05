@@ -137,19 +137,38 @@
     border-radius: 0 0 10px 10px;
     box-shadow: none;
   }
-  .Header .navigation .menu {
+  .menu {
     display: none;
   }
-  .rightPart .button {
+  .button {
     display: none;
   }
-  .rightPart .button:nth-child(2) {
+  .button:nth-child(2) {
     display: none;
   }
-  .rightPart .loginData {
+  .loginData {
     display: none;
   }
-  .rightPart .burger-btn {
+  .burgerBtnBullet {
+    height: 3px;
+    width: 100%;
+    background: #494949;
+    border-radius: 3px;
+    display: block;
+  }
+  .burgerBtnBullet:nth-child(1) {
+    --own-offset: -6px;
+    --active-offset: 3px;
+    --own-ratio: -45deg;
+    transform: translateY(var(--own-offset));
+  }
+  .burgerBtnBullet:nth-child(3) {
+    --own-offset: 6px;
+    --active-offset: -2px;
+    --own-ratio: 45deg;
+    transform: translateY(var(--own-offset));
+  }
+  .burgerBtn {
     display: block;
     position: relative;
     height: 25px;
@@ -158,25 +177,6 @@
     outline: none;
     background: transparent;
     cursor: pointer;
-  }
-  .rightPart .burger-btn .burger-btn-bullet {
-    height: 3px;
-    width: 100%;
-    background: #494949;
-    border-radius: 3px;
-    display: block;
-  }
-  .rightPart .burger-btn .burger-btn-bullet:nth-child(1) {
-    --own-offset: -6px;
-    --active-offset: 3px;
-    --own-ratio: -45deg;
-    transform: translateY(var(--own-offset));
-  }
-  .rightPart .burger-btn .burger-btn-bullet:nth-child(3) {
-    --own-offset: 6px;
-    --active-offset: -2px;
-    --own-ratio: 45deg;
-    transform: translateY(var(--own-offset));
   }
 }
 
