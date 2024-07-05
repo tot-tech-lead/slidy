@@ -1,0 +1,64 @@
+@import "./mixins";
+
+@import "./variables";
+
+// Define text styles as placeholders
+%big-plain-bold-text {
+  @include text-style( 15px, 700, normal, 0%, none, none);
+}
+
+%big-plain-text {
+  @include text-style( 15px, 400, normal, 0%, none, none);
+}
+
+%bigger-plain-bold-text {
+  @include text-style( 20px, 700, normal, 0%, none, none);
+}
+
+%bigger-plain-text {
+  @include text-style( 20px, 400, normal, 0%, none, none);
+}
+
+%plain-bold-text {
+  @include text-style( calc(10px + .3vw), 700, normal, 0%, none, none);
+}
+
+%subheadline {
+  @include text-style( calc(12px + .5vw), 400, normal, 0%, none, none);
+}
+
+%h1 {
+  @include text-style( calc(35px + 2.7vw), 800, normal, 0%, uppercase, none);
+}
+
+%h2 {
+  @include text-style( calc(19px + 1.2vw), 800, normal, 0%, uppercase, none);
+}
+
+%h3 {
+  @include text-style( calc(18px + 0.8vw), 800, normal, 0%, uppercase, none);
+}
+
+%h4 {
+  @include text-style( calc(13px + 0.8vw), 800, normal, 0%, uppercase, none);
+}
+
+%h5 {
+  @include text-style(calc(8px + 0.5vw), 800, normal, 0%, uppercase, none);
+}
+
+%h6 {
+  @include text-style( 14px, 800, normal, 0%, uppercase, none);
+}
+
+%plain-text {
+  @include text-style( calc(10px + .3vw), 400, normal, 0%, none, none);
+}
+
+%small-text-semi-visible {
+  @include text-style( 10px, 400, normal, 0%, none, none);
+}
+
+// Additional text styles can be defined here...
+
+// Define other styles (if any) below this line

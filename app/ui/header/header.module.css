@@ -1,0 +1,183 @@
+.Header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: no-wrap;
+  width: calc(100% - 250px);
+  gap: 25px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 15px 20px;
+  margin-top: 25px;
+  margin-bottom: -75px;
+}
+.Header_active {
+  position: fixed;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  box-shadow: 0 5px 10px rgba(20, 20, 20, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  margin-top: 0;
+}
+.Header a {
+  text-decoration: none;
+}
+
+.navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.menuItem {
+  position: relative;
+}
+.menuItem:before {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #FFA800;
+  display: block;
+  border-radius: 3px;
+  transition: 0.3s 0.1s;
+}
+.menuItem:hover::before {
+  width: 100%;
+}
+
+.menuItemLink {
+  color: #171717;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.rightPart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.burgerBtn {
+  display: none;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 1px 2px 4px rgba(20, 20, 20, 0.1);
+  border-radius: 50%;
+}
+
+.loginDataText {
+  min-width: max-content;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+}
+
+.loginText_bold {
+  color: #171717;
+}
+
+.loginText {
+  opacity: 0.5;
+  color: #171717;
+}
+
+.loginData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+  object-position: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .Header {
+    left: 25px;
+    transform: none;
+    width: calc(100% - 50px);
+  }
+}
+@media screen and (max-width: 800px) {
+  .Header {
+    width: 100vw;
+    left: 0;
+    top: 0;
+    right: 0;
+    border-radius: 0 0 10px 10px;
+    box-shadow: none;
+  }
+  .Header .navigation .menu {
+    display: none;
+  }
+  .rightPart .button {
+    display: none;
+  }
+  .rightPart .button:nth-child(2) {
+    display: none;
+  }
+  .rightPart .loginData {
+    display: none;
+  }
+  .rightPart .burger-btn {
+    display: block;
+    position: relative;
+    height: 25px;
+    width: 35px;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  .rightPart .burger-btn .burger-btn-bullet {
+    height: 3px;
+    width: 100%;
+    background: #494949;
+    border-radius: 3px;
+    display: block;
+  }
+  .rightPart .burger-btn .burger-btn-bullet:nth-child(1) {
+    --own-offset: -6px;
+    --active-offset: 3px;
+    --own-ratio: -45deg;
+    transform: translateY(var(--own-offset));
+  }
+  .rightPart .burger-btn .burger-btn-bullet:nth-child(3) {
+    --own-offset: 6px;
+    --active-offset: -2px;
+    --own-ratio: 45deg;
+    transform: translateY(var(--own-offset));
+  }
+}
+
+/*# sourceMappingURL=header.module.css.map */

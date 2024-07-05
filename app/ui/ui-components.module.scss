@@ -1,0 +1,126 @@
+@import "./sass-config/text-patterns";
+@import "./sass-config/mixins";
+
+%button-filled {
+  @extend %big-plain-text;
+  color: $dark;
+  @include flex(center, center, row, no-wrap);
+  align-items: center;
+  padding: 10px 25px;
+  gap: 15px;
+
+  background: $accent-color;
+  border: 2px solid $accent-color;
+  box-shadow: 0 4px 4px rgba(23, 23, 23, 0.1);
+  border-radius: 5px;
+
+  transition: transform 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+%button-outlined {
+  @extend %big-plain-text;
+  color: $dark;
+  text-align: center;
+  @include flex(center, center, row, no-wrap);
+
+  padding: 10px 25px;
+  gap: 10px;
+
+  background: transparent;
+  border: 2px solid $dark;
+  box-shadow: 0 4px 4px rgba(23, 23, 23, 0.1);
+  border-radius: 5px;
+
+  transition: transform 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.textBigBold {
+  @include text-style( 15px, 700, normal, 0%, none, none);
+}
+
+.textBig {
+  @include text-style( 15px, 400, normal, 0%, none, none);
+}
+
+.textBiggerBold {
+  @include text-style( 20px, 700, normal, 0%, none, none);
+}
+
+.textBigger {
+  @include text-style( 20px, 400, normal, 0%, none, none);
+}
+
+.textBold {
+  @include text-style( calc(10px + .3vw), 700, normal, 0%, none, none);
+}
+
+.textSubheadline {
+  @include text-style( calc(12px + .5vw), 400, normal, 0%, none, none);
+}
+
+.textH1 {
+  @include text-style( calc(35px + 2.7vw), 800, normal, 0%, uppercase, none);
+}
+
+.textH2 {
+  @include text-style( calc(19px + 1.2vw), 800, normal, 0%, uppercase, none);
+}
+
+.texthH3 {
+  @include text-style( calc(18px + 0.8vw), 800, normal, 0%, uppercase, none);
+}
+
+.textH4 {
+  @include text-style( calc(13px + 0.8vw), 800, normal, 0%, uppercase, none);
+}
+
+.textH5 {
+  @include text-style(calc(8px + 0.5vw), 800, normal, 0%, uppercase, none);
+}
+
+.textH6 {
+  @include text-style( 14px, 800, normal, 0%, uppercase, none);
+}
+
+.textPlain {
+  @include text-style( calc(10px + .3vw), 400, normal, 0%, none, none);
+}
+
+.textSmallSemiVisible {
+  @include text-style( 10px, 400, normal, 0%, none, none);
+}
+
+
+.buttonFilled {
+  @extend %button-filled
+}
+
+.buttonOutlined {
+  @extend %button-outlined;
+}
+
+.buttonFilledWithImg {
+  @extend %button-filled;
+  @include flex(center, space-between, row, no-wrap);
+
+  img {
+    height: 25px;
+    width: 25px;
+    object-fit: contain;
+  }
+}
+
+.buttonOutlinedWithImg {
+  @extend %button-outlined;
+  @include flex(center, space-between, row, no-wrap);
+}
