@@ -41,11 +41,9 @@ export const metadata: Metadata = {
         locale: "uk_UA"
     },
     twitter: {
-        domain: "slidy.space",
         title: "Slidy",
         description: description,
         card: "summary_large_image",
         images: "/twitter-image.png",
-        locale: "uk_UA"
     }
 };
