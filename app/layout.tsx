@@ -34,7 +34,6 @@ export const metadata: Metadata = {
     title: "Slidy",
     description: description,
     openGraph: {
-        url: "https://slidy.space",
         type: "website",
         title: "Slidy",
         description: description,
@@ -42,7 +41,6 @@ export const metadata: Metadata = {
         locale: "uk_UA"
     },
     twitter: {
-        url: "https://slidy.space",
         domain: "slidy.space",
         title: "Slidy",
         description: description,
