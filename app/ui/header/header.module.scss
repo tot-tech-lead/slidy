@@ -150,10 +150,10 @@
     display: none;
   }
   .button {
-    display: none;
+    display: none !important;
 
     &:nth-child(2) {
-      display: none;
+      display: none !important;
     }
   }
   .loginData {

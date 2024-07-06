@@ -1,10 +1,9 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import PreviewPage from "@/app/ui/home/previewPage/previewPage";
 
 export default function Home() {
-  return (
-    <>
-      <main>main</main>
-    </>
-  );
+    return (
+        <main>
+            <PreviewPage />
+        </main>
+    );
 }

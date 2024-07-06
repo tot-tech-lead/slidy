@@ -98,6 +98,7 @@
 
 .textSmallSemiVisible {
   @include text-style( 10px, 400, normal, 0%, none, none);
+  opacity: 0.8;
 }
 
 
