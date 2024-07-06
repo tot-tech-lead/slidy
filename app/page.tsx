@@ -1,11 +1,15 @@
 import PreviewPage from "@/app/ui/home/previewPage/previewPage";
-import AboutUs from "@/app/ui/home/aboutUs/aboutUs";
+import dynamic from "next/dynamic";
+
+const DynamicAboutUs = dynamic(() => import("@/app/ui/home/aboutUs/aboutUs"), {
+    loading: () => <div style={{height: "100vh"}}></div>,
+})
 
 export default function Home() {
     return (
         <main>
             <PreviewPage/>
-            <AboutUs/>
+            <DynamicAboutUs/>
         </main>
     );
 }
