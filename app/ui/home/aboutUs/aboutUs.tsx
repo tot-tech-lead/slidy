@@ -149,7 +149,6 @@ export default function AboutUs() {
                     {opacity: 1},
                     {
                         opacity: 0,
-                        ease: "power4.out",
                         scrollTrigger: {
                             trigger: `.${styles.container}${i + 1}`,
                             pin: false,
@@ -166,23 +165,27 @@ export default function AboutUs() {
         });
 
         const blocks = document.querySelectorAll(`.${styles.backgroundStatic}`);
+        let animationFrameId: number;
 
         const handleMouseMove = (event: MouseEvent) => {
-            const mouseX = event.clientX;
-            const mouseY = event.clientY;
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = requestAnimationFrame(() => {
+                const mouseX = event.clientX;
+                const mouseY = event.clientY;
 
-            blocks.forEach((block, idx) => {
-                const blockRect = block.getBoundingClientRect();
-                const blockCenterX = blockRect.left + blockRect.width / 2;
-                const blockCenterY = blockRect.top + blockRect.height / 2;
+                blocks.forEach((block, idx) => {
+                    const blockRect = block.getBoundingClientRect();
+                    const blockCenterX = blockRect.left + blockRect.width / 2;
+                    const blockCenterY = blockRect.top + blockRect.height / 2;
 
-                const distanceX = mouseX - blockCenterX;
-                const distanceY = mouseY - blockCenterY;
+                    const distanceX = mouseX - blockCenterX;
+                    const distanceY = mouseY - blockCenterY;
 
-                gsap.to(block, {
-                    x: (-1) ** idx * (distanceX / 10),
-                    y: (-1) ** idx * (distanceY / 10),
-                    duration: 0.2,
+                    gsap.to(block, {
+                        x: (-1) ** idx * (distanceX / 10),
+                        y: (-1) ** idx * (distanceY / 10),
+                        duration: 0.2,
+                    });
                 });
             });
         };
