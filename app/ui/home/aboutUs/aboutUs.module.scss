@@ -1,0 +1,159 @@
+@import "../../sass-config/mixins";
+@import "../../sass-config/variables";
+
+@keyframes move {
+  0%, 50%, 100% {
+    transform: translateY(0) translateX(-50%);
+    opacity: 1;
+  }
+  25%, 75% {
+    transform: translateY(-10px) translateX(-50%);
+    opacity: 0.1;
+  }
+}
+
+.AboutUs {
+  @include flex(center, flex-start, column, no-wrap);
+  width: 100%;
+  height: auto;
+  position: relative;
+
+  .container {
+    @include flex(flex-start, center, row, no-wrap);
+    width: 100%;
+    padding: $padding-for-page-component;
+    height: 100vh;
+    z-index: 2;
+    margin-bottom: 25vh;
+
+    .anim {
+      @include flex(center, center, column, no-wrap);
+      gap: 25px;
+      width: 100%;
+      max-width: 900px;
+      height: fit-content;
+      opacity: 0;
+      transform: translate(0, -50%);
+
+      .animHeadline {
+        color: $dark;
+        text-align: center;
+      }
+
+      .animParagraph {
+        text-align: center;
+        line-height: 120%;
+        color: $black;
+      }
+
+      .animScrollHint {
+        @include flex(center, center, column, no-wrap);
+        gap: 5px;
+        opacity: 0;
+
+        .animScrollHintText {
+          //@extend %plain-text;
+          text-align: center;
+          color: rgba(23, 23, 23, 0.8);
+        }
+
+        .animScrollHintBody {
+          @include flex(center, flex-end, column, no-wrap);
+          padding: 5px;
+          border: 2px solid $accent-color;
+          width: 25px;
+          height: 40px;
+          border-radius: 15px;
+          position: relative;
+        }
+
+        .animScrollHintInner {
+          width: calc(100% - 6px);
+          aspect-ratio: 1/1;
+          background: $accent-color;
+          border-radius: 50%;
+          transform: translateY(0) translateX(-50%);
+          animation: move 2s ease-in 1s infinite;
+          position: absolute;
+          bottom: 2px;
+          left: 50%;
+        }
+      }
+    }
+  }
+
+
+  .background {
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    max-width: 100vw;
+    overflow: hidden;
+    position: relative;
+
+    .backgroundStatic1 {
+      bottom: 25%;
+      left: 25%;
+    }
+
+    .backgroundStatic2 {
+      top: 25%;
+      right: 25%;
+    }
+
+    .backgroundItem1 {
+      top: 50px;
+      left: 50px;
+      transform: translate(0, 0);
+      background: red;
+    }
+
+    .backgroundItem2 {
+      top: calc(100% - 50px);
+      left: calc(100% - 50px);
+      transform: translate(-100%, -100%);
+    }
+
+    .backgroundStatic {
+      height: 100px;
+      width: 100px;
+      object-fit: contain;
+      position: absolute;
+      background: #EEEEEE;
+      border-radius: 50px;
+    }
+
+    .backgroundItem {
+      height: 175px;
+      width: 175px;
+      background: transparent;
+      border-radius: 10px;
+      position: absolute;
+      object-fit: contain;
+
+    }
+  }
+
+}
+
+
+@media screen and (max-width: 800px) {
+  .AboutUs {
+    .container {
+      padding: $manual-padding;
+    }
+
+    .background {
+      .backgroundItem {
+        height: 100px;
+        width: 100px;
+      }
+
+      .backgroundStatic {
+        height: 50px;
+        width: 50px;
+      }
+    }
+  }
+}
+

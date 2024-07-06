@@ -21,10 +21,6 @@ function PreviewPage() {
     let router = useRouter();
 
     let [currentPage, setCurrentPage] = useState("Львів");
-    let [imgH, setImgH] = useState(0);
-    let [imgW, setImgW] = useState(0);
-
-    let swiperRef = useRef(null)
 
     let cities = useMemo(() => Object.keys(images), []);
 
@@ -36,7 +32,7 @@ function PreviewPage() {
             swiperEl.swiper.slideTo(0, 0)
             swiperEl.swiper.autoplay.start();
         }
-    }, [currentPage, swiperRef.current]);
+    }, [currentPage]);
 
     useEffect(() => {
         const rootElement = document.documentElement;
@@ -76,32 +72,12 @@ function PreviewPage() {
                 swiperEl.removeEventListener("swiperprogress", listenerOnProgress as EventListener);
             }
         }
-    }, [currentPage, cities, swiperRef.current])
-
-    useEffect(() => {
-        const handleResizing = () => {
-            console.log("resize");
-
-            const height = window.innerHeight || document.documentElement.offsetHeight;
-            const width = window.innerWidth || document.documentElement.offsetWidth;
-
-            setImgH(height - 160);
-            setImgW(width);
-        };
-
-        handleResizing();
-
-        window.addEventListener("resize", handleResizing);
-
-        return () => {
-            window.removeEventListener("resize", handleResizing);
-        };
-    }, []);
+    }, [currentPage, cities])
 
 
     return (
         <section className={styles.PreviewPage} id="Home-preview-page">
-            <div className={styles.citiesSwiper} ref={swiperRef}>
+            <div className={styles.citiesSwiper}>
                 <swiper-container
                     slides-per-view="1"
                     autoplay={true}
