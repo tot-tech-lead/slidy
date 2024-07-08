@@ -4,7 +4,7 @@ import prestyle from "@/app/lib/ui-components.module.css"
 import clsx from "clsx"
 
 import {gsap} from "gsap";
-import {useEffect, useMemo} from "react";
+import {useEffect, useId} from "react";
 
 interface params {
     values: string[],
@@ -13,7 +13,7 @@ interface params {
 }
 
 export default function Switch({values, currentTab, setCurrentTab}: params) {
-    let id = useMemo(() => String(Math.floor(Math.random() * 1000)).concat(String(Date.now())), [])
+    const id = useId().slice(1, -1)
 
     useEffect(() => {
         if (document.querySelector(`.Switch_${id}`)) {
