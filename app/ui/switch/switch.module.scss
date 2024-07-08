@@ -1,0 +1,42 @@
+@import "../sass-config/mixins";
+@import "../sass-config/variables";
+
+
+.Switch {
+  width: 100%;
+  @include flex(stretch, center, row, no-wrap);
+  gap: $gap-between-not-connected-elements;
+  position: relative;
+
+  .selector {
+    position: absolute;
+    height: 100%;
+    background: $accent-color;
+    border-radius: 5px;
+    min-width: 15px;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    box-shadow: 0 4px 4px $shadows-black;
+  }
+
+  .item {
+    width: 100%;
+    padding: $padding-for-buttons;
+    z-index: 1;
+    cursor: pointer;
+    color: $black;
+    @include flex(center, center, row);
+    text-align: center;
+
+    &_selected {
+      background: transparent;
+      box-shadow: none;
+      border: none;
+
+      &:hover {
+        transform: translate(0);
+      }
+    }
+  }
+}

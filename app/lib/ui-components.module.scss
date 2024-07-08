@@ -1,5 +1,5 @@
-@import "./sass-config/text-patterns";
-@import "./sass-config/mixins";
+@import "../ui/sass-config/text-patterns.css";
+@import "../ui/sass-config/mixins";
 
 %button-filled {
   @extend %big-plain-text;

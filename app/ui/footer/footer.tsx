@@ -3,7 +3,7 @@
 import React from "react";
 
 import styles from "./footer.module.css"
-import preStyle from "@/app/ui/ui-components.module.css"
+import preStyle from "@/app/lib/ui-components.module.css"
 import logo from "@/public/assets/SVG/logo.svg"
 
 import instIcon from "./SVG/instagram.svg";

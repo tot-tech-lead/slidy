@@ -1,7 +1,7 @@
 "use client"
 
 import styles from "@/app/ui/home/previewPage/previewPage.module.css"
-import prestyle from "@/app/ui/ui-components.module.css"
+import prestyle from "@/app/lib/ui-components.module.css"
 
 import {nunito} from "@/app/ui/fonts";
 

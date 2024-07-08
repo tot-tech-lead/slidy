@@ -1,4 +1,5 @@
 import PreviewPage from "@/app/ui/home/previewPage/previewPage";
+import HowItWork from "@/app/ui/home/howItWork/howItWork";
 import dynamic from "next/dynamic";
 
 const DynamicAboutUs = dynamic(() => import("@/app/ui/home/aboutUs/aboutUs"), {
@@ -11,6 +12,7 @@ export default function Home() {
         <main>
             <PreviewPage/>
             <DynamicAboutUs/>
+            <HowItWork />
         </main>
     );
 }

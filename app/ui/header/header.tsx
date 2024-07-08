@@ -13,7 +13,7 @@ import {useAppDispatch, useAppSelector} from "@/app/lib/hooks";
 import {show, hide} from "@/app/lib/features/burger/burger";
 
 import Image from "next/image";
-import preStyle from "@/app/ui/ui-components.module.css"
+import preStyle from "@/app/lib/ui-components.module.css"
 import styles from "./header.module.css"
 
 import clsx from "clsx";

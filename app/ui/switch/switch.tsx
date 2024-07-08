@@ -1,0 +1,77 @@
+import styles from "./switch.module.css"
+import prestyle from "@/app/lib/ui-components.module.css"
+
+import clsx from "clsx"
+
+import {gsap} from "gsap";
+import {useEffect, useMemo} from "react";
+
+interface params {
+    values: string[],
+    currentTab: number | string,
+    setCurrentTab: Function
+}
+
+export default function Switch({values, currentTab, setCurrentTab}: params) {
+    let id = useMemo(() => String(Math.floor(Math.random() * 1000)).concat(String(Date.now())), [])
+
+    useEffect(() => {
+        if (document.querySelector(`.Switch_${id}`)) {
+            let currentTabElement = document.querySelector<HTMLElement>(`.Switch_${id} .${styles.item_selected}`)
+
+            if (currentTabElement) {
+                let properties = {
+                    top: currentTabElement.offsetTop,
+                    left: currentTabElement.offsetLeft,
+                    width: currentTabElement.offsetWidth
+                }
+
+                gsap.to(`.Switch_${id} .${styles.selector}`, {
+                    ...properties, duration: 0.7, ease: "elastic.out(1,0.3)"
+                })
+            }
+        }
+    }, [currentTab, id]);
+
+
+    useEffect(() => {
+        let resizeHandler = () => {
+            let currentTabElement = document.querySelector<HTMLElement>(`.Switch_${id} .${styles.item_selected}`)
+
+            if (currentTabElement) {
+                let properties = {
+                    top: currentTabElement.offsetTop,
+                    left: currentTabElement.offsetLeft,
+                    width: currentTabElement.offsetWidth
+                }
+
+                gsap.to(`.Switch_${id} .${styles.selector}`, {
+                    ...properties, duration: 0.7, ease: "elastic.out(1,0.3)"
+                })
+            }
+        }
+
+        window.addEventListener("resize", resizeHandler)
+
+        return () => {
+            window.removeEventListener("resize", resizeHandler)
+        }
+    }, [id])
+
+    return (
+        <div className={`${styles.Switch} Switch_${id}`}>
+            <div className={styles.selector}></div>
+            {
+                values.map((item, key) =>
+                    <div key={`tab-${Date.now()}-${key}`}
+                         className={clsx(`${styles.item} ${prestyle.textBig}`, {
+                             [`${styles.item_selected} ${prestyle.buttonFilled}`]: item === currentTab
+                         })}
+                         onClick={() => setCurrentTab(item)}>
+                        {item}
+                    </div>
+                )
+            }
+        </div>
+    )
+}
