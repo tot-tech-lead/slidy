@@ -1,0 +1,116 @@
+@import "./ui/sass-config/variables";
+@import "./ui/sass-config/mixins";
+
+.NotFound {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $manual-padding;
+
+  .wrapper {
+    width: min(100%, 750px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .headline {
+    color: $dark;
+  }
+
+  .subheadline {
+    text-align: right;
+  }
+
+  .left {
+    @include flex(flex-end, center, column);
+    position: relative;
+    margin-right: $manual-padding * 2;
+
+
+    &::after {
+      content: "";
+      background: #eeeeee;
+      height: 100%;
+      width: 2px;
+      border-radius: 2px;
+      display: block;
+      position: absolute;
+      right: -25px;
+      top: 0;
+      bottom: 0;
+    }
+  }
+
+  .right {
+    @include flex(flex-start, center, column);
+    gap: $gap-between-closely-placed-elements;
+
+    code {
+      background: #eeeeee;
+      border-radius: 3px;
+      padding: 2px 4px;
+      letter-spacing: 2px;
+      font-style: italic;
+    }
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+  .NotFound {
+
+    .wrapper {
+      flex-direction: column;
+    }
+
+    .headline {
+      text-align: center;
+    }
+    .subheadline {
+      text-align: center;
+    }
+
+    .left {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 50px;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+
+
+      &::after {
+        width: 80%;
+        height: 2px;
+        position: absolute;
+        right: 50%;
+        bottom: 0;
+        top: calc(100% + 25px);
+        transform: translateX(50%);
+      }
+    }
+
+    .right {
+      @include flex(center, center, column);
+      gap: $gap-between-closely-placed-elements;
+
+      code {
+        background: #eeeeee;
+        border-radius: 3px;
+        padding: 2px 4px;
+        letter-spacing: 2px;
+        font-style: italic;
+      }
+
+      .para {
+        text-align: center;
+        line-height: 120%;
+        font-size: calc(11px + .5vw);
+      }
+    }
+
+  }
+}

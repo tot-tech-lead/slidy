@@ -5,7 +5,7 @@ import prestyle from "@/app/lib/ui-components.module.css"
 
 import {nunito} from "@/app/ui/fonts";
 
-import React, {useEffect, useMemo, useRef, useState} from "react"
+import React, {useEffect, useMemo, useState} from "react"
 import clsx from "clsx";
 import {images} from "@/app/lib/data-define"
 import {register} from 'swiper/element/bundle';
@@ -15,6 +15,8 @@ import Image from 'next/image';
 register();
 
 import {SwiperEl, SwiperProgressEvent} from "@/app/lib/types";
+
+import Slides from "@/app/ui/home/previewPage/slides";
 
 
 function PreviewPage() {
@@ -26,7 +28,7 @@ function PreviewPage() {
 
 
     useEffect(() => {
-        let swiperEl : (SwiperEl | null) = document.querySelector(`.${styles.swiper}`)
+        let swiperEl: (SwiperEl | null) = document.querySelector(`.${styles.swiper}`)
 
         if (swiperEl && swiperEl.swiper.initialized) {
             swiperEl.swiper.slideTo(0, 0)
@@ -36,7 +38,7 @@ function PreviewPage() {
 
     useEffect(() => {
         const rootElement = document.documentElement;
-        let swiperEl : (SwiperEl | null) = document.querySelector(`.${styles.swiper}`)
+        let swiperEl: (SwiperEl | null) = document.querySelector(`.${styles.swiper}`)
 
         let x = setInterval(() => {
             if (swiperEl) {
@@ -85,29 +87,20 @@ function PreviewPage() {
                     speed="500"
                     class={styles.swiper}
                     pagination="true"
-                    style={{ width: "auto", height: "auto" }}
+                    style={{width: "auto", height: "auto"}}
                 >
-                    {
-                        images[currentPage].map((slide, idx) =>
-                            <swiper-slide style={{width: "100vw"}} class={styles.swiperSlide} lazy="true" key={`main-slide-${idx}`}>
-                                <Image className={styles.swiperImage}
-                                       src={slide.Photo}
-                                       alt={`Огляд міста ${currentPage} ${idx + 1}`}
-                                       fill={true}
-                                       sizes='100w'
-                                       priority={idx === 0}
-                                />
-                            </swiper-slide>
-                        )
-                    }
+                    <Slides currentPage={currentPage} />
                 </swiper-container>
             </div>
 
             <div className={styles.section}>
                 <div className={styles.welcomeText}>
                     <div className={styles.headlineContainer}>
-                        <div className={`${styles.headline} ${prestyle.textH1} ${nunito.className}`}><h1>Slidy</h1></div>
-                        <div className={`${prestyle.textSubheadline} ${styles.subheadline}`}>Подорожуй улюбленим містом без обмежень!</div>
+                        <div className={`${styles.headline} ${prestyle.textH1} ${nunito.className}`}><h1>Slidy</h1>
+                        </div>
+                        <div className={`${prestyle.textSubheadline} ${styles.subheadline}`}>Подорожуй улюбленим містом
+                            без обмежень!
+                        </div>
                     </div>
                     <div className={styles.buttonContainer}>
                         <button className={`${prestyle.buttonFilled}`}

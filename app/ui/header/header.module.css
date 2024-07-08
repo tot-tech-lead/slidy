@@ -4,14 +4,16 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: no-wrap;
-  width: calc(100% - 250px);
+  width: 100%;
   gap: 25px;
   background: rgba(255, 255, 255, 0.8);
-  padding: 15px 20px;
   margin-top: 25px;
   margin-bottom: -75px;
+  padding: 15px 125px;
 }
 .Header_active {
+  padding: 15px 20px;
+  width: calc(100% - 250px);
   position: fixed;
   top: 25px;
   left: 50%;

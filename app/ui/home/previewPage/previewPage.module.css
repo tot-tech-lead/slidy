@@ -41,6 +41,7 @@
   overflow: visible;
 }
 .PreviewPage .citiesSwiper .swiper .swiperSlide {
+  width: 100%;
   height: calc(95vh - 160px);
 }
 .PreviewPage .citiesSwiper .swiper .swiperSlide .swiperImage {

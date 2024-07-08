@@ -4,14 +4,16 @@
 
 .Header {
   @include flex(center, space-between, row, no-wrap);
-  width: calc(100% - 250px);
+  width: 100%;
   gap: $gap-between-connected-elements;
   background: #FFFFFFCC;
-  padding: 15px 20px;
   margin-top: 25px;
   margin-bottom: -75px;
+  padding: 15px 125px;
 
   &_active {
+    padding: 15px 20px;
+    width: calc(100% - 250px);
     position: fixed;
     top: 25px;
     left: 50%;

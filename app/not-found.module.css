@@ -1,0 +1,107 @@
+.NotFound {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+.NotFound .wrapper {
+  width: min(100%, 750px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.NotFound .headline {
+  color: #232141;
+}
+.NotFound .subheadline {
+  text-align: right;
+}
+.NotFound .left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  margin-right: 50px;
+}
+.NotFound .left::after {
+  content: "";
+  background: #eeeeee;
+  height: 100%;
+  width: 2px;
+  border-radius: 2px;
+  display: block;
+  position: absolute;
+  right: -25px;
+  top: 0;
+  bottom: 0;
+}
+.NotFound .right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.NotFound .right code {
+  background: #eeeeee;
+  border-radius: 3px;
+  padding: 2px 4px;
+  letter-spacing: 2px;
+  font-style: italic;
+}
+
+@media screen and (max-width: 800px) {
+  .NotFound .wrapper {
+    flex-direction: column;
+  }
+  .NotFound .headline {
+    text-align: center;
+  }
+  .NotFound .subheadline {
+    text-align: center;
+  }
+  .NotFound .left {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 50px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .NotFound .left::after {
+    width: 80%;
+    height: 2px;
+    position: absolute;
+    right: 50%;
+    bottom: 0;
+    top: calc(100% + 25px);
+    transform: translateX(50%);
+  }
+  .NotFound .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .NotFound .right code {
+    background: #eeeeee;
+    border-radius: 3px;
+    padding: 2px 4px;
+    letter-spacing: 2px;
+    font-style: italic;
+  }
+  .NotFound .right .para {
+    text-align: center;
+    line-height: 120%;
+    font-size: calc(11px + 0.5vw);
+  }
+}
+
+/*# sourceMappingURL=not-found.module.css.map */
