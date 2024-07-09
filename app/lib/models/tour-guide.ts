@@ -33,6 +33,6 @@ let tourGuideSchema = new mongoose.Schema<TourGuide>({
     }
 })
 
-const tourGuideModel: Model<TourGuide> = mongoose.models["tour-guide"] || model("tour-guide", tourGuideSchema)
+const tourGuideModel: Model<TourGuide> = mongoose.models?.tourGuide || model("tourGuide", tourGuideSchema)
 
 export default tourGuideModel

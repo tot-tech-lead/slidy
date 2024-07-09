@@ -17,12 +17,13 @@
     "gsap": "^3.12.5",
     "libphonenumber-js": "^1.11.4",
     "mongoose": "^8.4.5",
-    "next": "^14.2.4",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "15.0.0-canary.59",
+    "react": "19.0.0-rc.0",
+    "react-dom": "19.0.0-rc.0",
     "react-redux": "^9.1.2",
     "redux": "^5.0.1",
-    "swiper": "^11.1.4"
+    "swiper": "^11.1.4",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",

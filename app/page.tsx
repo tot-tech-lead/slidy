@@ -1,5 +1,6 @@
 import PreviewPage from "@/app/ui/home/previewPage/previewPage";
 import HowItWork from "@/app/ui/home/howItWork/howItWork";
+import WaitListForm from "@/app/ui/home/waitList/wait-list";
 import dynamic from "next/dynamic";
 
 const DynamicAboutUs = dynamic(() => import("@/app/ui/home/aboutUs/aboutUs"), {
@@ -13,6 +14,7 @@ export default function Home() {
             <PreviewPage/>
             <DynamicAboutUs/>
             <HowItWork />
+            <WaitListForm />
         </main>
     );
 }

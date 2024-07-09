@@ -88,6 +88,6 @@ authSchema.methods.comparePassword = async function (candidatePassword: string) 
     }
 };
 
-let waitListUserModel: Model<AuthData> = mongoose.models["auth-data"] || model("auth-data", authSchema)
+let waitListUserModel: Model<AuthData> = mongoose.models.authData || model("authData", authSchema)
 
 export default waitListUserModel
