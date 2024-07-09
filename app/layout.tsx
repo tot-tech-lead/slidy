@@ -7,6 +7,8 @@ import Footer from "@/app/ui/footer/footer"
 
 import StoreProvider from "@/app/StoreProvider";
 
+import {connectToMongoDB} from "@/app/lib/mongodb";
+
 
 const description = "Ти новенький у місті і не знаєш чим  зайнятись? Вебсайт Сліди стане твоїм помічником при виборі екскурсовода або місцевого який допоможе тобі розвіятись. Окрім цього це можливість заробітку на знанні місцевості, адже платформа дозволяє будь-кому стати екскурсоводом. Гіди доступні у таких містах: Львів. Зараз записи на екскурсії проводяться у мобільному режимі. Сліди - найкарща платформа для пошуку екскурсоводів";
 
@@ -17,6 +19,7 @@ export default function RootLayout(
         children: React.ReactNode;
     }>
 ) {
+    connectToMongoDB()
     return (
         <StoreProvider>
             <html lang="en">

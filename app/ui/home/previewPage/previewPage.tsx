@@ -14,7 +14,7 @@ import Image from 'next/image';
 
 register();
 
-import {SwiperEl, SwiperProgressEvent} from "@/app/lib/types";
+import {SwiperEl, SwiperProgressEvent} from "@/app/lib/types/frontend-config";
 
 import Slides from "@/app/ui/home/previewPage/slides";
 

@@ -1,13 +1,3 @@
-// types.ts
-export interface Image {
-    Photo: string;
-    "125": string;
-}
-
-export interface Images {
-    [key: string]: Image[];
-}
-
 export interface Swiper {
     slideTo: Function,
     autoplay: {

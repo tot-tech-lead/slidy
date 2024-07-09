@@ -10,9 +10,13 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
+    "@types/bcryptjs": "^2.4.6",
     "@types/react-redux": "^7.1.33",
+    "bcrypt": "^5.1.1",
     "clsx": "^2.1.1",
     "gsap": "^3.12.5",
+    "libphonenumber-js": "^1.11.4",
+    "mongoose": "^8.4.5",
     "next": "^14.2.4",
     "react": "^18",
     "react-dom": "^18",
@@ -21,13 +25,14 @@
     "swiper": "^11.1.4"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/bcrypt": "^5.0.2",
+    "@types/node": "^20.14.9",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
     "mini-css-extract-plugin": "^2.9.0",
     "sass": "^1.77.6",
-    "typescript": "^5"
+    "typescript": "^5.5.3"
   }
 }
