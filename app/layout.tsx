@@ -34,7 +34,7 @@ export default function RootLayout(
 }
 
 export const metadata: Metadata = {
-    metadataBase: new URL('http://localhost:3000'),
+    metadataBase: new URL('https://slidy.space'),
     title: "Slidy",
     description: description,
     openGraph: {
@@ -42,7 +42,8 @@ export const metadata: Metadata = {
         title: "Slidy",
         description: description,
         images: "/opengraph-image.png",
-        locale: "uk_UA"
+        locale: "uk_UA",
+        url: "https://slidy.space"
     },
     twitter: {
         title: "Slidy",
