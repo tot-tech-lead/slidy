@@ -41,7 +41,7 @@ export const metadata: Metadata = {
         type: "website",
         title: "Slidy",
         description: description,
-        images: "/opengraph-image.png",
+        images: "/assets/opengraph-image.png",
         locale: "uk_UA",
         url: "https://slidy.space",
         siteName: "Slidy"
@@ -50,6 +50,6 @@ export const metadata: Metadata = {
         title: "Slidy",
         description: description,
         card: "summary_large_image",
-        images: "/twitter-image.png",
+        images: "/assets/twitter-image.png",
     }
 };
