@@ -44,7 +44,7 @@ export const metadata: Metadata = {
         images: "/opengraph-image.png",
         locale: "uk_UA",
         url: "https://slidy.space",
-        site_name: "Slidy"
+        siteName: "Slidy"
     },
     twitter: {
         title: "Slidy",
