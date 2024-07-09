@@ -15,7 +15,10 @@ import {MotionPathPlugin} from "gsap/MotionPathPlugin";
 import dynamic from "next/dynamic";
 
 const DynamicContent = dynamic(() => import("@/app/ui/home/aboutUs/content"), {
-    loading: () => <div style={{height: "100vh"}}></div>,
+    loading: () =>
+        <div style={{height: "100vh", display: "flex", alignItems: "center", justifyContent: "center"}}>
+            Зачекайте
+        </div>,
 })
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);

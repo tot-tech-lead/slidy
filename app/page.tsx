@@ -4,7 +4,7 @@ import WaitListForm from "@/app/ui/home/waitList/wait-list";
 import dynamic from "next/dynamic";
 
 const DynamicAboutUs = dynamic(() => import("@/app/ui/home/aboutUs/aboutUs"), {
-    loading: () => <div style={{height: "100vh"}}></div>,
+    loading: () => <div style={{height: "100vh", display: "flex", alignItems: "center", justifyContent: "center"}}>Зачекайте</div>,
     ssr: false
 })
 
