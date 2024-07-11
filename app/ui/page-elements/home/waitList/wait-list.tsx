@@ -5,7 +5,7 @@ import prestyle from "@/app/lib/ui-components.module.css"
 import {nunito} from "@/app/ui/fonts";
 
 import steps from "./SVG/steps.svg";
-import plane from "./SVG/plane.svg";
+import plane from "@/app/ui/icons/plane.svg";
 import Image from "next/image";
 
 import {appendUser, State} from "@/app/lib/action/wait-list";

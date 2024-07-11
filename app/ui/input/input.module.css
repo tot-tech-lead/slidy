@@ -1,0 +1,83 @@
+.Input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 10px 0 0 0;
+}
+.Input .limits {
+  bottom: 50%;
+  right: 5px;
+  transform: translateY(50%);
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0.8;
+  color: #171717;
+}
+.Input .limits_red {
+  color: #ce3232;
+}
+.Input:has(.limits) .field {
+  padding: 15px 25px;
+  padding-right: 50px;
+}
+.Input .showPassword {
+  position: absolute;
+  bottom: 11px;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+.Input .showPassword .passwordShowIcon {
+  object-fit: contain;
+  object-position: center center;
+  pointer-events: none;
+}
+.Input .field {
+  padding: 15px 25px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  box-shadow: 0 4px 11px rgba(20, 20, 20, 0.1);
+  color: #171717;
+}
+.Input .field::placeholder {
+  opacity: 0.3;
+  color: #171717;
+}
+.Input .label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+  pointer-events: none;
+  cursor: none;
+  user-select: none;
+  transition: 0.3s;
+  background: #ffffff;
+  border-radius: 5px;
+  display: block;
+  z-index: 2;
+  color: #171717;
+}
+.Input_staticLabel {
+  gap: 15px;
+}
+.Input_staticLabel .label {
+  position: static;
+  transform: initial;
+  cursor: none;
+  user-select: none;
+  transition: none;
+  background: transparent;
+  padding-left: 5px;
+  color: #232141;
+}
+
+/*# sourceMappingURL=input.module.css.map */

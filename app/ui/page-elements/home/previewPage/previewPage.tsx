@@ -1,6 +1,6 @@
 "use client"
 
-import styles from "@/app/ui/home/previewPage/previewPage.module.css"
+import styles from "@/app/ui/page-elements/home/previewPage/previewPage.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
 
 import {nunito} from "@/app/ui/fonts";
@@ -16,7 +16,7 @@ register();
 
 import {SwiperEl, SwiperProgressEvent} from "@/app/lib/types/frontend-config";
 
-import Slides from "@/app/ui/home/previewPage/slides";
+import Slides from "@/app/ui/page-elements/home/previewPage/slides";
 
 
 function PreviewPage() {

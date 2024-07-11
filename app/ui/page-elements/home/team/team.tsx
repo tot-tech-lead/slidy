@@ -2,8 +2,8 @@
 
 import styles from "./team.module.css"
 import stylesDown from "./team-slide.module.css"
-import prestyle from "@/app/lib/ui-components.module.css"
-import {nunito} from "@/app/ui/fonts";
+import prestyle from "../../../../lib/ui-components.module.css"
+import {nunito} from "../../../fonts";
 
 import TeamMateSlide from "./team-slide";
 

@@ -18,7 +18,7 @@ import styles from "./header.module.css"
 
 import clsx from "clsx";
 
-import AuthBlock from "@/app/ui/header/authBlock";
+import AuthBlock from "@/app/ui/page-elements/header/authBlock";
 
 gsap.registerPlugin(ScrollTrigger);
 

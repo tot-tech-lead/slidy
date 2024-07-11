@@ -1,6 +1,6 @@
 "use client"
 
-import HowItWorkOption from "@/app/ui/home/howItWork/howItWorkOption";
+import HowItWorkOption from "@/app/ui/page-elements/home/howItWork/howItWorkOption";
 import {useState} from "react";
 import Switch from "@/app/ui/switch/switch";
 

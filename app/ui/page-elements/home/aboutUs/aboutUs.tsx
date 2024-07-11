@@ -1,11 +1,11 @@
 "use client";
 
-import backgroundPattern from "@/app/ui/home/aboutUs/SVG/backgroundPattern.svg";
+import backgroundPattern from "@/app/ui/page-elements/home/aboutUs/SVG/backgroundPattern.svg";
 import React, {useEffect, useMemo, useState, useCallback} from "react";
 import Image from "next/image";
 
-import styles from "@/app/ui/home/aboutUs/aboutUs.module.css";
-import headerStyles from "@/app/ui/header/header.module.css";
+import styles from "@/app/ui/page-elements/home/aboutUs/aboutUs.module.css";
+import headerStyles from "@/app/ui/page-elements/header/header.module.css";
 import {contentData as content} from "./content";
 
 import {gsap} from "gsap";
@@ -14,7 +14,7 @@ import {MotionPathPlugin} from "gsap/MotionPathPlugin";
 
 import dynamic from "next/dynamic";
 
-const DynamicContent = dynamic(() => import("@/app/ui/home/aboutUs/content"), {
+const DynamicContent = dynamic(() => import("@/app/ui/page-elements/home/aboutUs/content"), {
     loading: () =>
         <div style={{height: "100vh", display: "flex", alignItems: "center", justifyContent: "center"}}>
             Зачекайте
