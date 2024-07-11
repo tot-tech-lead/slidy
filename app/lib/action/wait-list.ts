@@ -57,12 +57,13 @@ export async function appendUser(prevState: State, formData: FormData) {
 
         return {
             status: 200,
+            errors: [],
             message: `Ok`
         }
     } catch (e) {
-        console.log(e)
         return {
             status: 500,
+            errors: [],
             message: `Помилка сервера. ${String(e)}`
         }
     }
