@@ -4,13 +4,16 @@ import styles from "./contact.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
 import {nunito} from "@/app/ui/fonts";
 
-import {useState} from "react";
+import {sendMessageToTelegram, State} from "@/app/lib/action/bot";
+
+import {useState, useActionState, useEffect, useRef} from "react";
 import Image from "next/image";
 
+import clsx from "clsx";
 import plane from '@/app/lib/icons/plane.svg'
 import Input from "@/app/ui/input/input";
 import TextArea from "@/app/ui/textarea/textarea";
-import clsx from "clsx";
+import {appendUser} from "@/app/lib/action/wait-list";
 
 
 export default function ContactFrom() {
@@ -18,67 +21,43 @@ export default function ContactFrom() {
     let [email, setEmail] = useState('');
     let [message, setProblem] = useState('');
 
-    let [pending, setPending] = useState(false);
+    let form = useRef<HTMLFormElement>(null)
 
-    let Submit = (e) => {
-        e.preventDefault()
+    let initialState: State = { message: null, errors: {} };
 
-        if (!name || !email || !message) {
-            alert('Будь ласка, заповніть всі поля форми!');
-        } else {
-            setPending(true)
-            fetch(`/api/feedback/new-message`, {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    name: name,
-                    email: email,
-                    message: message,
-                })
+    let [state, formAction, pending] = useActionState(sendMessageToTelegram, initialState);
 
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
 
-                    if (data.status === 200) {
-                        alert('Повідомлення надіслано успішно!');
-                        setName('');
-                        setEmail('');
-                        setProblem('');
-                    } else {
-                        alert(`Помилка під час надсилання повідомлення: ${data.message}`)
-                    }
-                })
+    useEffect(() => {
+        if (state?.status === 200) {
+            alert("Дякуємо за повідомлення 😊\nПостараємось відповісти якомога швидше ⚡️")
 
-                .catch(e => {
-                    console.log(e)
-                    alert(`Помилка під час надсилання повідомлення: ${e.message}`);
-                })
-                .finally(() => {
-                    setPending(false)
-                })
-
+            if (form.current) {
+                form.current.reset()
+            }
         }
-    }
+    }, [state?.status, form]);
 
     return (
         <div className={`${styles.ContactForm}`}>
             <h2 className={`${styles.h2} ${prestyle.textH2} ${nunito.className}`}>ЗВОРОТНІЙ ЗВ`ЯЗОК</h2>
-
-            <form className={`${styles.form}`} onSubmit={Submit}>
+            <div className={clsx(`${styles.alarm} ${prestyle.textPlain}`, {
+                [styles.alarmGreen]: false
+            })} id="manual-error" aria-live="polite" aria-atomic="true">
+                {(state?.status !== 200 && state?.message && state.errors?.manual) ? state.message : ""}
+            </div>
+            <form ref={form} className={`${styles.form}`} action={formAction}>
                 <div className={styles.inputGroup}>
                     <Input disabled={pending} value={name} setValue={setName} type={"text"} label={"Ваше ім'я"}
                            maxLength={100}
                            attributes={{
+                               name: "name",
                                "aria-describedby": "name-error"
-                           }}                    />
+                           }}/>
                     <div className={clsx(`${styles.alarm} ${prestyle.textPlain}`, {
                         [styles.alarmGreen]: false
                     })} id="name-error" aria-live="polite" aria-atomic="true">
-                        {/*{(state.status !== 200 && state.message) ? state.message : ""}*/}
+                        {(state?.status !== 200 && state?.message && state.errors?.name) ? state.message : ""}
                     </div>
                 </div>
 
@@ -86,26 +65,28 @@ export default function ContactFrom() {
                     <Input disabled={pending} value={email} setValue={setEmail} type={"text"} label={"Ел адреса"}
                            maxLength={150}
                            attributes={{
+                               name: "email",
                                "aria-describedby": "email-error"
                            }}
                     />
                     <div className={clsx(`${styles.alarm} ${prestyle.textPlain}`, {
                         [styles.alarmGreen]: false
                     })} id="email-error" aria-live="polite" aria-atomic="true">
-                        {/*{(state.status !== 200 && state.message) ? state.message : ""}*/}
+                        {(state?.status !== 200 && state?.message && state.errors?.email) ? state.message : ""}
                     </div>
                 </div>
                 <div className={styles.inputGroup}>
-                    <TextArea disabled={pending} value={message} setValue={setProblem} type={"text"}
+                    <TextArea disabled={pending} value={message} setValue={setProblem}
                               label={"Повідомлення"}
                               maxLength={480}
                               attributes={{
+                                  name: "message",
                                   "aria-describedby": "message-error"
-                              }}                    />
+                              }}/>
                     <div className={clsx(`${styles.alarm} ${prestyle.textPlain}`, {
                         [styles.alarmGreen]: false
                     })} id="message-error" aria-live="polite" aria-atomic="true">
-                        {/*{(state.status !== 200 && state.message) ? state.message : ""}*/}
+                        {(state?.status !== 200 && state?.message && state.errors?.message) ? state.message : ""}
                     </div>
                 </div>
 

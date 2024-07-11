@@ -1,8 +1,9 @@
 import styles from "./input.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
+import {nunitoSans} from "@/app/ui/fonts";
 
 import viewIcon from "./SVG/show.svg"
-import {useMemo, useCallback, useState, useEffect} from "react";
+import React, {useMemo, useCallback, useState, useEffect, ChangeEvent} from "react";
 
 import Image from "next/image";
 import clsx from "clsx";
@@ -38,7 +39,7 @@ function Input(
     useEffect(() => {
         if (!staticLabels) {
             if (value && String(value)?.length > 0) {
-                let label = document.querySelector<HTMLElement>(`.Input${id} .${styles.label}`);
+                let label = document.querySelector<HTMLElement>(`#Input${id} .${styles.label}`);
 
                 if (label) {
                     label.style.top = "-3px";
@@ -46,7 +47,7 @@ function Input(
                     label.style.color = "#333333"
                 }
             } else {
-                let el = document.querySelector<HTMLElement>(`.Input${id} .${styles.label}`)
+                let el = document.querySelector<HTMLElement>(`#Input${id} .${styles.label}`)
 
                 if (el) {
                     el.removeAttribute("style")
@@ -56,7 +57,7 @@ function Input(
         // eslint-disable-next-line
     }, [id, value, staticLabels]);
 
-    let onChange = (e) => {
+    let onChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (maxLength) {
             if (e.target.value.length > maxLength) return
         }
@@ -64,8 +65,12 @@ function Input(
         setValue(e.target.value)
     }
 
-    const inputFocusHandler = useCallback((e) => {
-        let label = e.target.parentElement.querySelector<HTMLElement>(`.Input${id} .${styles.label}`);
+    const inputFocusHandler = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
+        let parent: HTMLElement | null = e.target.parentElement;
+
+        if (!parent) return
+
+        let label = parent.querySelector<HTMLElement>(`label.${styles.label}`);
 
         if (label) {
             label.style.top = "-3px";
@@ -75,12 +80,15 @@ function Input(
 
     }, [id])
 
-    const inputBlurHandler = useCallback((e) => {
+    const inputBlurHandler = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
         if (e.target.value === "") {
-            let el = e.target.parentElement.querySelector<HTMLElement>(`.Input${id} .${styles.label}`)
+            let parent = e.target.parentElement;
+            if (!parent) return
 
-            if (el) {
-                el.removeAttribute("style")
+            let label = parent.querySelector<HTMLElement>(`.${styles.label}`);
+
+            if (label) {
+                label.removeAttribute("style")
             }
         }
     }, [id])
@@ -90,11 +98,12 @@ function Input(
     }
 
     return (
-        <div className={
-            clsx(styles.Input, `Input${id}`, {
-                [styles.Input_staticLabel]: staticLabels
-            })
-        }>
+        <div id={`Input${id}`}
+             className={
+                 clsx(styles.Input, `Input${id}`, {
+                     [styles.Input_staticLabel]: staticLabels
+                 })
+             }>
             <label htmlFor={`Input${id}`}
                    className={
                        clsx(styles.label, {
@@ -103,7 +112,7 @@ function Input(
                        })
                    }
             >
-                {label}
+                {String(label)}
             </label>
             <input onChange={!disabled ? onChange : () => false}
                    onFocus={staticLabels ? () => {
@@ -113,7 +122,7 @@ function Input(
                    value={value}
                    type={type === "password" ? show ? "text" : "password" : type}
                    id={`Input${id}`}
-                   className={`${styles.field} ${prestyle.textPlain}`}
+                   className={`${styles.field} ${prestyle.textPlain} ${nunitoSans.className}`}
                    disabled={disabled}
                    key={id}
                    {...{...attributes}}

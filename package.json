@@ -19,6 +19,7 @@
     "libphonenumber-js": "^1.11.4",
     "mongoose": "^8.4.5",
     "next": "15.0.0-canary.59",
+    "node-telegram-bot-api": "^0.66.0",
     "react": "19.0.0-rc.0",
     "react-dom": "19.0.0-rc.0",
     "react-redux": "^9.1.2",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/node": "^20.14.9",
+    "@types/node-telegram-bot-api": "^0.64.7",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",

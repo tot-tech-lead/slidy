@@ -1,8 +1,10 @@
 import styles from "./textarea.module.css"
 import prestyle from "@/app/lib/ui-components.module.css";
+import {nunitoSans} from "@/app/ui/fonts";
 
-import {useMemo, useCallback, useEffect} from "react";
+import React, {useMemo, useCallback, useEffect} from "react";
 import clsx from "clsx";
+import {string} from "zod";
 
 interface Attribute {
     [name: string]: any
@@ -50,7 +52,7 @@ function TextArea(
         // eslint-disable-next-line
     }, [id, value, staticLabels]);
 
-    let onChange = (e) => {
+    let onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         if (maxLength) {
             if (e.target.value.length > maxLength) return
         }
@@ -58,8 +60,8 @@ function TextArea(
         setValue(e.target.value)
     }
 
-    const inputFocusHandler = useCallback((e) => {
-        let label = e.target.parentElement.querySelector<HTMLElement>(`.TextArea${id} .${styles.label}`);
+    const inputFocusHandler = useCallback((e: React.FocusEvent<HTMLTextAreaElement>) => {
+        let label = e.target.parentElement?.querySelector<HTMLElement>(`.${styles.label}`);
 
         if (label) {
             label.style.top = "-3px";
@@ -68,9 +70,9 @@ function TextArea(
         }
     }, [id])
 
-    const inputBlurHandler = useCallback((e) => {
+    const inputBlurHandler = useCallback((e: React.FocusEvent<HTMLTextAreaElement>) => {
         if (e.target.value === "") {
-            let el = e.target.parentElement.querySelector<HTMLElement>(`.TextArea${id} .${styles.label}`);
+            let el = e.target.parentElement?.querySelector<HTMLElement>(`.${styles.label}`);
 
             if (el) {
                 el.removeAttribute("style")
@@ -89,19 +91,18 @@ function TextArea(
                            [prestyle.textBold]: staticLabels,
                            [prestyle.textPlain]: !staticLabels,
                        })
-                   }>{label}</label>
+                   }>{String(label)}</label>
             <textarea onChange={!disabled ? onChange : () => false}
                       onFocus={staticLabels ? () => {
                       } : inputFocusHandler}
                       onBlur={staticLabels ? () => {
                       } : inputBlurHandler}
-                      value={value}
                       id={`TextArea${id}`}
-                      className={`${styles.field} ${prestyle.textPlain}`}
+                      className={`${prestyle.textPlain} ${nunitoSans.className} ${styles.field}`}
                       disabled={disabled}
                       key={id}
                       {...{...attributes}}
-            > </textarea>
+            >{String(value)}</textarea>
             {
                 maxLength ? <>
                     <div
