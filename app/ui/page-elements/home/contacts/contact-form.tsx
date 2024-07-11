@@ -1,17 +1,19 @@
 "use client"
 
 import styles from "./contact.module.css"
+import prestyle from "@/app/lib/ui-components.module.css"
+import {nunito} from "@/app/ui/fonts";
 
 import {useState} from "react";
 import Image from "next/image";
 
-import plane from '@/app/ui/icons/plane.svg'
+import plane from '@/app/lib/icons/plane.svg'
 import Input from "@/app/ui/input/input";
 import TextArea from "@/app/ui/textarea/textarea";
+import clsx from "clsx";
 
 
-
-export default function ContactFrom(){
+export default function ContactFrom() {
     let [name, setName] = useState('');
     let [email, setEmail] = useState('');
     let [message, setProblem] = useState('');
@@ -25,7 +27,7 @@ export default function ContactFrom(){
             alert('Будь ласка, заповніть всі поля форми!');
         } else {
             setPending(true)
-            fetch(`${serverOrigin}/api/feedback/new-message`, {
+            fetch(`/api/feedback/new-message`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -46,8 +48,7 @@ export default function ContactFrom(){
                         setName('');
                         setEmail('');
                         setProblem('');
-                    }
-                    else {
+                    } else {
                         alert(`Помилка під час надсилання повідомлення: ${data.message}`)
                     }
                 })
@@ -56,7 +57,7 @@ export default function ContactFrom(){
                     console.log(e)
                     alert(`Помилка під час надсилання повідомлення: ${e.message}`);
                 })
-                .finally(()=> {
+                .finally(() => {
                     setPending(false)
                 })
 
@@ -64,18 +65,53 @@ export default function ContactFrom(){
     }
 
     return (
-        <div className="ContactForm">
-            <h2 className="ContactForm__h2">ЗВОРОТНІЙ ЗВ`ЯЗОК</h2>
+        <div className={`${styles.ContactForm}`}>
+            <h2 className={`${styles.h2} ${prestyle.textH2} ${nunito.className}`}>ЗВОРОТНІЙ ЗВ`ЯЗОК</h2>
 
-            <form className="ContactForm__form" onSubmit={Submit}>
-                <Input disabled={pending} value={name} setValue={setName} type={"text"} label={"Ваше ім'я"} maxLength={100}/>
-                <Input disabled={pending} value={email} setValue={setEmail} type={"text"} label={"Ел адреса"} maxLength={150}/>
-                <TextArea disabled={pending} value={message} setValue={setProblem} type={"text"} label={"Повідомлення"} maxLength={480}/>
+            <form className={`${styles.form}`} onSubmit={Submit}>
+                <div className={styles.inputGroup}>
+                    <Input disabled={pending} value={name} setValue={setName} type={"text"} label={"Ваше ім'я"}
+                           maxLength={100}
+                           attributes={{
+                               "aria-describedby": "name-error"
+                           }}                    />
+                    <div className={clsx(`${styles.alarm} ${prestyle.textPlain}`, {
+                        [styles.alarmGreen]: false
+                    })} id="name-error" aria-live="polite" aria-atomic="true">
+                        {/*{(state.status !== 200 && state.message) ? state.message : ""}*/}
+                    </div>
+                </div>
 
-                <button disabled={pending} className="ContactForm__btn" type='submit'>
+                <div className={styles.inputGroup}>
+                    <Input disabled={pending} value={email} setValue={setEmail} type={"text"} label={"Ел адреса"}
+                           maxLength={150}
+                           attributes={{
+                               "aria-describedby": "email-error"
+                           }}
+                    />
+                    <div className={clsx(`${styles.alarm} ${prestyle.textPlain}`, {
+                        [styles.alarmGreen]: false
+                    })} id="email-error" aria-live="polite" aria-atomic="true">
+                        {/*{(state.status !== 200 && state.message) ? state.message : ""}*/}
+                    </div>
+                </div>
+                <div className={styles.inputGroup}>
+                    <TextArea disabled={pending} value={message} setValue={setProblem} type={"text"}
+                              label={"Повідомлення"}
+                              maxLength={480}
+                              attributes={{
+                                  "aria-describedby": "message-error"
+                              }}                    />
+                    <div className={clsx(`${styles.alarm} ${prestyle.textPlain}`, {
+                        [styles.alarmGreen]: false
+                    })} id="message-error" aria-live="polite" aria-atomic="true">
+                        {/*{(state.status !== 200 && state.message) ? state.message : ""}*/}
+                    </div>
+                </div>
+
+                <button disabled={pending} className={`${prestyle.buttonFilledWithImg}`} type='submit'>
                     Надіслати
-                    <Image className="ContactForm__btn-img"
-                           src={plane}
+                    <Image src={plane}
                            alt="plane"
                            height="25"
                            width="25"

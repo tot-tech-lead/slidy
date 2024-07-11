@@ -125,7 +125,7 @@
 }
 .WaitListForm .wrapper .alarm {
   min-height: calc((11px + 0.3vw) * 1.2);
-  color: #cb1b1b;
+  color: #ce3232;
 }
 .WaitListForm .wrapper .alarmGreen {
   color: #057e05;

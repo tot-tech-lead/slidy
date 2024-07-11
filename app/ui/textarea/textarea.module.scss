@@ -14,7 +14,6 @@
     position: absolute;
     user-select: none;
     pointer-events: none;
-    //@extend %small-text-semi-visible;
     opacity: 0.8;
     color: $black;
 
@@ -29,7 +28,6 @@
     border: none;
     outline: none;
     box-shadow: 0 4px 11px $shadows-black;
-    //@extend %plain-text;
     color: $black;
     resize: vertical;
     max-height: 40vh;
@@ -39,12 +37,10 @@
     &::placeholder {
       opacity: 0.3;
       color: $black;
-      //@extend %plain-text;
     }
   }
 
   .label {
-    //@extend %plain-text;
     position: absolute;
     top: 10px;
     left: 15px;
@@ -63,7 +59,6 @@
     gap: $gap-between-closely-placed-elements;
 
     label.label {
-      //@extend %plain-bold-text;
       position: static;
       transform: initial;
       cursor: none;
