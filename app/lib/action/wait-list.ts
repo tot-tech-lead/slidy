@@ -44,7 +44,6 @@ export async function appendUser(prevState: State, formData: FormData) {
         if (waitListUserThatExist) {
             return {
                 status: 409,
-                errors: [],
                 message: `Email вже у списку очікування! Незабаром ми звяжемось із вами 🚀`
             }
         }
@@ -57,13 +56,11 @@ export async function appendUser(prevState: State, formData: FormData) {
 
         return {
             status: 200,
-            errors: [],
             message: `Ok`
         }
     } catch (e) {
         return {
             status: 500,
-            errors: [],
             message: `Помилка сервера. ${String(e)}`
         }
     }
