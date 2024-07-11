@@ -1,0 +1,196 @@
+@import "../../../sass-config/variables";
+@import "../../../sass-config/mixins";
+
+
+.MainContactForm {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  padding: $padding-for-page-component;
+  column-gap: $gap-between-connected-elements;
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 90vh;
+  background-color: $accent-color;
+  box-shadow: $shadows-black;
+  margin-top: 75px;
+  position: relative;
+
+  &:before {
+    content: "";
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    top: -49px;
+    left: 0;
+    right: 0;
+    background: $accent-color;
+    clip-path: polygon(0 0, 0 100%, 100% 100%);
+  }
+
+  .ContactInfo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: $manual-padding;
+    gap: $gap-between-connected-elements;
+
+    .infoMail {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      color: $dark;
+      column-gap: $gap-between-connected-elements;
+
+      .imgMail {
+        width: 35px;
+        height: 26px;
+      }
+    }
+
+    .infoPhone {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      color: $dark;
+      column-gap: $gap-between-connected-elements;
+
+
+      .imgPhone {
+        width: 35px;
+        height: 34px;
+      }
+    }
+
+    .infoTag {
+      //@extend %big-plain-text;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      color: $dark;
+      column-gap: $gap-between-connected-elements;
+
+
+      .imgTag {
+        width: 35px;
+        height: 35px;
+
+      }
+    }
+  }
+
+  .ContactForm {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: auto;
+    background: #ffffff;
+    border-radius: 10px;
+    gap: $gap-between-connected-elements;
+    padding: $manual-padding;
+
+
+    .h2 {
+      //@extend %h2;
+      color: $dark;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: $gap-between-closely-placed-elements;
+      width: 100%;
+
+      .inputGroup {
+        width: 100%;
+        @include flex(flex-start, center, column);
+        gap: $small-gap;
+
+        .alarm {
+          color: $alarm-color;
+          min-height: calc((10px + .3vw) * 1.2);
+
+          &Green {
+            color: $accept-color;
+          }
+        }
+
+        .input {
+          //@extend %plain-text;
+          width: 100%;
+          color: $dark;
+          box-shadow: $shadows-black;
+          border-radius: 5px;
+          border: none;
+          padding: $padding-for-inputs;
+          outline: none;
+        }
+
+        .textarea {
+          //@extend %plain-text;
+          color: $dark;
+          box-shadow: $shadows-black;
+          border-radius: 5px;
+          border: none;
+          padding: $padding-for-inputs;
+          outline: none;
+        }
+      }
+
+
+      .btn {
+        //@extend %button-filled-with-img;
+        padding: $padding-for-buttons;
+        gap: $gap-between-closely-placed-elements;
+        transition: transform 0.3s;
+
+        &:disabled {
+          opacity: 0.5;
+          pointer-events: none;
+          cursor: not-allowed;
+
+          &:hover {
+            transform: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 901px) and (max-width: 973px) {
+  .MainContactForm {
+    .ContactForm {
+      gap: $gap-between-connected-elements;
+    }
+  }
+}
+
+
+@media screen  and (max-width: 900px) {
+  .MainContactForm {
+    width: 100%;
+    flex-direction: column;
+    gap: $gap-between-connected-elements;
+    padding:$manual-padding;
+
+    .ContactInfo {
+      width: 100%;
+    }
+
+    .ContactForm {
+      width: 100%;
+      height: 65%;
+    }
+  }
+}
+
+
