@@ -76,7 +76,7 @@ function TeamSlider() {
 
             console.log("ASIGNED")
         }
-    }, [])
+    }, [teamData.length])
 
     return (
         <div className={styles.TeamSlider}>
