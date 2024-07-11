@@ -6,6 +6,7 @@ import Header from "@/app/ui/header/header"
 import Footer from "@/app/ui/footer/footer"
 
 import StoreProvider from "@/app/StoreProvider";
+import {SpeedInsights} from "@vercel/speed-insights/next"
 
 import {connectToMongoDB} from "@/app/lib/mongodb";
 
@@ -26,7 +27,8 @@ export default function RootLayout(
             <body className={nunitoSans.className}>
             <Header/>
             {children}
-            <Footer />
+            <Footer/>
+            <SpeedInsights />
             </body>
             </html>
         </StoreProvider>
