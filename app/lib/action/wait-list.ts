@@ -59,6 +59,7 @@ export async function appendUser(prevState: State, formData: FormData) {
             message: `Ok`
         }
     } catch (e) {
+        console.log(e)
         return {
             status: 500,
             message: `Помилка сервера. ${String(e)}`
