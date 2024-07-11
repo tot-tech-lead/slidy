@@ -1,0 +1,75 @@
+.TeamSlider {
+  max-width: 100vw;
+  width: 100%;
+  gap: 0;
+  position: relative;
+  overflow-y: visible;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.TeamSlider .swiper-slide-active .TeamMateSlide {
+  height: 350px;
+  opacity: 1;
+}
+.TeamSlider .swiper-slide-active .TeamMateSlide .caption {
+  height: 50px;
+}
+.TeamSlider .swiper-slide-active .TeamMateSlide .caption .caption-role {
+  transition: 0.3s 0.5s ease-in;
+  display: flex;
+  opacity: 0.7;
+}
+.TeamSlider swiper-element {
+  overflow: visible;
+}
+.TeamSlider swiper-element .swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden {
+  overflow-y: visible;
+  overflow-x: hidden;
+}
+.TeamSlider .headlineGroup {
+  width: 100%;
+  max-width: calc(100vw - 50px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 0;
+}
+.TeamSlider .headlineGroup .headline {
+  width: 100%;
+  color: #232141;
+  text-align: center;
+}
+.TeamSlider .headlineGroup .subHeadline {
+  width: 100%;
+  max-width: min(850px, 100%);
+  text-align: center;
+  color: #171717;
+  white-space: pre-wrap;
+}
+.TeamSlider .wrapper {
+  margin: 25px;
+  width: 100%;
+  overflow: visible;
+}
+.TeamSlider .wrapper .swiper {
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  max-width: calc(100vw - 50px);
+}
+.TeamSlider .wrapper .swiper swiper-slide {
+  height: 370px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+/*# sourceMappingURL=team.module.css.map */

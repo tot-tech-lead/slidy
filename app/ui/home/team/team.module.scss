@@ -1,0 +1,85 @@
+@import "../../sass-config/mixins";
+@import "../../sass-config/variables";
+
+
+.TeamSlider {
+  max-width: 100vw;
+
+  .swiper-slide-active {
+    .TeamMateSlide {
+      height: 350px;
+      opacity: 1;
+
+      .caption {
+        height: 50px;
+
+        .caption-role {
+          transition: 0.3s 0.5s ease-in;
+          display: flex;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+
+  swiper-element {
+    overflow: visible;
+
+    .swiper.swiper-initialized.swiper-horizontal.swiper-backface-hidden {
+      overflow-y: visible;
+      overflow-x: hidden;
+    }
+  }
+
+  width: 100%;
+  gap: 0;
+  position: relative;
+  overflow-y: visible;
+  overflow-x: hidden;
+
+  @include flex(center, center, column);
+
+  .headlineGroup {
+    width: 100%;
+    max-width: calc(100vw - ($manual-padding * 2));
+    @include flex(center, center, column);
+    gap: 5px;
+    padding: 0;
+
+    .headline {
+      width: 100%;
+      color: $dark;
+      text-align: center;
+    }
+
+    .subHeadline {
+      width: 100%;
+      max-width: min(850px, 100%);
+      text-align: center;
+      color: $black;
+      white-space: pre-wrap;
+    }
+  }
+
+
+  .wrapper {
+    margin: $manual-padding;
+    width: 100%;
+    overflow: visible;
+
+    .swiper {
+      overflow: visible;
+      display: flex;
+      align-items: center;
+      max-width: calc(100vw - $manual-padding * 2);
+
+      swiper-slide {
+        height: 370px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: visible;
+      }
+    }
+  }
+}

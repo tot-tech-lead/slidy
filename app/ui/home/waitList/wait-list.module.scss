@@ -140,6 +140,7 @@
     }
 
     .alarm {
+      min-height: calc((11px + 0.3vw) * 1.2);
       color: #cb1b1b;
 
       &Green {
