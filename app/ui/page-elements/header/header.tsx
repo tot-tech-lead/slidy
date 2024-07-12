@@ -19,6 +19,7 @@ import styles from "./header.module.css"
 import clsx from "clsx";
 
 import AuthBlock from "@/app/ui/page-elements/header/authBlock";
+import {nunitoSans} from "@/app/ui/fonts";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -101,12 +102,12 @@ export default function Header() {
                     {!location.includes("/auth") ? <>
                         <li className={styles.menuItem}>
                             <button onClick={() => router.push("/")}
-                                    className={`${styles.menuItemLink} ${preStyle.textBig}`}>Головна
+                                    className={`${styles.menuItemLink} ${preStyle.textBig} ${nunitoSans.className}`}>Головна
                             </button>
                         </li>
                         <li className={styles.menuItem}>
                             <button onClick={() => router.push("/tours/all/all")}
-                                    className={`${styles.menuItemLink} ${preStyle.textBig}`}>Екскурсії
+                                    className={`${styles.menuItemLink} ${preStyle.textBig} ${nunitoSans.className}`}>Екскурсії
                             </button>
                         </li>
                     </> : ''}
@@ -119,7 +120,7 @@ export default function Header() {
                         <a
                             href={`/authorization/login`}
                             title={"slidy вхід"}
-                            className={`${preStyle.buttonOutlined} ${styles.button}`}
+                            className={`${preStyle.buttonOutlined} ${styles.button} ${nunitoSans.className}`}
                             onClick={(e) => {
                                 e.preventDefault();
                                 router.push("/authorization/login")
@@ -127,7 +128,7 @@ export default function Header() {
                         >
                             Вхід
                         </a>
-                        <a className={`${preStyle.buttonFilled} ${styles.button}`}
+                        <a className={`${preStyle.buttonFilled} ${styles.button} ${nunitoSans.className}`}
                            href={"/authorization/login"}
                            title={"slidy реєстрація"}
                            onClick={(e) => {

@@ -81,7 +81,15 @@
   gap: 25px;
   padding: 25px;
 }
-.MainContactForm .ContactForm .h2 {
+.MainContactForm .ContactForm .headlineGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.MainContactForm .ContactForm .headlineGroup .h2 {
   color: #232141;
 }
 .MainContactForm .ContactForm .form {

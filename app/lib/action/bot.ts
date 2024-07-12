@@ -1,7 +1,7 @@
 "use server"
 
-import TelegramBot, { ChatId } from "node-telegram-bot-api";
-import { z } from "zod";
+import TelegramBot, {ChatId} from "node-telegram-bot-api";
+import {z} from "zod";
 
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -10,16 +10,20 @@ if (!token || !chatId) {
     throw Error("Missed TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID");
 }
 
-const bot = new TelegramBot(token, { polling: true });
+const bot = new TelegramBot(token, {polling: true});
 
 const FormData = z.object({
     email: z.string({
         invalid_type_error: "Додайте email"
     }).email({
         message: "Введіть правильний email"
-    }).max(150, "Введіть ел пошту яка містить менше ніж 150 символів"),
-    name: z.string().max(100, "Ваше ім'я повинно бути коротшим ніж 100 символів"),
-    message: z.string().max(480, "Максимальна довжина вашого повідомлення: 480 символів")
+    }).max(150, "Введіть ел пошту яка містить менше ніж 150 символів").min(1, "Введіть email"),
+    name: z.string({
+        invalid_type_error: "Додайте ім'я"
+    }).max(99, "Ваше ім'я повинно бути коротшим ніж 100 символів").min(1, "Введіть ім'я"),
+    message: z.string({
+        invalid_type_error: "Додайте повідомлення",
+    }).max(480, "Максимальна довжина вашого повідомлення: 480 символів").min(1, "Введіть повідомлення")
 });
 
 export type State = {
@@ -44,11 +48,11 @@ export async function sendMessageToTelegram(state: State | undefined, formData: 
         return {
             status: 400,
             errors: validateInput.error.flatten().fieldErrors,
-            message: 'Не вдалось додати вас у список очікування. ' + validateInput.error?.errors.map(item => item.message).join(". "),
+            message: validateInput.error?.errors.map(item => item.message).join(". "),
         };
     }
 
-    let { name, email, message } = validateInput.data;
+    let {name, email, message} = validateInput.data;
 
     try {
         message = message.split(".").join("\\.")

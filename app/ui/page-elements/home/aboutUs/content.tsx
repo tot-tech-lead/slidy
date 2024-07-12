@@ -1,6 +1,6 @@
 import styles from "@/app/ui/page-elements/home/aboutUs/aboutUs.module.css";
 import prestyle from "@/app/lib/ui-components.module.css";
-import {nunito} from "@/app/ui/fonts";
+import {nunito, nunitoSans} from "@/app/ui/fonts";
 
 export const contentData = [
     {
@@ -40,14 +40,14 @@ export default function AboutUsContent() {
         <div key={`home-content-${idx}`} className={`${styles.container} ${styles.container}${idx + 1}`}>
             <div className={`${styles.anim} ${styles.anim}${idx + 1}`}>
                 <h2 className={`${styles.animHeadline} ${prestyle.textH2} ${nunito.className}`}>{data.headline}</h2>
-                <div className={`${styles.animParagraph} ${prestyle.textBig}`}>
+                <div className={`${styles.animParagraph} ${prestyle.textBig} ${nunitoSans.className}`}>
                     {data.text}
                 </div>
                 <div className={styles.animScrollHint}>
                     <div className={styles.animScrollHintBody}>
                         <div className={styles.animScrollHintInner}></div>
                     </div>
-                    <div className={`${styles.animScrollHintText} ${prestyle.textPlain}`}>Гортай!</div>
+                    <div className={`${styles.animScrollHintText} ${prestyle.textPlain} ${nunitoSans.className}`}>Гортай!</div>
                 </div>
             </div>
         </div>
