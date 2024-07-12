@@ -91,28 +91,6 @@
     padding: 25px;
     overflow-x: auto;
 
-
-    /* width */
-    &::-webkit-scrollbar {
-      height: 10px;
-    }
-
-    /* Track */
-    &::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-      background: $accent-color;
-      border-radius: 5px;
-    }
-
-    /* Handle on hover */
-    &::-webkit-scrollbar-thumb:hover {
-      background: $accent-color;
-    }
-
     .iconsContainer {
       @include flex(flex-start, flex-start, column);
       gap: 5px;
@@ -124,32 +102,6 @@
         padding: 3px;
         border-radius: 5px;
         @include flex(center, center, row);
-        transition: background-position 0.3s ease-out;
-        background-image: linear-gradient(317.08deg, #D9D9D9 0%, #D9D9D9 50%, #FFA439 50%, #FF7814 100%);
-        background-size: 260%;
-        background-position: 100% 100%;
-      }
-
-      &:hover {
-        opacity: 1;
-        transition-delay: 0.08s;
-      }
-
-      &_active {
-        opacity: 1;
-
-        .btnContainer {
-          background-position: 0, 0;
-
-          .iconsContainerIcon {
-
-            .iconsContainerIconPhoto {
-              opacity: 1;
-              filter: none;
-              display: block;
-            }
-          }
-        }
       }
 
       .iconsContainerIcon {
