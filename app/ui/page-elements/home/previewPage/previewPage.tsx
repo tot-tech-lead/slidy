@@ -3,7 +3,7 @@
 import styles from "@/app/ui/page-elements/home/previewPage/previewPage.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
 
-import {nunito} from "@/app/ui/fonts";
+import {nunito, nunitoSans} from "@/app/ui/fonts";
 
 import React, {useEffect, useMemo, useState} from "react"
 import clsx from "clsx";
@@ -96,14 +96,14 @@ function PreviewPage() {
             <div className={styles.section}>
                 <div className={styles.welcomeText}>
                     <div className={styles.headlineContainer}>
-                        <div className={`${styles.headline} ${prestyle.textH1} ${nunito.className}`}><h1>Slidy</h1>
+                        <div className={`${styles.headline} ${prestyle.textH1}`}><h1 className={nunito.className}>Slidy</h1>
                         </div>
-                        <div className={`${prestyle.textSubheadline} ${styles.subheadline}`}>Подорожуй улюбленим містом
+                        <div className={`${prestyle.textSubheadline} ${styles.subheadline} ${nunitoSans.className}`}>Подорожуй улюбленим містом
                             без обмежень!
                         </div>
                     </div>
                     <div className={styles.buttonContainer}>
-                        <button className={`${prestyle.buttonFilled}`}
+                        <button className={`${prestyle.buttonFilled} ${nunitoSans.className}`}
                                 onClick={() => router.push("/tours/all/all")}
                         >Шукати екскурсію
                         </button>
@@ -132,7 +132,7 @@ function PreviewPage() {
                                 </button>
                             </div>
 
-                            <p className={`${styles.iconsContainerIconPhotoName} ${prestyle.textSmallSemiVisible}`}>{item}</p>
+                            <p className={`${styles.iconsContainerIconPhotoName} ${prestyle.textSmallSemiVisible} ${nunitoSans.className}`}>{item}</p>
                         </div>
                     )
                 }
