@@ -12,19 +12,19 @@ const DynamicAboutUs = dynamic(() => import("@/app/ui/page-elements/home/aboutUs
 
 const DynamicPreviewPage = dynamic(() => import("@/app/ui/page-elements/home/previewPage/previewPage"), {
     loading: () => <PreviewPageSkeleton />,
-    ssr: false
+    ssr: true
 })
 
 const DynamicContacts = dynamic(() => import("@/app/ui/page-elements/home/contacts/contacts"), {
     loading: () => <div
         style={{height: "100vh", display: "flex", alignItems: "center", justifyContent: "center"}}>Зачекайте</div>,
-    ssr: false
+    ssr: true
 })
 
 const DynamicHowItWork = dynamic(() => import("@/app/ui/page-elements/home/howItWork/howItWork"), {
     loading: () => <div
         style={{height: "100vh", display: "flex", alignItems: "center", justifyContent: "center"}}>Зачекайте</div>,
-    ssr: false
+    ssr: true
 })
 
 
