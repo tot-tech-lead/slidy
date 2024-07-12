@@ -17,12 +17,14 @@ register();
 import {SwiperEl, SwiperProgressEvent} from "@/app/lib/types/frontend-config";
 
 import Slides from "@/app/ui/page-elements/home/previewPage/slides";
+import ImageSkeleton from "@/app/ui/skeleton/image-skeleton";
 
 
 function PreviewPage() {
     let router = useRouter();
 
     let [currentPage, setCurrentPage] = useState("Львів");
+    let [swiperPending, setSwiperPending] = useState(true)
 
     let cities = useMemo(() => Object.keys(images), []);
 
@@ -76,6 +78,13 @@ function PreviewPage() {
         }
     }, [currentPage, cities])
 
+    let handleControlClick = (item: string) =>{
+        return () => {
+            setCurrentPage(item)
+            setSwiperPending(true)
+        }
+    }
+
 
     return (
         <section className={styles.PreviewPage} id="Home-preview-page">
@@ -89,7 +98,8 @@ function PreviewPage() {
                     pagination="true"
                     style={{width: "auto", height: "auto"}}
                 >
-                    <Slides currentPage={currentPage} />
+                    {swiperPending && <ImageSkeleton />}
+                    <Slides setSwiperPending={setSwiperPending} currentPage={currentPage} />
                 </swiper-container>
             </div>
 
@@ -120,7 +130,7 @@ function PreviewPage() {
                              })}
                         >
                             <div className={styles.btnContainer}>
-                                <button onClick={() => setCurrentPage(item)}
+                                <button onClick={handleControlClick(item)}
                                         aria-label={`Перегляд фото міста ${item}`}
                                         className={styles.iconsContainerIcon}>
                                     <Image className={styles.iconsContainerIconPhoto}

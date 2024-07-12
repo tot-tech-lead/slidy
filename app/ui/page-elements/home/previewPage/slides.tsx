@@ -3,7 +3,7 @@ import styles from "@/app/ui/page-elements/home/previewPage/previewPage.module.c
 import Image from "next/image";
 import React from "react";
 
-export default function Slides({currentPage}: { currentPage: string }) {
+export default function Slides({currentPage, setSwiperPending}: { currentPage: string, setSwiperPending: Function }) {
     return (
         images[currentPage].map((slide, idx) =>
             <swiper-slide
@@ -19,6 +19,11 @@ export default function Slides({currentPage}: { currentPage: string }) {
                     sizes="100vw"
                     priority={idx === 0}
                     loading={idx !== 0 ? "lazy" : "eager"}
+                    onLoad={() => {
+                        if (idx === 0) {
+                            setSwiperPending(false)
+                        }
+                    }}
                 />
             </swiper-slide>
         )

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import styles from "./contact.module.css"
+import styles from "./contact-info.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
 
 import mail from "./SVG/mail.svg"

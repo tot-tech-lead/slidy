@@ -1,0 +1,87 @@
+.ContactForm {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: auto;
+  background: #ffffff;
+  border-radius: 10px;
+  gap: 25px;
+  padding: 25px;
+}
+.ContactForm .headlineGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.ContactForm .headlineGroup .h2 {
+  color: #232141;
+}
+.ContactForm .form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+.ContactForm .form .inputGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.ContactForm .form .inputGroup .alarm {
+  color: #ce3232;
+  min-height: calc((10px + 0.3vw) * 1.2);
+}
+.ContactForm .form .inputGroup .alarmGreen {
+  color: #057e05;
+}
+.ContactForm .form .inputGroup .input {
+  width: 100%;
+  color: #232141;
+  box-shadow: rgba(20, 20, 20, 0.1);
+  border-radius: 5px;
+  border: none;
+  padding: 15px 25px;
+  outline: none;
+}
+.ContactForm .form .inputGroup .textarea {
+  color: #232141;
+  box-shadow: rgba(20, 20, 20, 0.1);
+  border-radius: 5px;
+  border: none;
+  padding: 15px 25px;
+  outline: none;
+}
+.ContactForm .form .btn {
+  padding: 10px 25px;
+  gap: 15px;
+  transition: transform 0.3s;
+}
+.ContactForm .form .btn:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.ContactForm .form .btn:disabled:hover {
+  transform: none;
+}
+
+@media screen and (min-width: 901px) and (max-width: 973px) {
+  .ContactForm {
+    gap: 25px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .ContactForm {
+    width: 100%;
+    height: 65%;
+  }
+}
+
+/*# sourceMappingURL=contact-form.module.css.map */

@@ -4,6 +4,9 @@ export interface Swiper {
         start: Function,
         timeLeft: number
     },
+    disable: Function,
+    update: Function,
+    updateSlides: Function,
     initialized: boolean,
     onLoad: Function
 }

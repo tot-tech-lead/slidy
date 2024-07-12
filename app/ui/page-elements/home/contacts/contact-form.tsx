@@ -1,19 +1,18 @@
 "use client"
 
-import styles from "./contact.module.css"
+import styles from "./contact-form.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
 import {nunito, nunitoSans} from "@/app/ui/fonts";
 
 import {sendMessageToTelegram, State} from "@/app/lib/action/bot";
 
-import {useState, useActionState, useEffect, useRef} from "react";
+import {useState, useActionState, useEffect} from "react";
 import Image from "next/image";
 
 import clsx from "clsx";
 import plane from '@/app/lib/icons/plane.svg'
 import Input from "@/app/ui/input/input";
 import TextArea from "@/app/ui/textarea/textarea";
-import {appendUser} from "@/app/lib/action/wait-list";
 
 
 export default function ContactFrom() {
