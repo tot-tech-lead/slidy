@@ -2,7 +2,7 @@
 
 import styles from "./contact.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
-import {nunito} from "@/app/ui/fonts";
+import {nunito, nunitoSans} from "@/app/ui/fonts";
 
 import {sendMessageToTelegram, State} from "@/app/lib/action/bot";
 
@@ -21,8 +21,6 @@ export default function ContactFrom() {
     let [email, setEmail] = useState('');
     let [message, setProblem] = useState('');
 
-    let form = useRef<HTMLFormElement>(null)
-
     let initialState: State = { message: null, errors: {} };
 
     let [state, formAction, pending] = useActionState(sendMessageToTelegram, initialState);
@@ -31,22 +29,27 @@ export default function ContactFrom() {
     useEffect(() => {
         if (state?.status === 200) {
             alert("Дякуємо за повідомлення 😊\nПостараємось відповісти якомога швидше ⚡️")
-
-            if (form.current) {
-                form.current.reset()
-            }
+            setName("")
+            setEmail("")
+            setProblem("")
         }
-    }, [state?.status, form]);
+    }, [state?.status]);
 
     return (
         <div className={`${styles.ContactForm}`}>
-            <h2 className={`${styles.h2} ${prestyle.textH2} ${nunito.className}`}>ЗВОРОТНІЙ ЗВ`ЯЗОК</h2>
-            <div className={clsx(`${styles.alarm} ${prestyle.textPlain}`, {
-                [styles.alarmGreen]: false
-            })} id="manual-error" aria-live="polite" aria-atomic="true">
-                {(state?.status !== 200 && state?.message && state.errors?.manual) ? state.message : ""}
+
+            <div className={styles.headlineGroup}>
+                <h2 className={`${styles.h2} ${prestyle.textH2} ${nunito.className}`}>ЗВОРОТНІЙ ЗВ`ЯЗОК</h2>
+                <div className={clsx(`${styles.alarm} ${prestyle.textPlain} ${nunitoSans.className}`, {
+                    [styles.alarmGreen]: false
+                })} id="manual-error" aria-live="polite" aria-atomic="true">
+                    {(state?.status !== 200 && state?.message && state.errors?.manual) ? String(state.errors.manual) : ""}
+                </div>
             </div>
-            <form ref={form} className={`${styles.form}`} action={formAction}>
+
+
+
+            <form className={`${styles.form}`} action={formAction}>
                 <div className={styles.inputGroup}>
                     <Input disabled={pending} value={name} setValue={setName} type={"text"} label={"Ваше ім'я"}
                            maxLength={100}
@@ -54,10 +57,10 @@ export default function ContactFrom() {
                                name: "name",
                                "aria-describedby": "name-error"
                            }}/>
-                    <div className={clsx(`${styles.alarm} ${prestyle.textPlain}`, {
+                    <div className={clsx(`${styles.alarm} ${prestyle.textPlain} ${nunitoSans.className}`, {
                         [styles.alarmGreen]: false
                     })} id="name-error" aria-live="polite" aria-atomic="true">
-                        {(state?.status !== 200 && state?.message && state.errors?.name) ? state.message : ""}
+                        {(state?.status !== 200 && state?.message && state.errors?.name) ? String(state.errors.name) : ""}
                     </div>
                 </div>
 
@@ -69,10 +72,10 @@ export default function ContactFrom() {
                                "aria-describedby": "email-error"
                            }}
                     />
-                    <div className={clsx(`${styles.alarm} ${prestyle.textPlain}`, {
+                    <div className={clsx(`${styles.alarm} ${prestyle.textPlain} ${nunitoSans.className}`, {
                         [styles.alarmGreen]: false
                     })} id="email-error" aria-live="polite" aria-atomic="true">
-                        {(state?.status !== 200 && state?.message && state.errors?.email) ? state.message : ""}
+                        {(state?.status !== 200 && state?.message && state.errors?.email) ? String(state.errors.email) : ""}
                     </div>
                 </div>
                 <div className={styles.inputGroup}>
@@ -83,14 +86,14 @@ export default function ContactFrom() {
                                   name: "message",
                                   "aria-describedby": "message-error"
                               }}/>
-                    <div className={clsx(`${styles.alarm} ${prestyle.textPlain}`, {
+                    <div className={clsx(`${styles.alarm} ${prestyle.textPlain}`, nunitoSans.className, {
                         [styles.alarmGreen]: false
                     })} id="message-error" aria-live="polite" aria-atomic="true">
-                        {(state?.status !== 200 && state?.message && state.errors?.message) ? state.message : ""}
+                        {(state?.status !== 200 && state?.message && state.errors?.message) ? String(state.errors.message) : ""}
                     </div>
                 </div>
 
-                <button disabled={pending} className={`${prestyle.buttonFilledWithImg}`} type='submit'>
+                <button disabled={pending} className={`${prestyle.buttonFilledWithImg} ${nunitoSans.className}`} type='submit'>
                     Надіслати
                     <Image src={plane}
                            alt="plane"

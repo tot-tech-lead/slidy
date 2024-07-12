@@ -97,11 +97,17 @@
     gap: $gap-between-connected-elements;
     padding: $manual-padding;
 
+    .headlineGroup {
+      width: 100%;
+      @include flex(flex-start, center, column);
 
-    .h2 {
-      //@extend %h2;
-      color: $dark;
+      .h2 {
+        //@extend %h2;
+        color: $dark;
+      }
     }
+
+
 
     .form {
       display: flex;

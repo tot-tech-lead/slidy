@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './howItWorkOption.module.css';
 import prestyle from "@/app/lib/ui-components.module.css"
-import {nunito} from "@/app/ui/fonts";
+import {nunito, nunitoSans} from "@/app/ui/fonts";
 
 import arrow from "@/public/assets/SVG/arrow.svg"
 
@@ -74,7 +74,7 @@ export default function HowItWorkOption({state}: {state: string}) {
 
                     <div className={styles.text}>
                         <h3 className={`${prestyle.textH3} ${styles.h3} ${nunito.className}`}>{item.title}</h3>
-                        <p className={`${prestyle.textBig} ${styles.para}`}>{item.text}</p>
+                        <p className={`${prestyle.textBig} ${styles.para} ${nunitoSans.className}`}>{item.text}</p>
                     </div>
                 </div>
             </div>

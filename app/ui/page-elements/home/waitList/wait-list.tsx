@@ -2,7 +2,7 @@
 
 import styles from "./wait-list.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
-import {nunito} from "@/app/ui/fonts";
+import {nunito, nunitoSans} from "@/app/ui/fonts";
 
 import steps from "./SVG/steps.svg";
 import plane from "@/app/lib/icons/plane.svg";
@@ -34,7 +34,7 @@ export default function WaitListForm() {
                     ⚡️ Вже кортить все спробувати?
                 </h2>
 
-                <p className={`${styles.paragraph} ${prestyle.textBig}`}>
+                <p className={`${styles.paragraph} ${prestyle.textBig} ${nunitoSans.className}`}>
                     Поки що, наш сайт перебуває на стадії розробки. Ми активно працюємо заради того, щоб ви могли
                     покращити свої подорожі якомога швидше. Якщо ви хочете дізнатись про завершення робіт першими,
                     зашилште свою електронну адресу у полі нижче.
@@ -48,12 +48,12 @@ export default function WaitListForm() {
                     <input
                         className={`${styles.input} ${prestyle.textPlain}`} type="email" placeholder="Ваша електронна адреса" name="email" required={true}
                     />
-                    <button aria-disabled={pending} disabled={pending} className={`${styles.button} ${prestyle.buttonFilled}`} type="submit">
+                    <button aria-disabled={pending} disabled={pending} className={`${styles.button} ${prestyle.buttonFilled} ${nunitoSans.className}`} type="submit">
                         <span className={styles.buttonText}>Сповістіть мене!</span>
                         <Image className={styles.btnImg} src={plane} alt="plane" height="25" width="25"/>
                     </button>
                 </form>
-                <div className={clsx(`${styles.alarm} ${prestyle.textPlain}`, {
+                <div className={clsx(`${styles.alarm} ${prestyle.textPlain} ${nunitoSans.className}`, {
                     [styles.alarmGreen] : state.status === 409
                 })} id="email-error" aria-live="polite" aria-atomic="true">
                     {(state.status !== 200 && state.message) ? state.message : ""}
