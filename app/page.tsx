@@ -8,10 +8,16 @@ const DynamicAboutUs = dynamic(() => import("@/app/ui/page-elements/home/aboutUs
     ssr: false
 })
 
+const DynamicContacts = dynamic(() => import("@/app/ui/page-elements/home/contacts/contacts"), {
+    loading: () => <div style={{height: "100vh", display: "flex", alignItems: "center", justifyContent: "center"}}>Зачекайте</div>,
+    ssr: false
+})
+
 const DynamicHowItWork = dynamic(() => import("@/app/ui/page-elements/home/howItWork/howItWork"), {
     loading: () => <div style={{height: "100vh", display: "flex", alignItems: "center", justifyContent: "center"}}>Зачекайте</div>,
     ssr: false
 })
+
 
 export default function Home() {
     return (
