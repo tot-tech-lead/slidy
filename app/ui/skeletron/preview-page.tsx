@@ -1,6 +1,5 @@
 import styles from "./preview-page.module.css"
 import prestyle from "@/app/lib/ui-components.module.css";
-import {nunito, nunitoSans} from "@/app/ui/fonts";
 import React from "react";
 
 
@@ -11,17 +10,16 @@ export default function PreviewPageSkeleton() {
             <div className={styles.slider}>
                 <div className={styles.text}>
                     <div className={styles.headlineContainer}>
-                        <div className={`${styles.headline} ${prestyle.textH1}`}><h1
-                            className={nunito.className}>Slidy</h1>
+                        <div className={`${styles.headline} ${prestyle.textH1}`}><h1>Slidy</h1>
                         </div>
                         <div
-                            className={`${prestyle.textSubheadline} ${styles.subheadline} ${nunitoSans.className}`}>Подорожуй
+                            className={`${prestyle.textSubheadline} ${styles.subheadline}`}>Подорожуй
                             улюбленим містом
                             без обмежень!
                         </div>
                     </div>
                     <div className={styles.buttonContainer}>
-                        <button className={`${styles.btn} ${nunitoSans.className}`}>
+                        <button className={`${styles.btn}`}>
                             Шукати екскурсію
                         </button>
                     </div>
@@ -39,7 +37,7 @@ export default function PreviewPageSkeleton() {
                                 </button>
                             </div>
 
-                            <p className={`${styles.iconsContainerIconPhotoName} ${prestyle.textSmallSemiVisible} ${nunitoSans.className}`}>{item}</p>
+                            <p className={`${styles.iconsContainerIconPhotoName} ${prestyle.textSmallSemiVisible}`}>{item}</p>
                         </div>
                     </>)
                 }
