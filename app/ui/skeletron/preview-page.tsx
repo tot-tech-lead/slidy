@@ -1,7 +1,5 @@
 import styles from "./preview-page.module.css"
 import prestyle from "@/app/lib/ui-components.module.css";
-import React from "react";
-
 
 export default function PreviewPageSkeleton() {
     let pages = [1, 2, 3, 4, 5]
