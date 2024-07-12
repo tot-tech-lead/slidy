@@ -55,6 +55,7 @@ export interface Location {
 }
 
 export interface Tour {
+    _id: Types.ObjectId
     createdAt: Date,
     name: string,
     category: (typeof tourCategories)[number],
