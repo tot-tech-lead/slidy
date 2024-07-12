@@ -110,7 +110,7 @@
   flex-wrap: wrap;
   gap: 25px;
 }
-.PreviewPage .section .welcomeText .headline-container {
+.PreviewPage .section .welcomeText .headlineContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -118,11 +118,11 @@
   flex-wrap: wrap;
   gap: 15px;
 }
-.PreviewPage .section .welcomeText .headline-container .headline {
+.PreviewPage .section .welcomeText .headlineContainer .headline {
   line-height: 120%;
   color: #232141;
 }
-.PreviewPage .section .welcomeText .headline-container .subheadline {
+.PreviewPage .section .welcomeText .headlineContainer .subheadline {
   line-height: 120%;
   color: #171717;
 }
