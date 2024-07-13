@@ -38,8 +38,8 @@ export default function Layout({children}: {
                         ]}
                     />
                     <h2 className={clsx(styles.headline, prestyle.textH2, nunito.className)}>Результати пошуку</h2>
-                    {children}
                 </div>
+                {children}
             </div>
         </>
     )

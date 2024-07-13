@@ -59,7 +59,10 @@ function Filter(
         for (let key in defaultState) {
             params.set(key, String(defaultState[key]))
         }
-        replace(`${pathname}?${params.toString()}`);
+
+        if (typeof window !== 'undefined') {
+            replace(`${pathname}?${params.toString()}`);
+        }
 
         return defaultState
     });
