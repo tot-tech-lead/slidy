@@ -7,8 +7,27 @@ import Filter from "@/app/ui/filter/filter"
 import clsx from "clsx";
 import {nunito} from "@/app/ui/fonts";
 
-export default function Page({params}: {params: {country: string, city: string}}) {
-    let {country, city} = params
+export default function Page(
+    {params, searchParams}:
+        {
+            params: { country: string, city: string },
+            searchParams?: {
+                category?: string;
+                duration?: string;
+                countOfPeople?: string;
+                price?: string;
+                page?: string;
+            };
+        }
+) {
+    let {country, city} = params;
+    let {
+        category,
+        duration,
+        countOfPeople,
+        price,
+        page,
+    } = searchParams
 
     return (
         <>
