@@ -87,4 +87,5 @@ export default function Page({params}: {params: {country: string, city: string}}
 
 export const metadata: Metadata = {
     title: "Slidy - доступні екскурсії",
+    robots: "all"
 };
