@@ -8,6 +8,7 @@ import Footer from "@/app/ui/page-elements/footer/footer"
 import StoreProvider from "@/app/StoreProvider";
 import {SpeedInsights} from "@vercel/speed-insights/next"
 import {Analytics} from "@vercel/analytics/react"
+import Head from "next/head";
 
 const description = "Ти новенький у місті і не знаєш чим  зайнятись? Вебсайт Сліди стане твоїм помічником при виборі екскурсовода або місцевого який допоможе тобі розвіятись. Окрім цього це можливість заробітку на знанні місцевості, адже платформа дозволяє будь-кому стати екскурсоводом. Гіди доступні у таких містах: Львів. Зараз записи на екскурсії проводяться у мобільному режимі. Сліди - найкарща платформа для пошуку екскурсоводів";
 
@@ -21,6 +22,9 @@ export default function RootLayout(
     return (
         <StoreProvider>
             <html lang="en">
+            <Head>
+                <meta name="robots" content="all"/>
+            </Head>
             <body className={nunitoSans.className}>
             <Header/>
             {children}
