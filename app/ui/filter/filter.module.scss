@@ -1,0 +1,68 @@
+@import "../sass-config/variables";
+@import "../sass-config/mixins";
+
+.Filter {
+  width: 100%;
+  display: flex;
+  gap: $gap-between-connected-elements;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+
+  .inputContainer {
+    width: calc(100% + 10px);
+    @include flex(flex-start, flex-start, row, no-wrap);
+    gap: $gap-between-connected-elements;
+    transform: translateY(-10px);
+    margin-bottom: -10px;
+
+    & > div {
+      opacity: 0;
+      display: none;
+    }
+  }
+
+  .applyBtn {
+    padding: 10px;
+
+    .applyBtnText {
+      display: none;
+    }
+  }
+
+
+  .btn {
+    padding: 10px;
+    height: 100%;
+    aspect-ratio: 1/1;
+
+    .btnIcon {
+      height: 20px;
+    }
+  }
+
+  .headline {
+    color: $dark;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    transform: translateY(calc(-100% - 10px));
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .Filter {
+    flex-wrap: wrap;
+
+    .inputContainer {
+      flex-wrap: wrap;
+    }
+
+    .applyBtn {
+      .applyBtnText {
+        display: block;
+      }
+    }
+  }
+}

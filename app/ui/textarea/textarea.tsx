@@ -68,7 +68,7 @@ function TextArea(
             label.style.fontSize = "10px";
             label.style.color = "#333333"
         }
-    }, [id])
+    }, [])
 
     const inputBlurHandler = useCallback((e: React.FocusEvent<HTMLTextAreaElement>) => {
         if (e.target.value === "") {
@@ -78,7 +78,7 @@ function TextArea(
                 el.removeAttribute("style")
             }
         }
-    }, [id])
+    }, [])
 
     return (
         // <div className={`TextArea TextArea${id} ${staticLabels && "TextArea_static-label"}`}>

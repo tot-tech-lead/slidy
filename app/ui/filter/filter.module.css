@@ -1,0 +1,59 @@
+.Filter {
+  width: 100%;
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  position: relative;
+}
+.Filter .inputContainer {
+  width: calc(100% + 10px);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: no-wrap;
+  gap: 25px;
+  transform: translateY(-10px);
+  margin-bottom: -10px;
+}
+.Filter .inputContainer > div {
+  opacity: 0;
+  display: none;
+}
+.Filter .applyBtn {
+  padding: 10px;
+}
+.Filter .applyBtn .applyBtnText {
+  display: none;
+}
+.Filter .btn {
+  padding: 10px;
+  height: 100%;
+  aspect-ratio: 1/1;
+}
+.Filter .btn .btnIcon {
+  height: 20px;
+}
+.Filter .headline {
+  color: #232141;
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  transform: translateY(calc(-100% - 10px));
+}
+
+@media screen and (max-width: 1200px) {
+  .Filter {
+    flex-wrap: wrap;
+  }
+  .Filter .inputContainer {
+    flex-wrap: wrap;
+  }
+  .Filter .applyBtn .applyBtnText {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=filter.module.css.map */

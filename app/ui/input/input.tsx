@@ -25,9 +25,9 @@ function Input(
     }: {
         label: string | JSX.Element | object,
         value: string | number,
-        setValue: Function,
+        setValue: (value: string) => void,
         type: string,
-        maxLength: number | undefined | null,
+        maxLength?: number | undefined | null,
         disabled?: boolean,
         staticLabels?: boolean,
         attributes?: Attribute
@@ -78,7 +78,7 @@ function Input(
             label.style.color = "#333333"
         }
 
-    }, [id])
+    }, [])
 
     const inputBlurHandler = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
         if (e.target.value === "") {
@@ -91,7 +91,7 @@ function Input(
                 label.removeAttribute("style")
             }
         }
-    }, [id])
+    }, [])
 
     const handlePasswordShow = () => {
         setShow(!show)

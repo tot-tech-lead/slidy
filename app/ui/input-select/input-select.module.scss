@@ -1,0 +1,112 @@
+.InputSelect {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .showPassword {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+
+    .passwordShowIcon {
+      object-fit: contain;
+      object-position: center center;
+      pointer-events: none;
+    }
+  }
+
+  .group {
+    width: 100%;
+    position: relative;
+
+    .input {
+      width: 100%;
+      min-width: 150px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      box-shadow: 0 0 5px #14141420;
+      font-size: calc(10px + .3vw);
+    }
+
+    .btn {
+      height: 100%;
+      aspect-ratio: 1/1;
+      position: absolute;
+      top: 0;
+      right: 5px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      background: transparent;
+
+      .btnIcon {
+        height: 20px;
+        width: 20px;
+        aspect-ratio: 1/1;
+        pointer-events: none;
+        user-select: none;
+      }
+    }
+  }
+
+
+  .label {
+    font-size: calc(6px + .5vw);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 10px;
+    pointer-events: none;
+    cursor: none;
+    user-select: none;
+    font-weight: 400;
+    transition: 0.3s;
+    background: #ffffff;
+    border-radius: 5px;
+    display: block;
+    padding: 2px;
+    z-index: 28;
+  }
+
+  .options {
+    width: 100%;
+    max-height: 350px;
+    background: #ffffff;
+    overflow-y: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(calc(100% - 3px));
+    z-index: 35;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    box-shadow: 0 5px 5px #14141425;
+    border-radius: 3px;
+
+    .option {
+      width: 100%;
+      padding: 10px;
+      font-size: calc(10px + .3vw);
+      font-weight: 400;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background: #f1f1f1;
+      }
+    }
+  }
+}

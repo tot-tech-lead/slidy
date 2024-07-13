@@ -51,7 +51,8 @@ export interface Location {
     type: string,
     name: string,
     description: string,
-    coordinates: [number, number]
+    coordinates: [number, number],
+    image: Types.ObjectId,
 }
 
 export interface Tour {

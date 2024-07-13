@@ -27,7 +27,8 @@ let tourSchema = new Schema<Tour>({
                     }, message: `Your description to location has more than 69 symbols!`
                 }
             },
-            coordinates: {type: [Number], required: [true, "Coordinates are required"]}
+            coordinates: {type: [Number], required: [true, "Coordinates are required"]},
+            image: {type: Schema.Types.ObjectId, required: [true, "Coordinates are required"], ref: "image"}
         }], default: []
     },
     description: {

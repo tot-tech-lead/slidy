@@ -1,0 +1,65 @@
+@import "../../../ui/sass-config/variables";
+@import "../../../ui/sass-config/mixins";
+
+
+.Tours {
+  width: 100%;
+  padding: $padding-for-page-component;
+  @include flex(center, flex-start, column);
+  gap: $gap-between-connected-elements;
+  min-height: 100vh;
+  margin-top: calc($gap-between-not-connected-elements * 2);
+
+  .headlineGroup {
+    width: 100%;
+    @include flex(center, center, column);
+    gap: $gap-between-not-connected-elements;
+
+    .headline {
+      //@extend %h2;
+      color: $black;
+    }
+
+    .cardsGroup {
+      display: flex;
+      flex-direction: column;
+      gap: $gap-between-connected-elements;
+      width: 100%;
+    }
+  }
+
+  .pagination {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $gap-between-closely-placed-elements;
+
+    .paginationItem {
+      padding: 10px;
+      @include flex(center, center, row);
+      background: #EAEAEA;
+      border-radius: 5px;
+      cursor: pointer;
+      color: $black;
+
+      .paginationIcon {
+        height: 15px;
+        width: 15px;
+        object-fit: contain;
+        object-position: center center;
+      }
+
+      &_active {
+        background: $accent-color;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 950px) {
+  .Tours {
+    padding: $manual-padding;
+  }
+}
