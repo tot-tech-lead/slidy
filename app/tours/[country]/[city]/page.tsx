@@ -11,7 +11,7 @@ export default function Page(
     {params, searchParams}:
         {
             params: { country: string, city: string },
-            searchParams?: {
+            searchParams: {
                 category: string;
                 duration: string;
                 countOfPeople: string;
