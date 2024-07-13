@@ -12,11 +12,11 @@ export default function Page(
         {
             params: { country: string, city: string },
             searchParams?: {
-                category?: string;
-                duration?: string;
-                countOfPeople?: string;
-                price?: string;
-                page?: string;
+                category: string;
+                duration: string;
+                countOfPeople: string;
+                price: string;
+                page: string;
             };
         }
 ) {
