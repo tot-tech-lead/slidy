@@ -22,3 +22,13 @@ export interface SwiperHTML extends SwiperEl {
 export interface SwiperProgressEvent extends CustomEvent {
     detail: number[];
 }
+
+export interface ToursQuery{
+    category: string,
+    duration: string,
+    countOfPeople: string,
+    price: string,
+    page: string,
+    city: string,
+    country: string
+}

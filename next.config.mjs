@@ -3,6 +3,7 @@ const nextConfig = {
     experimental: {
         instrumentationHook: true,
     },
+    serverExternalPackages: ['mongoose'],
 };
 
 export default nextConfig;

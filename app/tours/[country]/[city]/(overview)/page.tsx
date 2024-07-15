@@ -1,10 +1,11 @@
-"use client"
-
 import styles from "../tours.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
-import React from "react";
+import React, {Suspense} from "react";
+import Tour from "@/app/lib/models/tour";
+import Tours from "@/app/tours/[country]/[city]/(overview)/tours";
+import {getTours} from "@/app/lib/data/tours";
 
-export default function Page(
+export default async function Page(
     {params, searchParams}:
         {
             params: { country: string, city: string },
@@ -26,20 +27,21 @@ export default function Page(
         page,
     } = searchParams
 
+
     return (
         <>
             <div className={styles.cardsGroup}>
-                {/*{*/}
-                {/*    !pending ?*/}
-                {/*        !error ?*/}
-                {/*            data.length > 0 ?*/}
-                {/*                data.map((item, idx) =>*/}
-                {/*                    <TourCard key={"TOUR-" + idx} {...{...item}} />*/}
-                {/*                )*/}
-                {/*                : "Немає екскурсій"*/}
-                {/*            : <>{error.status} <br/> {error.message}</>*/}
-                {/*        : "Завантаження"*/}
-                {/*}*/}
+                <Suspense fallback={<div>Завантаження</div>}>
+                    <Tours query={{
+                        category,
+                        duration,
+                        countOfPeople,
+                        price,
+                        page,
+                        country,
+                        city
+                    }} />
+                </Suspense>
             </div>
 
             <div className={styles.pagination}>

@@ -29,7 +29,7 @@ interface FilterItem {
 }
 
 
-function Filter(
+export default function Filter(
     {
         filters,
     }: {
@@ -159,5 +159,3 @@ function Filter(
         </div>
     )
 }
-
-export default Filter

@@ -3,7 +3,7 @@
  * */
 
 import {EnumCountries, EnumCurrency} from "@/app/lib/types/data";
-import {Types} from "mongoose";
+import mongoose, {Types} from "mongoose";
 import {tourCategories} from "@/app/lib/data-define";
 
 interface ActivityItem {
@@ -55,8 +55,7 @@ export interface Location {
     image: Types.ObjectId,
 }
 
-export interface Tour {
-    _id: Types.ObjectId
+export interface Tour extends mongoose.Document {
     createdAt: Date,
     name: string,
     category: (typeof tourCategories)[number],
@@ -96,4 +95,13 @@ export interface TourGuide {
 
 export interface WaitListUser {
     email: string
+}
+
+export interface TourPopulated extends Omit<Tour, 'guide' | 'images' | 'feedbacks'> {
+    images: ImageMongoDB[];
+    feedbacks: FeedbackSchema[];
+    guide: {
+        contactLink: string;
+        profile: AuthData;
+    };
 }

@@ -1,4 +1,4 @@
-import mongoose, {Model, Schema, model} from "mongoose";
+import mongoose, {Model, Schema, model, Document} from "mongoose";
 import {tourCategories} from "@/app/lib/data-define"
 import {enumCountries, enumCurrency} from "@/app/lib/types/data";
 import {Tour} from "@/app/lib/types/mongo-models";
@@ -56,6 +56,6 @@ let tourSchema = new Schema<Tour>({
     },
 });
 
-let tourModel: Model<Tour> = mongoose.models?.tour || model("tour", tourSchema);
+let tourModel: Model<Tour> = mongoose.models?.tour || mongoose.model("tour", tourSchema);
 
 export default tourModel;
