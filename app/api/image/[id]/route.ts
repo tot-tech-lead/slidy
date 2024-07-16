@@ -1,3 +1,5 @@
+"use server"
+
 import { NextRequest, NextResponse } from "next/server";
 import Image from "@/app/lib/models/image";
 
