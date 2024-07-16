@@ -1,5 +1,3 @@
-"use server"
-
 import { NextRequest, NextResponse } from "next/server";
 import Image from "@/app/lib/models/image";
 
@@ -26,7 +24,7 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
             message: "Please enter title"
         }, {
             status: 404,
-            statusText: "Not found"
+            statusText: "Not found",
         })
     }
 }
