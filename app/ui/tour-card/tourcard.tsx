@@ -30,8 +30,12 @@ export default function TourCard(
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            console.log("LINK TO IMAGE IS", `${location?.origin}/api/image/${data.images[0]}`)
-            setImage(`${location?.origin}/api/image/${data.images[0]}`)
+            fetch(`${location?.origin}/api/image/${data.images[0]}`)
+                .then((res) => res.blob())
+                .then(data => {
+                    let url = URL.createObjectURL(data)
+                    setImage(url)
+                })
         }
     }, []);
 
