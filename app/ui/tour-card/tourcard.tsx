@@ -26,6 +26,7 @@ export default function TourCard(
 ) {
     let [image, setImage] = useState(()=>{
         if (typeof window !== 'undefined') {
+            console.log("LINK TO IMAGE IS", `${location?.origin}/api/image/${data.images[0]}`)
             return `${location?.origin}/api/image/${data.images[0]}`
         }
 
