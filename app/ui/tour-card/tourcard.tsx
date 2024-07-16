@@ -24,16 +24,16 @@ export default function TourCard(
         }
     }
 ) {
-    let [image, setImage] = useState(()=>{
-        if (typeof window !== 'undefined') {
-            console.log("LINK TO IMAGE IS", `${location?.origin}/api/image/${data.images[0]}`)
-            return `${location?.origin}/api/image/${data.images[0]}`
-        }
-
-        return imageNotFound
-    })
+    let [image, setImage] = useState(imageNotFound)
     let router = useRouter()
     let [imgWidth, setImgWidth] = useState(150)
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            console.log("LINK TO IMAGE IS", `${location?.origin}/api/image/${data.images[0]}`)
+            setImage(`${location?.origin}/api/image/${data.images[0]}`)
+        }
+    }, []);
 
     useEffect(() => {
         let resizeFnc = () => {
@@ -98,12 +98,14 @@ export default function TourCard(
                 <div className={styles.tourInfo}>
                     <p className={styles.tourInfoP}>
                         <span className={clsx(styles.orange, prestyle.textBold)}>Початкова точка: </span>
-                        <span className={clsx(styles.black, prestyle.textPlain)}>{data.locations.at(1)?.name ?? "N/A"}</span>
+                        <span
+                            className={clsx(styles.black, prestyle.textPlain)}>{data.locations.at(1)?.name ?? "N/A"}</span>
                     </p>
 
                     <p className={styles.tourInfoP}>
                         <span className={clsx(styles.orange, prestyle.textBold)}>Кінцева точка: </span>
-                        <span className={clsx(styles.black, prestyle.textPlain)}>{data.locations.at(-1)?.name ?? "N/A"}</span>
+                        <span
+                            className={clsx(styles.black, prestyle.textPlain)}>{data.locations.at(-1)?.name ?? "N/A"}</span>
                     </p>
 
                     <p className={styles.tourInfoP}>
@@ -124,7 +126,8 @@ export default function TourCard(
 
                     <p className={styles.tourInfoP}>
                         <span className={clsx(styles.orange, prestyle.textBold)}>Ціна: </span>
-                        <span className={clsx(styles.black, prestyle.textPlain)}>{data.pricePerPerson.count} {data.pricePerPerson.currency}/особа</span>
+                        <span
+                            className={clsx(styles.black, prestyle.textPlain)}>{data.pricePerPerson.count} {data.pricePerPerson.currency}/особа</span>
                     </p>
                 </div>
 
