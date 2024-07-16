@@ -22,11 +22,20 @@
 .Tours .headlineGroup .headline {
   color: #171717;
 }
-.Tours .headlineGroup .cardsGroup {
+.Tours .cardsGroup {
   display: flex;
   flex-direction: column;
   gap: 25px;
   width: 100%;
+}
+.Tours .toursContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
 }
 .Tours .pagination {
   width: 100%;

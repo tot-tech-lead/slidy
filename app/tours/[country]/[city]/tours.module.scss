@@ -20,12 +20,19 @@
       color: $black;
     }
 
-    .cardsGroup {
-      display: flex;
-      flex-direction: column;
-      gap: $gap-between-connected-elements;
-      width: 100%;
-    }
+  }
+
+  .cardsGroup {
+    display: flex;
+    flex-direction: column;
+    gap: $gap-between-connected-elements;
+    width: 100%;
+  }
+
+  .toursContainer {
+    width: 100%;
+    @include flex(center, center, column);
+    gap: $gap-between-connected-elements;
   }
 
   .pagination {

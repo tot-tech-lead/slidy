@@ -1,13 +1,18 @@
 "use client"
 
 import styles from "./tour-card.module.css"
+import prestyle from "@/app/lib/ui-components.module.css"
+
 import defaultAvatar from "@/public/assets/SVG/default-avatar.svg"
+import imageNotFound from "@/public/assets/SVG/image-not-found.svg"
 
 import {useEffect, useState} from "react";
 import Image from "next/image";
 
 import {TourPopulated} from "@/app/lib/types/mongo-models";
 import {useRouter} from "next/navigation";
+import clsx from "clsx";
+import {nunito} from "@/app/ui/fonts";
 
 
 export default function TourCard(
@@ -19,14 +24,13 @@ export default function TourCard(
         }
     }
 ) {
-
+    let [image, setImage] = useState(`/api/image/${data.images[0]}`)
     let router = useRouter()
-
-    let [imgWidth, setImgWidth] = useState(0)
+    let [imgWidth, setImgWidth] = useState(150)
 
     useEffect(() => {
         let resizeFnc = () => {
-            let card = document.querySelector<HTMLElement>(".ToursCard");
+            let card = document.querySelector<HTMLElement>(`.${styles.ToursCard}`);
             if (card) {
                 setImgWidth(window.innerHeight > 920 ?
                     Math.round(card.offsetWidth / 2)
@@ -41,85 +45,85 @@ export default function TourCard(
     }, []);
 
     return (
-        <div className='ToursCard'>
-            <div className="ToursCard__imgContainer">
-                <Image className='ToursCard__img'
-                       src={`/api/images/${data.images[0]}`}
-                       alt="BigImg"
+        <div className={styles.ToursCard}>
+            <div className={styles.imgContainer}>
+                <Image className={styles.img}
+                       src={image}
+                       alt={data.name}
                        width={imgWidth}
-                       height={50}
+                       height={0}
+                       onError={() => setImage(imageNotFound)}
                 />
             </div>
 
-            <div className='ToursCard__info-block'>
+            <div className={styles.infoBlock}>
 
-                <div className="ToursCard__headline-group">
-                    <h3 className='ToursCard__h3'>{data.name}</h3>
+                <div className={styles.headlineGroup}>
+                    <h3 className={clsx(prestyle.textH3, styles.h3, nunito.className)}>{data.name}</h3>
 
-                    <p className='ToursCard__description-para'>{data.category}</p>
+                    <p className={clsx(prestyle.textPlain, styles.descriptionPara)}>{data.category}</p>
                 </div>
 
-                <div className='ToursCard__guide-profile'>
+                <div className={styles.guideProfile}>
                     <Image
-                        className={'ToursCard__avatar-img'}
-                        src={`/api/image/${data.guide.profile.avatar}` || defaultAvatar}
+                        className={styles.avatarImg}
+                        src={(data.guide.profile.personalAccount.avatar ? `/api/image/${data.guide.profile.personalAccount.avatar}` : defaultAvatar)}
                         alt="avatar"
                         height={50}
                         width={50}
                     />
-                    <div className='ToursCard__guide-info'>
-                        <p className='ToursCard__guide-name'>{data.guide.profile.name} {data.guide.profile.surname}</p>
+                    <div className={styles.guideInfo}>
+                        <p className={clsx(prestyle.textPlain, styles.guideName)}>{data.guide.profile.personalAccount.name} {data.guide.profile.personalAccount.surname}</p>
 
-                        <p className='ToursCard__guide-raiting'>Рейтинг:</p>
+                        <p className={clsx(prestyle.textSmallSemiVisible, styles.guideRaiting)}>Рейтинг:</p>
 
                         {/*<RatingDisplay rating={data.feedbacks.reduce((acc, value) => {*/}
                         {/*    return acc + value.rating*/}
                         {/*}, 0)}/>*/}
-                        rating will be soon
+                        N/A
                     </div>
                 </div>
 
-                <p className='ToursCard__description-p'>
+                <p className={clsx(styles.descriptionP, prestyle.textPlain)}>
                     {data.description.short}
                 </p>
 
-                <div className='ToursCard__tour-info'>
-                    <p className='ToursCard__tour-info-p'>
-                        <span className='orange'>Початкова точка: </span>
-                        <span className='black'>{data.locations.at(1)?.name ?? "N/A"}</span>
+                <div className={styles.tourInfo}>
+                    <p className={styles.tourInfoP}>
+                        <span className={clsx(styles.orange, prestyle.textBold)}>Початкова точка: </span>
+                        <span className={clsx(styles.black, prestyle.textPlain)}>{data.locations.at(1)?.name ?? "N/A"}</span>
                     </p>
 
-                    <p className='ToursCard__tour-info-p'>
-                        <span className='orange'>Кінцева точка: </span>
-                        <span className='black'>{data.locations.at(-1)?.name ?? "N/A"}</span>
+                    <p className={styles.tourInfoP}>
+                        <span className={clsx(styles.orange, prestyle.textBold)}>Кінцева точка: </span>
+                        <span className={clsx(styles.black, prestyle.textPlain)}>{data.locations.at(-1)?.name ?? "N/A"}</span>
                     </p>
 
-                    <p className='ToursCard__tour-info-p'>
-                        <span className='orange'>Тривалість:  </span>
-                        <span className='black'> {data.durationInHours}</span>
+                    <p className={styles.tourInfoP}>
+                        <span className={clsx(styles.orange, prestyle.textBold)}>Тривалість:  </span>
+                        <span className={clsx(styles.black, prestyle.textPlain)}> {data.durationInHours}</span>
                     </p>
 
-                    <p className='ToursCard__tour-info-p'>
-                        <span className='orange'>Довжина: </span>
-                        <span className='black'>{data.lengthInKilometers} км</span>
+                    <p className={styles.tourInfoP}>
+                        <span className={clsx(styles.orange, prestyle.textBold)}>Довжина: </span>
+                        <span className={clsx(styles.black, prestyle.textPlain)}>{data.lengthInKilometers} км</span>
                     </p>
 
-                    <p className='ToursCard__tour-info-p'>
-                        <span className='orange'>Тип:  </span>
+                    <p className={styles.tourInfoP}>
+                        <span className={clsx(styles.orange, prestyle.textBold)}>Тип:  </span>
                         <span
-                            className='black'>від {data.peopleCountPerTour - 3} до {data.peopleCountPerTour + 3} людей</span>
+                            className={clsx(styles.black, prestyle.textPlain)}>від {data.peopleCountPerTour - 3} до {data.peopleCountPerTour + 3} людей</span>
                     </p>
 
-                    <p className='ToursCard__tour-info-p'>
-                        <span className='orange'>Ціна: </span>
-                        <span className='black'>{data.pricePerPerson.count} {data.pricePerPerson.currency}/особа</span>
+                    <p className={styles.tourInfoP}>
+                        <span className={clsx(styles.orange, prestyle.textBold)}>Ціна: </span>
+                        <span className={clsx(styles.black, prestyle.textPlain)}>{data.pricePerPerson.count} {data.pricePerPerson.currency}/особа</span>
                     </p>
                 </div>
 
-                <button className='ToursCard__details-btn'
+                <button className={clsx(prestyle.buttonFilled)}
                         type='button'
                         onClick={() => {
-                            // router.
                             router.push(action.navigateTo)
                         }}
                 >

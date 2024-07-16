@@ -97,11 +97,20 @@ export interface WaitListUser {
     email: string
 }
 
+export interface TourGuidePopulated extends Omit<TourGuide, "tours" | "feedbacks" | "gallery" | "personalAccount">{
+    personalAccount: AuthData,
+    tours: Tour[],
+    feedbacks: FeedbackSchema[],
+    gallery: ImageMongoDB[]
+}
+
 export interface TourPopulated extends Omit<Tour, 'guide' | 'images' | 'feedbacks'> {
     images: ImageMongoDB[];
     feedbacks: FeedbackSchema[];
     guide: {
         contactLink: string;
-        profile: AuthData;
+        profile: TourGuidePopulated;
     };
 }
+
+

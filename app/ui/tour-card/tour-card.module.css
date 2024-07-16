@@ -1,3 +1,115 @@
+.ToursCard {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  box-shadow: 5px 5px 5px rgba(20, 20, 20, 0.1);
+  border-radius: 5px;
+  max-height: 550px;
+}
+.ToursCard .imgContainer {
+  min-width: 50%;
+  width: 50%;
+}
+.ToursCard .imgContainer .img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 5px 0 0 5px;
+}
+.ToursCard .infoBlock {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 25px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  padding-right: 15px;
+}
+.ToursCard .infoBlock .headlineGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.ToursCard .infoBlock .headlineGroup .h3 {
+  color: #232141;
+}
+.ToursCard .infoBlock .headlineGroup .descriptionPara {
+  color: #171717;
+  opacity: 0.7;
+}
+.ToursCard .infoBlock .guideProfile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.ToursCard .infoBlock .guideProfile .avatarImg {
+  min-width: 50px;
+  flex-shrink: 0;
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+  user-select: none;
+  box-shadow: 1px 2px 4px rgba(20, 20, 20, 0.1);
+  border-radius: 50%;
+}
+.ToursCard .infoBlock .guideProfile .guideInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ToursCard .infoBlock .guideProfile .guideInfo .guideName {
+  color: #171717;
+}
+.ToursCard .infoBlock .guideProfile .guideInfo .guideRaiting {
+  color: #171717;
+  opacity: 0.7;
+}
+.ToursCard .infoBlock .guideProfile span {
+  opacity: 0.7;
+}
+.ToursCard .infoBlock .descriptionP {
+  color: #171717;
+}
+.ToursCard .infoBlock .tourInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.ToursCard .infoBlock .tourInfo .tourInfoP .orange {
+  color: #232141;
+}
+.ToursCard .infoBlock .tourInfo .tourInfoP .black {
+  color: #171717;
+}
 
+@media screen and (max-width: 950px) {
+  .ToursCard {
+    flex-direction: column;
+    box-shadow: none;
+    max-height: none;
+  }
+  .ToursCard .imgContainer {
+    width: 100%;
+    max-width: none;
+  }
+  .ToursCard .imgContainer .img {
+    border-radius: 5px;
+    min-width: 100%;
+    max-height: 50vh;
+    width: 100%;
+    background: #eeeeee;
+    min-height: 100px;
+  }
+}
 
 /*# sourceMappingURL=tour-card.module.css.map */
