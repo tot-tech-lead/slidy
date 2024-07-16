@@ -28,6 +28,8 @@ export default function TourCard(
         if (typeof window !== 'undefined') {
             return `${location?.origin}/api/image/${data.images[0]}`
         }
+
+        return imageNotFound
     })
     let router = useRouter()
     let [imgWidth, setImgWidth] = useState(150)
