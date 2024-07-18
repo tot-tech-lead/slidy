@@ -7,6 +7,13 @@
   flex-wrap: wrap;
   gap: 15px;
 }
+.Login .alarm {
+  min-height: calc((11px + 0.3vw) * 1.2);
+  color: #ce3232;
+}
+.Login .alarmGreen {
+  color: #057e05;
+}
 .Login .inputGroup {
   width: 100%;
   display: flex;
@@ -15,13 +22,6 @@
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 5px;
-}
-.Login .inputGroup .alarm {
-  min-height: calc((11px + 0.3vw) * 1.2);
-  color: #ce3232;
-}
-.Login .inputGroup .alarmGreen {
-  color: #057e05;
 }
 .Login .button:disabled {
   opacity: 0.5;

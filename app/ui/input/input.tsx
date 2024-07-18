@@ -129,7 +129,7 @@ function Input(
             />
             {
                 type === "password" ?
-                    <button onClick={handlePasswordShow} className={`${styles.showPassword}`}>
+                    <button onClick={handlePasswordShow} className={`${styles.showPassword}`} type="button">
                         <Image height={25} width={25} src={viewIcon} alt="view"
                                className={`${styles.passwordShowIcon}`}/>
                     </button>

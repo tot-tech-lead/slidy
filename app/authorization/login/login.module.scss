@@ -6,19 +6,20 @@
   @include flex(flex-start, flex-start, column);
   gap: $gap-between-closely-placed-elements;
 
+  .alarm {
+    min-height: calc((11px + 0.3vw) * 1.2);
+    color: $alarm-color;
+
+    &Green {
+      color: $accept-color;
+    }
+  }
+
   .inputGroup {
     width: 100%;
     @include flex(flex-start, flex-start, column);
     gap: $small-gap;
 
-    .alarm {
-      min-height: calc((11px + 0.3vw) * 1.2);
-      color: $alarm-color;
-
-      &Green {
-        color: $accept-color;
-      }
-    }
   }
 
 

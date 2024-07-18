@@ -5,7 +5,7 @@ import Input from "@/app/ui/input/input";
 import styles from "./login.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
 
-import {useActionState, useState} from "react";
+import {useActionState, useEffect, useState} from "react";
 import {useRouter} from "next/navigation";
 import {useAppDispatch} from "@/app/lib/hooks";
 import clsx from "clsx";
@@ -37,11 +37,19 @@ export default function Login() {
 
     let [state, formAction, pending] = useActionState(login, defState);
 
-
-    console.log(state)
+    useEffect(() => {
+        if (state?.status === 200) {
+            alert("Ви успіщно увійшли")
+        }
+    }, [state]);
 
     return (
         <form action={formAction} className={styles.Login}>
+            <div className={styles.alarm} id="login-error" aria-live="polite" aria-atomic="true">
+                {
+                    (state?.status !== 200 && state?.errors?.manual) ? state?.errors?.manual + "\n" + state?.message : ""
+                }
+            </div>
             <div className={styles.inputGroup}>
                 <Input staticLabels={true} type="text" value={formData["loginData"]} setValue={setValue("loginData")}
                        label={<>

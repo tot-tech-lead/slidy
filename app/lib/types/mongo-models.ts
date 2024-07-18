@@ -24,7 +24,8 @@ export interface AuthData {
     profession: { type: String },
     role: "TOURIST" | "GUIDE" | "ADMIN",
     avatar: Types.ObjectId,
-    activity: ActivityItem[]
+    activity: ActivityItem[],
+    comparePassword: Function
 }
 
 export interface FeedbackSchema {
