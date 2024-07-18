@@ -1,0 +1,59 @@
+.Authorization {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 25px 125px;
+  margin-top: 75px;
+}
+.Authorization .wrapper {
+  width: 100%;
+  max-width: 770px;
+  background: #ffffff;
+  box-shadow: 2px 3px 5px rgba(20, 20, 20, 0.1);
+  padding: 25px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+.Authorization .wrapper .tabs {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: no-wrap;
+  gap: 25px;
+}
+.Authorization .wrapper .tabs .tab {
+  width: 100%;
+}
+.Authorization .wrapper .headlineGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.Authorization .wrapper .headlineGroup .headline {
+  color: #232141;
+}
+.Authorization .wrapper .headlineGroup .subHeadline {
+  color: #171717;
+}
+
+@media screen and (max-width: 800px) {
+  .Authorization {
+    padding: 25px;
+  }
+}
+
+/*# sourceMappingURL=layout.module.css.map */

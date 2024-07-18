@@ -1,0 +1,53 @@
+@import "../ui/sass-config/variables";
+@import "../ui/sass-config/mixins";
+
+.Authorization {
+  width: 100%;
+  @include flex(center, center, column);
+  gap: $gap-between-closely-placed-elements;
+  padding: $padding-for-page-component;
+  margin-top: 75px;
+
+  .wrapper {
+    width: 100%;
+    max-width: 770px;
+    background: #ffffff;
+    box-shadow: 2px 3px 5px $shadows-black;
+    padding: $manual-padding;
+    border-radius: 5px;
+    @include flex(flex-start, flex-start, column);
+    gap: $gap-between-connected-elements;
+
+    .tabs {
+      width: 100%;
+      @include flex(center, center, row, no-wrap);
+      gap: $gap-between-connected-elements;
+
+      .tab {
+        //@extend %button-outlined;
+        width: 100%;
+      }
+    }
+
+    .headlineGroup {
+      @include flex(flex-start, flex-start, column);
+      gap: $gap-between-closely-placed-elements;
+
+      .headline {
+        //@extend %h2;
+        color: $dark;
+      }
+
+      .subHeadline {
+        //@extend %big-plain-bold-text;
+        color: $black;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .Authorization {
+    padding: $manual-padding;
+  }
+}

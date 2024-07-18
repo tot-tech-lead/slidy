@@ -65,7 +65,7 @@ export default function Switch({values, currentTab, setCurrentTab}: params) {
                 values.map((item, key) =>
                     <div key={`tab-${Date.now()}-${key}`}
                          className={clsx(`${styles.item} ${prestyle.textBig}`, {
-                             [`${styles.item_selected} ${prestyle.buttonFilled}`]: item === currentTab
+                             [styles.item_selected]: item === currentTab
                          })}
                          onClick={() => setCurrentTab(item)}>
                         {item}

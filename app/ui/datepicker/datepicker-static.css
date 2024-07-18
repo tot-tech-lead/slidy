@@ -1,0 +1,71 @@
+.Datepick {
+  /* Style the calendar header */
+  /* Style the month and year dropdowns */
+  /* Style the days of the week */
+  /* Style the individual days in the calendar */
+  /* Style the selected day */
+}
+.Datepick .react-datepicker {
+  border: none;
+  box-shadow: 0 0 15px rgba(20, 20, 20, 0.1);
+  position: absolute;
+}
+.Datepick .react-datepicker__tab-loop {
+  position: absolute;
+}
+.Datepick .react-datepicker__month-container {
+  z-index: 11;
+  border-radius: 5px;
+  background-color: #fff;
+  outline: none;
+  border: none;
+}
+.Datepick .react-datepicker__header {
+  background-color: #232141;
+  padding: 15px;
+}
+.Datepick .react-datepicker__current-month,
+.Datepick .react-datepicker__navigation {
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.Datepick .react-datepicker__day-name {
+  color: #ffffff;
+  font-weight: 400;
+  position: relative;
+  top: 3px;
+}
+.Datepick .react-datepicker__day {
+  padding: 5px;
+  color: #171717;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+.Datepick .react-datepicker__day:hover {
+  background-color: rgba(20, 20, 20, 0.1);
+  border-radius: 5px;
+}
+.Datepick .react-datepicker__day--selected {
+  background-color: #FFA800;
+  color: #ffffff;
+  border-radius: 5px;
+}
+.Datepick .react-datepicker__day--selected:hover {
+  background: #FFA800;
+  color: #FFFFFF;
+}
+.Datepick .react-datepicker__day--keyboard-selected {
+  background: #FFA800;
+  color: #ffffff;
+}
+.Datepick .react-datepicker-wrapper {
+  width: 100%;
+}
+.Datepick .react-datepicker__input-container {
+  width: 100%;
+}
+.Datepick .react-datepicker__triangle {
+  display: none;
+}
+
+/*# sourceMappingURL=datepicker-static.css.map */

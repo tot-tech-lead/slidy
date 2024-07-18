@@ -1,0 +1,35 @@
+.Login {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.Login .inputGroup {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.Login .inputGroup .alarm {
+  min-height: calc((11px + 0.3vw) * 1.2);
+  color: #ce3232;
+}
+.Login .inputGroup .alarmGreen {
+  color: #057e05;
+}
+.Login .button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+.Login .button:disabled:hover {
+  transform: none;
+}
+
+/*# sourceMappingURL=login.module.css.map */

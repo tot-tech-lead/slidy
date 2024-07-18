@@ -23,7 +23,7 @@ function Input(
         staticLabels = false,
         attributes = {}
     }: {
-        label: string | JSX.Element | object,
+        label: string | JSX.Element | React.ReactNode,
         value: string | number,
         setValue: (value: string) => void,
         type: string,
@@ -112,7 +112,7 @@ function Input(
                        })
                    }
             >
-                {String(label)}
+                {label}
             </label>
             <input onChange={!disabled ? onChange : () => false}
                    onFocus={staticLabels ? () => {

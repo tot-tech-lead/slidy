@@ -26,7 +26,7 @@ export default function RootLayout(
             {children}
             <Footer/>
             <SpeedInsights/>
-            <Analytics />
+            <Analytics/>
             </body>
             </html>
         </StoreProvider>
@@ -35,7 +35,10 @@ export default function RootLayout(
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://slidy.space'),
-    title: "Slidy",
+    title: {
+        template: '%s | Slidy',
+        default: 'Slidy',
+    },
     description: description,
     openGraph: {
         type: "website",
@@ -53,3 +56,5 @@ export const metadata: Metadata = {
         images: "/assets/twitter-image.png",
     }
 };
+
+

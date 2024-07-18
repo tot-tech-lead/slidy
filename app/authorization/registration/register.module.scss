@@ -1,0 +1,51 @@
+@import "../../ui/sass-config/variables";
+@import "../../ui/sass-config/mixins";
+
+.Registration {
+  width: 100%;
+  @include flex(flex-start, flex-start, column);
+  gap: $gap-between-connected-elements;
+
+  .group {
+    width: 100%;
+    @include flex(center, flex-start, row, no-wrap);
+    gap: $gap-between-connected-elements;
+  }
+
+  .inputGroup {
+    width: 100%;
+    @include flex(flex-start, flex-start, column);
+    gap: $small-gap;
+
+    .alarm {
+      min-height: calc((11px + 0.3vw) * 1.2);
+      color: $alarm-color;
+
+      &Green {
+        color: $accept-color;
+      }
+    }
+  }
+
+  .button {
+    //@extend %button-filled;
+
+    &:disabled {
+      opacity: 0.5;
+      pointer-events: none;
+      cursor: not-allowed;
+
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .Registration {
+    .group {
+      flex-direction: column;
+    }
+  }
+}
