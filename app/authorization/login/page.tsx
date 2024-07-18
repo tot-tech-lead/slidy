@@ -21,7 +21,7 @@ export default function Login() {
 
     let [formData, setFormData] = useState(defaultFormData);
 
-    let setValue = label => value => {
+    let setValue = (label: string) => (value: any) => {
         setFormData({
             ...formData,
             [label]: value
