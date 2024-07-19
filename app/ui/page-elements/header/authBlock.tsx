@@ -7,6 +7,7 @@ import {deleteCookie} from "@/app/lib/cookie-parser";
 import React from "react";
 
 import {useAppDispatch} from "@/app/lib/hooks";
+import {logOut} from "@/app/lib/features/auth/auth";
 
 export default function AuthBlock(
     {
@@ -25,7 +26,7 @@ export default function AuthBlock(
 
     return (
         <>
-            <div className={styles.avatar}>
+            <div className={styles.loginData}>
                 <Image height={50} width={50} src={avatar ? avatar : defAvatar}
                        alt="користувач"
                        className={styles.logo}/>
@@ -35,7 +36,7 @@ export default function AuthBlock(
                     <div className={`${styles.loginText} ${preStyle.textBig}`}>{roles[role as keyof typeof roles]}</div>
                 </div>
                 <button className={preStyle.buttonOutlined} onClick={() => {
-                    dispatch({type: "auth/set-log-out"})
+                    dispatch(logOut())
                     deleteCookie("TOKEN")
                 }}>logout
                 </button>

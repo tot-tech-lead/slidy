@@ -1,4 +1,4 @@
-import {PayloadAction, createSlice, ReducerType} from '@reduxjs/toolkit'
+import {PayloadAction, createSlice} from '@reduxjs/toolkit'
 
 import {RootState} from "@/app/lib/store";
 
@@ -35,6 +35,7 @@ export const authSlice = createSlice({
         },
         logOut: state => {
             state.isLogin = false
+            state.data = {}
         }
     },
 })

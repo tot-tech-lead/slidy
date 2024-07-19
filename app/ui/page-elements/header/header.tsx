@@ -20,6 +20,8 @@ import clsx from "clsx";
 
 import AuthBlock from "@/app/ui/page-elements/header/authBlock";
 import {nunitoSans} from "@/app/ui/fonts";
+import {logIn, setData} from "@/app/lib/features/auth/auth";
+import {useCookies} from 'next-client-cookies';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,9 +32,9 @@ export default function Header() {
     let auth = useAppSelector(state => state.auth);
 
     let location = usePathname()
+    let cookies = useCookies()
 
     useEffect(() => {
-
         gsap.set(`.${styles.burgerBtnBullet}`, {
             transform: "translateY(var(--own-offset)) rotate(0)",
         })
@@ -40,6 +42,40 @@ export default function Header() {
             opacity: 1,
         })
     }, [])
+
+    useEffect(() => {
+        let token = cookies.get("TOKEN");
+
+        if (token) {
+            dispatch(logIn())
+        }
+    }, [cookies.get("TOKEN")]);
+
+
+    useEffect(() => {
+        if (auth.isLogin && typeof window !== "undefined") {
+            let fetchData = async () => {
+                try {
+                    const res = await fetch(`${window.location.origin}/api/user`, {
+                        method: "GET",
+                        credentials: "include",
+                    });
+
+                    const data = await res.json();
+
+                    if (data.status === 200) {
+                        dispatch(setData(data.body));
+                    } else {
+                        console.error("Failed to fetch data:", data);
+                    }
+                } catch (error) {
+                    console.error("Error fetching data:", error);
+                }
+            }
+
+            fetchData()
+        }
+    }, [auth.isLogin]);
 
     useEffect(() => {
         let tl = gsap.timeline();
