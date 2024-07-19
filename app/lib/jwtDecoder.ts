@@ -19,7 +19,7 @@ const checkToken = () => {
     try {
         const decoded = jwt.verify(token.value, jwtSecret);
         return {
-            data: decoded.id
+            data: decoded
         }
     } catch (error) {
         return {error: "401 Unauthorized! Invalid token"}
