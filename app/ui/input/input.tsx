@@ -25,7 +25,7 @@ function Input(
     }: {
         label: string | JSX.Element | React.ReactNode,
         value: string | number,
-        setValue: (value: string) => void,
+        setValue: ((value: string) => void),
         type: string,
         maxLength?: number | undefined | null,
         disabled?: boolean,

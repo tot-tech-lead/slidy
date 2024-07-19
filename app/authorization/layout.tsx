@@ -31,6 +31,17 @@ export default function AuthLayout({children}: Readonly<{
         }
     }, [tab]);
 
+    useEffect(() => {
+        switch (location) {
+            case "/authorization/login":
+                setTab("Вхід")
+                break;
+            case "/authorization/registration":
+                setTab("Реєстрація")
+                break;
+        }
+    }, [location]);
+
 
     return (
         <>

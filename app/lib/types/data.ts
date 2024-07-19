@@ -4,7 +4,10 @@ const createEnum = <T extends string>(arr: T[]) => arr as ReadonlyArray<T>;
 
 export interface Country {
     name: string,
-    code: string
+    code: string,
+    localeUA: string,
+    phoneCode: string,
+    numberLength: number
 }
 
 

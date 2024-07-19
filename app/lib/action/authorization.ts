@@ -1,13 +1,23 @@
 "use server"
 
 import {z} from "zod"
-import jwt from "jsonwebtoken"
+import jwt, {Secret} from "jsonwebtoken"
 import AuthData from "@/app/lib/models/auth-data";
 import {cookies} from "next/headers";
 
-import moment from "moment";
+import {enumCountries} from "@/app/lib/types/data";
 
-import {isPossiblePhoneNumber} from "libphonenumber-js";
+import moment, {MomentInput} from "moment";
+
+import {CountryCode, isPossiblePhoneNumber} from "libphonenumber-js";
+
+const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET) {
+    throw Error("ADD JWT_SECRET INTO ENVIROMENT")
+}
+
+const today = moment.utc().startOf('day').toDate();
+const sixteenYearsAgo = moment.utc().subtract(16, 'years').startOf('day').toDate();
 
 let LoginFormData = z.object({
     login: z.string()
@@ -22,30 +32,43 @@ let RegisterFormData = z.object({
     email: z.string().email("Введіть валідний email"),
     phoneNumber: z.string().refine(isPossiblePhoneNumber),
     country: z.string(),
-    dateOfBirth: z.date().max(new Date(), "Ви впевнені що народились пізніше ніж сьогодні?")
-        .min(
-            moment.utc().years(-16).toDate(),
-            "Щоб користуватись нашим сервісом вам повинно бути мінімум 16 років"
-        ),
-    username: z.string(),
-    password: z.string(),
+    dateOfBirth: z.date()
+        .refine(d => d.getTime() < today.getTime(), "Ви впевнені що народились пізніше ніж сьогодні?")
+        .refine(d => d.getTime() < sixteenYearsAgo.getTime(), "Для того щоб користуватись нашим сервісом вам повинно бути мінімум 16 років"),
+    username: z.string().min(3, "Мінімальна довжина псевдоніму 3 літрери").regex(/^[a-zA-Z0-9a_]*$/, {
+        message: "Псевдонім може містити лише цифри, латинські літери та символ \"_\"",
+    }),
+    password: z.string().min(8, "Пароль повинен містити хоча б 8 символів"),
+    passwordAgain: z.string(),
     profession: z.string(),
+}).refine(data => data.password === data.passwordAgain, {
+    message: "Паролі не збігаються",
+    path: ["passwordAgain"]
+}).refine(data => enumCountries.includes(data.country.split(" - ")[0]), {
+    message: "Такої країни не існує!",
+    path: ["country"]
+}).refine(data => isPossiblePhoneNumber(data.phoneNumber, data.country.split(" - ")[0] as CountryCode), {
+    message: "Введіть правильний номер телефону",
+    path: ["phoneNumber"]
 })
+
 
 export type State = {
     status?: number,
     errors?: {
         manual?: string,
-        name: string,
-        surname: string,
-        patronymic: string,
-        email: string,
-        phoneNumber: string,
-        country: string,
-        dateOfBirth: Date,
-        username: string,
-        password: string,
-        profession: string,
+        login?: string[],
+        name?: string[],
+        surname?: string[],
+        patronymic?: string[],
+        email?: string[],
+        phoneNumber?: string[],
+        country?: string[],
+        dateOfBirth?: string[],
+        username?: string[],
+        password?: string[],
+        profession?: string[],
+        passwordAgain?: string[]
     };
     message?: string | null;
 }
@@ -101,7 +124,7 @@ export async function login(state: State | undefined, formData: FormData): Promi
             }
         }
 
-        let TOKEN = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: '14d'})
+        let TOKEN = jwt.sign({id: user._id}, JWT_SECRET as Secret, {expiresIn: '14d'})
         cookies().set("TOKEN", TOKEN, {
             maxAge: 1209600000,
         })
@@ -131,9 +154,10 @@ export async function createUser(state: State | undefined, formData: FormData): 
             email: formData.get("email"),
             phoneNumber: formData.get("phoneNumber"),
             country: formData.get("country"),
-            dateOfBirth: formData.get("dateOfBirth"),
+            dateOfBirth: moment.utc(formData.get("dateOfBirth") as MomentInput, "DD/MM/YYYY").toDate(),
             username: formData.get("username"),
             password: formData.get("password"),
+            passwordAgain: formData.get("passwordAgain"),
             profession: formData.get("profession"),
         })
 
@@ -151,7 +175,7 @@ export async function createUser(state: State | undefined, formData: FormData): 
             dateOfBirth, username, password, profession,
         } = validate.data
 
-        let isUsernameAlreadyExist = await Auth.findOne({
+        let isUsernameAlreadyExist = await AuthData.findOne({
             username: username
         })
 
@@ -165,7 +189,7 @@ export async function createUser(state: State | undefined, formData: FormData): 
             }
         }
 
-        let isUserAlreadyExist = await Auth.findOne({
+        let isUserAlreadyExist = await AuthData.findOne({
             $or: [
                 {email: email},
                 {phoneNumber: phoneNumber},
@@ -184,7 +208,7 @@ export async function createUser(state: State | undefined, formData: FormData): 
 
         let newUser = new AuthData({
             name, surname, patronymic, email, phoneNumber,
-            country, dateOfBirth, username, password, profession,
+            country: country.split(" - ")[0], dateOfBirth, username, password, profession,
             role: "TOURIST"
         })
 

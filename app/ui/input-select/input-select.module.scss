@@ -1,3 +1,5 @@
+@import "../sass-config/variables";
+
 .InputSelect {
   width: 100%;
   display: flex;
@@ -24,19 +26,43 @@
     }
   }
 
+  &:has(.icon) {
+    .group {
+      .input {
+        padding-left: 65px;
+      }
+    }
+  }
+
+  .icon {
+    height: 16px;
+    width: 28px;
+    border-radius: 3px;
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    object-fit: cover;
+    object-position: center;
+    transform: translateY(-50%);
+  }
+
   .group {
     width: 100%;
     position: relative;
 
     .input {
       width: 100%;
-      min-width: 150px;
-      padding: 10px 15px;
+      padding: $padding-for-inputs;
       border-radius: 5px;
       border: none;
       outline: none;
-      box-shadow: 0 0 5px #14141420;
-      font-size: calc(10px + .3vw);
+      box-shadow: 0 4px 11px $shadows-black;
+      color: $black;
+
+      &::placeholder {
+        opacity: 0.3;
+        color: $black;
+      }
     }
 
     .btn {
@@ -62,7 +88,6 @@
 
 
   .label {
-    font-size: calc(6px + .5vw);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -70,7 +95,6 @@
     pointer-events: none;
     cursor: none;
     user-select: none;
-    font-weight: 400;
     transition: 0.3s;
     background: #ffffff;
     border-radius: 5px;
@@ -107,6 +131,21 @@
       &:hover {
         background: #f1f1f1;
       }
+    }
+  }
+
+  &_staticLabel {
+    gap: $gap-between-closely-placed-elements;
+
+    .label {
+      position: static;
+      transform: initial;
+      cursor: none;
+      user-select: none;
+      transition: none;
+      background: transparent;
+      padding-left: 5px;
+      color: $dark;
     }
   }
 }

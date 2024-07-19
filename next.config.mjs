@@ -24,6 +24,11 @@ const nextConfig = {
                 port: '3000',
                 pathname: '/api/**',
             },
+            {
+                protocol: 'https',
+                hostname: 'flagsapi.com',
+                pathname: '/**',
+            },
         ],
     },
 };
