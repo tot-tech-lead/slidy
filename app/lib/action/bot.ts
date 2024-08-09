@@ -61,6 +61,9 @@ export async function sendMessageToTelegram(state: State | undefined, formData: 
         message = message.split("!").join("\\!")
         email = email.split("!").join("\\!")
         name = name.split("!").join("\\!")
+        message = message.split("-").join("\\-")
+        email = email.split("-").join("\\-")
+        name = name.split("-").join("\\-")
 
         await bot.sendMessage(chatId as ChatId, `🆕 *Увага, нове повідомлення від ${name}\\!* \n\n||${message}||\n\n*📬 Email:* ${email}`, {
             parse_mode: "MarkdownV2"
