@@ -2,54 +2,60 @@
 @import "../../ui/sass-config/mixins";
 
 .mobileMenu {
-  height: 80px;
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  display: none;
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  padding: 15px 25px;
-  gap: $gap-between-closely-placed-elements;
+@media screen and (max-width: 800px) {
+  .mobileMenu {
+    height: 80px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
 
-  background: #ffffffBF;
-  backdrop-filter: blur(10px);
-  z-index: 100;
-  filter: drop-shadow(0 -4px 15px $shadows-black);
-
-  .searchButton {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: $accent-color;
-    padding: 15px;
-    border-radius: 50px;
-    transform: translateY(-25%);
+    justify-content: space-around;
+    padding: 15px 25px;
+    gap: $gap-between-closely-placed-elements;
 
-    .searchButtonIcon {
-      height: 35px;
-      width: 35px;
-      pointer-events: none;
-      user-select: none;
+    background: #ffffffBF;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    filter: drop-shadow(0 -4px 15px $shadows-black);
+
+    .searchButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $accent-color;
+      padding: 15px;
+      border-radius: 50px;
+      transform: translateY(-25%);
+
+      .searchButtonIcon {
+        height: 35px;
+        width: 35px;
+        pointer-events: none;
+        user-select: none;
+      }
     }
-  }
 
-  .menuItem {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: $small-gap;
-    text-decoration: none;
-    color: $dark;
+    .menuItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: $small-gap;
+      text-decoration: none;
+      color: $dark;
 
-    .menuItemIcon {
-      height: 35px;
-      width: 35px;
-      object-fit: contain;
+      .menuItemIcon {
+        height: 35px;
+        width: 35px;
+        object-fit: contain;
+      }
     }
   }
 }
