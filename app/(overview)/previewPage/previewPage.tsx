@@ -1,6 +1,6 @@
 "use client"
 
-import styles from "@/app/ui/page-elements/home/previewPage/previewPage.module.css"
+import styles from "./previewPage.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
 
 import {nunito, nunitoSans} from "@/app/ui/fonts";
@@ -15,7 +15,7 @@ import Image from 'next/image';
 import gsap from "gsap";
 import {SwiperEl, SwiperProgressEvent} from "@/app/lib/types/frontend-config";
 
-import Slides from "@/app/ui/page-elements/home/previewPage/slides";
+import Slides from "./slides";
 import ImageSkeleton from "@/app/ui/skeleton/image-skeleton";
 
 register();

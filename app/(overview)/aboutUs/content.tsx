@@ -1,4 +1,4 @@
-import styles from "@/app/ui/page-elements/home/aboutUs/aboutUs.module.css";
+import styles from "../aboutUs/aboutUs.module.css";
 import prestyle from "@/app/lib/ui-components.module.css";
 import {nunito, nunitoSans} from "@/app/ui/fonts";
 

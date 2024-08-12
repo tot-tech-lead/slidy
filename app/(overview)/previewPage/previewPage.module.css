@@ -253,7 +253,7 @@
     position: absolute;
     height: 100vh;
     z-index: 1;
-    opacity: 0.3;
+    opacity: 0.25;
   }
   .PreviewPage .background .topBlob {
     height: 200px;

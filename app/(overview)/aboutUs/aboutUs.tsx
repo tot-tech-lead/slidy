@@ -1,17 +1,17 @@
 "use client";
 
-import backgroundPattern from "@/app/ui/page-elements/home/aboutUs/SVG/backgroundPattern.svg";
+import backgroundPattern from "./SVG/backgroundPattern.svg";
 import React, {useEffect, useMemo, useState, useCallback} from "react";
 import Image from "next/image";
 
-import styles from "@/app/ui/page-elements/home/aboutUs/aboutUs.module.css";
+import styles from "../aboutUs/aboutUs.module.css";
 import headerStyles from "@/app/ui/page-elements/header/header.module.css";
 import {contentData as content} from "./content";
 
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 
-import AboutUsContent from "@/app/ui/page-elements/home/aboutUs/content"
+import AboutUsContent from "../aboutUs/content"
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -1,5 +1,5 @@
-@import "../../../sass-config/mixins";
-@import "../../../sass-config/variables";
+@import "../../ui/sass-config/mixins";
+@import "../../ui/sass-config/variables";
 
 .HowItWorkOption {
   width: 100%;
@@ -82,7 +82,7 @@
 }
 
 .HowItWorkOption::after {
-  content: url("../../../../../public/assets/SVG/arrow.svg");
+  content: url("../../../public/assets/SVG/arrow.svg");
   position: absolute;
   bottom: 0;
   transform: translateY(50%);

@@ -1,5 +1,5 @@
 import {images} from "@/app/lib/data-define";
-import styles from "@/app/ui/page-elements/home/previewPage/previewPage.module.css";
+import styles from "./previewPage.module.css";
 import Image from "next/image";
 import React from "react";
 
