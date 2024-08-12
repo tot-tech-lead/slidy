@@ -1,0 +1,77 @@
+@import "../../ui/sass-config/variables";
+@import "../../ui/sass-config/mixins";
+
+.mobileMenu {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 15px 25px;
+  gap: $gap-between-closely-placed-elements;
+
+  background: #ffffffBF;
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  filter: drop-shadow(0 -4px 15px $shadows-black);
+
+  .searchButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $accent-color;
+    padding: 15px;
+    border-radius: 50px;
+    transform: translateY(-25%);
+
+    .searchButtonIcon {
+      height: 35px;
+      width: 35px;
+      pointer-events: none;
+      user-select: none;
+    }
+  }
+
+  .menuItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: $small-gap;
+    text-decoration: none;
+    color: $dark;
+
+    .menuItemIcon {
+      height: 35px;
+      width: 35px;
+      object-fit: contain;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .mobileMenu {
+    padding: 15px;
+    height: 65px;
+
+    .searchButton {
+      .searchButtonIcon {
+        height: 30px;
+        width: 30px;
+      }
+    }
+
+    .menuItem {
+      .menuItemIcon {
+        height: 25px;
+        width: 25px;
+      }
+    }
+  }
+
+}

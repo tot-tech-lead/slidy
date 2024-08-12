@@ -10,6 +10,7 @@
   padding: 25px 125px;
   position: relative;
   box-shadow: 0 -4px 15px rgba(20, 20, 20, 0.1);
+  overflow-x: hidden;
 }
 .PreviewPage .background {
   display: none;
@@ -256,7 +257,8 @@
     opacity: 0.25;
   }
   .PreviewPage .background .topBlob {
-    height: 200px;
+    width: 65%;
+    aspect-ratio: 1/1;
     object-fit: contain;
     position: absolute;
     top: 50px;
@@ -266,11 +268,11 @@
     opacity: 0;
   }
   .PreviewPage .background .bottomBlob {
-    height: 250px;
-    width: 250px;
+    width: 65%;
+    aspect-ratio: 1/1;
     object-fit: contain;
     position: absolute;
-    bottom: 0;
+    bottom: 75px;
     right: -50px;
     filter: drop-shadow(0 0 15px rgba(255, 168, 0, 0.5));
     transform: scale(0.9);

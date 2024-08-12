@@ -1,5 +1,5 @@
-@import "../../../sass-config/mixins";
-@import "../../../sass-config/variables";
+@import "../../ui/sass-config/mixins";
+@import "../../ui/sass-config/variables";
 
 .PreviewPage {
   width: 100%;
@@ -9,6 +9,7 @@
   padding: $padding-for-page-component;
   position: relative;
   box-shadow: 0 -4px 15px $shadows-black;
+  overflow-x: hidden;
 
   .background {
     display: none;
@@ -265,7 +266,8 @@
       opacity: 0.25;
 
       .topBlob {
-        height: 200px;
+        width: 65%;
+        aspect-ratio: 1/1;
         object-fit: contain;
         position: absolute;
         top: 50px;
@@ -275,11 +277,11 @@
         opacity: 0;
       }
       .bottomBlob {
-        height: 250px;
-        width: 250px;
+        width: 65%;
+        aspect-ratio: 1/1;
         object-fit: contain;
         position: absolute;
-        bottom: 0;
+        bottom: 75px;
         right: -50px;
         filter: drop-shadow(0 0 15px $accent-color-shadow);
         transform: scale(0.9);

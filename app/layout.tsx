@@ -4,6 +4,7 @@ import type {Metadata} from "next";
 import {nunitoSans} from "@/app/ui/fonts";
 import Header from "@/app/ui/header/header"
 import Footer from "@/app/ui/footer/footer"
+import MobileMenu from "@/app/ui/mobile-menu/mobile-menu";
 
 import StoreProvider from "@/app/StoreProvider";
 import {SpeedInsights} from "@vercel/speed-insights/next"
@@ -27,6 +28,7 @@ export default function RootLayout(
                 <html lang="en">
                 <body className={nunitoSans.className}>
                 <Header/>
+                <MobileMenu />
                 {children}
                 <Footer/>
                 <SpeedInsights/>
