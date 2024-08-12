@@ -33,8 +33,12 @@ function Input(
         attributes?: Attribute
     }
 ) {
-    let id = useMemo(() => Math.floor(Date.now() + Math.random() * 100000), [])
+    let [id, setId] = useState(0)
     let [show, setShow] = useState(false)
+
+    useEffect(() => {
+        setId(Math.floor(Date.now() + Math.random() * 100000))
+    }, []);
 
     useEffect(() => {
         if (!staticLabels) {

@@ -2,9 +2,8 @@ import styles from "./textarea.module.css"
 import prestyle from "@/app/lib/ui-components.module.css";
 import {nunitoSans} from "@/app/ui/fonts";
 
-import React, {useMemo, useCallback, useEffect} from "react";
+import React, {useCallback, useEffect, useMemo} from "react";
 import clsx from "clsx";
-import {string} from "zod";
 
 interface Attribute {
     [name: string]: any
@@ -102,7 +101,8 @@ function TextArea(
                       disabled={disabled}
                       key={id}
                       {...{...attributes}}
-            >{String(value)}</textarea>
+                      value={String(value)}
+            ></textarea>
             {
                 maxLength ? <>
                     <div
