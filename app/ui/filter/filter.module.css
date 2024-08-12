@@ -14,8 +14,6 @@
   justify-content: flex-start;
   flex-wrap: no-wrap;
   gap: 25px;
-  transform: translateY(-10px);
-  margin-bottom: -10px;
 }
 .Filter .inputContainer > div {
   opacity: 0;

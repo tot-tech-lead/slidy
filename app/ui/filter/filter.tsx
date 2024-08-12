@@ -40,7 +40,7 @@ export default function Filter(
     let pathname = usePathname()
     let {replace} = useRouter()
 
-    let [opened, setOpened] = useState(false)
+    let [opened, setOpened] = useState(true)
     let [state, setState] = useState(()=>{
         let defaultState = Object.fromEntries(
             filters.map(filter => {

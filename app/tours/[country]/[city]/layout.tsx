@@ -7,10 +7,12 @@ import Filter from "@/app/ui/filter/filter"
 import clsx from "clsx";
 import {nunito} from "@/app/ui/fonts";
 import React from "react";
+import {getCategories} from "@/app/lib/data/tours";
 
-export default function Layout({children}: {
+export default async function Layout({children}: {
     children: React.ReactNode;
 }) {
+    let categories = await getCategories();
 
     return (
         <>
@@ -19,9 +21,10 @@ export default function Layout({children}: {
                     <Filter
                         filters={[
                             {
-                                type: "text",
+                                type: "select",
                                 name: "category",
                                 label: "Категорія",
+                                data: categories
                             }, {
                                 type: "text",
                                 name: "duration",

@@ -4,6 +4,7 @@ import styles from "./not-found.module.css"
 import {nunito} from "@/app/ui/fonts";
 import prestyle from "./lib/ui-components.module.css"
 import {usePathname} from "next/navigation";
+import {useEffect, useState} from "react";
 
 let fallbackTexts = [
     "Ой лишенько!",
@@ -18,7 +19,11 @@ let fallbackTexts = [
 
 export default function NotFound() {
     let pathname = usePathname()
-    let randomIndex = Math.floor(Math.random() * fallbackTexts.length - 1)
+    let [randomIndex, setRandomIndex] = useState(0)
+
+    useEffect(() => {
+        setRandomIndex(Math.floor(Math.random() * fallbackTexts.length - 1))
+    }, []);
 
     console.log(randomIndex)
 

@@ -144,3 +144,12 @@ export async function getPaginationArray(
 
     return generatePages(totalPages, pageNum)
 }
+
+export async function getCategories() {
+    try {
+        return Tour.distinct("category")
+    } catch (e) {
+        console.log(e)
+        return [""]
+    }
+}

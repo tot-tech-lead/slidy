@@ -13,8 +13,6 @@
     width: calc(100% + 10px);
     @include flex(flex-start, flex-start, row, no-wrap);
     gap: $gap-between-connected-elements;
-    transform: translateY(-10px);
-    margin-bottom: -10px;
 
     & > div {
       opacity: 0;

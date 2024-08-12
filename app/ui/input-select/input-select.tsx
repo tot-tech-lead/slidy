@@ -40,7 +40,12 @@ function InputSelect(
     let [options, setOptions] = useState<Array<string>>([]);
     let [link, setLink] = useState<null | string>(null)
 
-    let id = useMemo(() => Math.floor(Date.now() + Math.random() * 100000), [])
+    let [id, setId] = useState(0)
+
+    useEffect(() => {
+        setId(Math.floor(Date.now() + Math.random() * 100000))
+    }, []);
+
     useEffect(() => {
         if (!staticLabel) {
             if (value) {
@@ -66,11 +71,14 @@ function InputSelect(
     const inputFocusHandler = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
         if (!staticLabel) {
             let label = e.target.parentElement?.parentElement?.querySelector<HTMLElement>(`.InputSelect${id} .${styles.label}`);
+
+            console.log(e.target.parentElement?.parentElement, `.InputSelect${id} .${styles.label}`)
             if (label) {
                 label.style.top = "-3px";
                 label.style.fontSize = "10px";
                 label.style.color = "#333333"
             }
+            console.log("HERE")
         }
     }, [id, staticLabel])
 
@@ -86,12 +94,14 @@ function InputSelect(
 
     let inputBlurHandler = (e: React.FocusEvent<HTMLInputElement>) => {
         if (!staticLabel) {
-            if (e.target.value === "") {
+            if (e.target.value.trim() === "") {
                 let label = e.target.parentElement?.parentElement?.querySelector<HTMLElement>(`.InputSelect${id} .${styles.label}`)
 
                 if (label) {
                     label.removeAttribute("style")
                 }
+
+                setOptions([])
             }
             if (optionInput.current) {
                 if (!data.includes(optionInput.current.value)) {
