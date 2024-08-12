@@ -23,12 +23,13 @@ import Image from "next/image";
 
 import {usePathname} from "next/navigation";
 import {useEffect, useState} from "react";
+import {StaticImport} from "next/dist/shared/lib/get-img-props";
 
 
 function MenuItem({path, iconOutlined, iconFilled, label}: {
     path: string,
-    iconOutlined: string | object,
-    iconFilled: string | object,
+    iconOutlined: string | StaticImport,
+    iconFilled: string | StaticImport,
     label: string
 }) {
     const [isActive, setIsActive] = useState(false)
