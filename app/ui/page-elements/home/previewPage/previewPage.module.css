@@ -11,6 +11,9 @@
   position: relative;
   box-shadow: 0 -4px 15px rgba(20, 20, 20, 0.1);
 }
+.PreviewPage .background {
+  display: none;
+}
 .PreviewPage .citiesSwiper {
   display: flex;
   flex-direction: row;
@@ -236,16 +239,59 @@
   }
 }
 @media screen and (max-width: 800px) {
-  .PreviewPage .container {
-    justify-content: center;
+  .PreviewPage {
+    min-height: 100vh;
+    box-shadow: none;
+    display: flex;
     align-items: center;
-    height: auto;
+    justify-content: center;
+    padding-top: 0;
   }
-  .PreviewPage .container .section {
+  .PreviewPage .background {
+    display: flex;
+    width: 100%;
+    position: absolute;
+    height: 100vh;
+    z-index: 1;
+    opacity: 0.3;
+  }
+  .PreviewPage .background .topBlob {
+    height: 200px;
+    object-fit: contain;
+    position: absolute;
+    top: 50px;
+    left: -50px;
+    filter: drop-shadow(0 0 15px rgba(255, 168, 0, 0.5));
+    transform: scale(0);
+    opacity: 0;
+  }
+  .PreviewPage .background .bottomBlob {
+    height: 250px;
+    object-fit: contain;
+    position: absolute;
+    bottom: 0;
+    right: -50px;
+    filter: drop-shadow(0 0 15px rgba(255, 168, 0, 0.5));
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  .PreviewPage .citiesSwiper {
+    display: none;
+  }
+  .PreviewPage .container {
+    display: none;
+  }
+  .PreviewPage .section {
     width: 100%;
     align-items: center;
+    transform: translateY(25%);
+    border-radius: 0;
+    padding: 0;
+    z-index: 2;
+    background: transparent;
+    backdrop-filter: none;
   }
-  .PreviewPage .container .section .welcomeText {
+  .PreviewPage .section .welcomeText {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -253,8 +299,11 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 25px;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
   }
-  .PreviewPage .container .section .welcomeText .headlineContainer {
+  .PreviewPage .section .welcomeText .headlineContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -264,10 +313,10 @@
     text-align: center;
     gap: 15px;
   }
-  .PreviewPage .container .section .welcomeText .headlineContainer .headline {
+  .PreviewPage .section .welcomeText .headlineContainer .headline {
     width: 100%;
   }
-  .PreviewPage .container .section .welcomeText .buttonContainer {
+  .PreviewPage .section .welcomeText .buttonContainer {
     display: flex;
     flex-direction: row;
     align-items: 0;
@@ -275,19 +324,14 @@
     flex-wrap: wrap;
     gap: 15px;
   }
-  .PreviewPage .container .section_swiper {
+  .PreviewPage .section_swiper {
     display: none;
   }
-  .PreviewPage .container .section .swiperContainer {
+  .PreviewPage .section .swiperContainer {
     display: none;
   }
-}
-@media screen and (max-width: 400px) {
-  .PreviewPage {
-    padding: 10px;
-  }
-  .PreviewPage .section {
-    padding: 25px 15px;
+  .PreviewPage .iconsDataContainer {
+    display: none;
   }
 }
 

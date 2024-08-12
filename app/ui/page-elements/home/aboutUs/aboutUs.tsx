@@ -12,14 +12,7 @@ import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import {MotionPathPlugin} from "gsap/MotionPathPlugin";
 
-import dynamic from "next/dynamic";
-
-const DynamicContent = dynamic(() => import("@/app/ui/page-elements/home/aboutUs/content"), {
-    loading: () =>
-        <div style={{height: "100vh", display: "flex", alignItems: "center", justifyContent: "center"}}>
-            Зачекайте
-        </div>,
-})
+import AboutUsContent from "@/app/ui/page-elements/home/aboutUs/content"
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
@@ -241,7 +234,7 @@ export default function AboutUs() {
                 <div className={`${styles.backgroundStatic} ${styles.backgroundStatic1}`}></div>
                 <div className={`${styles.backgroundStatic} ${styles.backgroundStatic2}`}></div>
             </div>
-            <DynamicContent/>
+            <AboutUsContent/>
         </div>
     );
 }

@@ -10,6 +10,10 @@
   position: relative;
   box-shadow: 0 -4px 15px $shadows-black;
 
+  .background {
+    display: none;
+  }
+
   .citiesSwiper {
     @include flex(center, center, row);
     width: 100%;
@@ -245,54 +249,97 @@
 
 @media screen and (max-width: 800px) {
   .PreviewPage {
-    .container {
-      justify-content: center;
-      align-items: center;
-      height: auto;
+    min-height: 100vh;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
 
-      .section {
-        width: 100%;
-        align-items: center;
+    .background {
+      display: flex;
+      width: 100%;
+      position: absolute;
+      height: 100vh;
+      z-index: 1;
+      opacity: 0.3;
 
-        .welcomeText {
-          width: 100%;
-          @include flex(center, center, column);
-          gap: $gap-between-connected-elements;
-
-          .headlineContainer {
-            width: 100%;
-            @include flex(center, center, column);
-            text-align: center;
-            gap: $gap-between-closely-placed-elements;
-
-            .headline {
-              width: 100%;
-            }
-          }
-
-          .buttonContainer {
-            @include flex(0, 0, row);
-            gap: $gap-between-closely-placed-elements;
-          }
-        }
-
-        &_swiper {
-          display: none;
-        }
-
-        .swiperContainer {
-          display: none;
-        }
+      .topBlob {
+        height: 200px;
+        object-fit: contain;
+        position: absolute;
+        top: 50px;
+        left: -50px;
+        filter: drop-shadow(0 0 15px $accent-color-shadow);
+        transform: scale(0);
+        opacity: 0;
+      }
+      .bottomBlob {
+        height: 250px;
+        object-fit: contain;
+        position: absolute;
+        bottom: 0;
+        right: -50px;
+        filter: drop-shadow(0 0 15px $accent-color-shadow);
+        transform: scale(0.9);
+        opacity: 0;
       }
     }
-  }
-}
-@media screen and (max-width: 400px) {
-  .PreviewPage {
-    padding: 10px;
+
+    .citiesSwiper {
+      display: none;
+    }
+
+    .container {
+      display: none;
+    }
 
     .section {
-      padding: 25px 15px;
+      width: 100%;
+      align-items: center;
+      transform: translateY(25%);
+      border-radius: 0;
+      padding: 0;
+      z-index: 2;
+      background: transparent;
+      backdrop-filter: none;
+
+      .welcomeText {
+        width: 100%;
+        @include flex(center, center, column);
+        gap: $gap-between-connected-elements;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+
+        .headlineContainer {
+          width: 100%;
+          @include flex(center, center, column);
+          text-align: center;
+          gap: $gap-between-closely-placed-elements;
+
+          .headline {
+            width: 100%;
+          }
+        }
+
+        .buttonContainer {
+          @include flex(0, 0, row);
+          gap: $gap-between-closely-placed-elements;
+        }
+      }
+
+      &_swiper {
+        display: none;
+      }
+
+      .swiperContainer {
+        display: none;
+      }
+    }
+
+    .iconsDataContainer {
+      display: none;
     }
   }
 }

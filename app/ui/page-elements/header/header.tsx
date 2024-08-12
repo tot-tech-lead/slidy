@@ -119,6 +119,26 @@ export default function Header() {
         console.log(isBurgerShown);
     };
 
+    useEffect(() => {
+        let handleResize = () => {
+            let header = document.querySelector<HTMLElement>(`.${styles.Header}`)
+
+            if (!header) return
+
+            header.style.display = window.innerWidth > 800 ? "flex" : "none"
+        }
+
+        if (typeof window !== "undefined") {
+            window.addEventListener("resize", handleResize)
+        }
+
+        return () => {
+            if (typeof window !== "undefined") {
+                window.removeEventListener("resize", handleResize)
+            }
+        }
+    }, []);
+
 
     return (
         <header className={clsx([styles.Header], {
