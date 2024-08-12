@@ -1,4 +1,4 @@
-import styles from "@/app/ui/page-elements/header/header.module.css";
+import styles from "@/app/ui/header/header.module.css";
 import Image from "next/image";
 import defAvatar from "@/public/assets/SVG/default-avatar.svg";
 import preStyle from "@/app/lib/ui-components.module.css";

@@ -18,7 +18,7 @@ import styles from "./header.module.css"
 
 import clsx from "clsx";
 
-import AuthBlock from "@/app/ui/page-elements/header/authBlock";
+import AuthBlock from "@/app/ui/header/authBlock";
 import {nunitoSans} from "@/app/ui/fonts";
 import {logIn, setData} from "@/app/lib/features/auth/auth";
 import {useCookies} from 'next-client-cookies';

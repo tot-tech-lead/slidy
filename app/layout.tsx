@@ -2,8 +2,8 @@ import "./globals.css";
 
 import type {Metadata} from "next";
 import {nunitoSans} from "@/app/ui/fonts";
-import Header from "@/app/ui/page-elements/header/header"
-import Footer from "@/app/ui/page-elements/footer/footer"
+import Header from "@/app/ui/header/header"
+import Footer from "@/app/ui/footer/footer"
 
 import StoreProvider from "@/app/StoreProvider";
 import {SpeedInsights} from "@vercel/speed-insights/next"

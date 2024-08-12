@@ -13,11 +13,6 @@
     width: calc(100% + 10px);
     @include flex(flex-start, flex-start, row, no-wrap);
     gap: $gap-between-connected-elements;
-
-    & > div {
-      opacity: 0;
-      display: none;
-    }
   }
 
   .applyBtn {

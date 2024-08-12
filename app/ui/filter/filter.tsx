@@ -112,7 +112,7 @@ export default function Filter(
 
 
     return (
-        <div className={styles.Filter}>
+        <div className={clsx(styles.Filter, "Filter")}>
             <h6 className={clsx(styles.headline, prestyle.textBigBold)}>Фільтри</h6>
             <Tippy className="Filter__tooltip" content={(opened ? "Приховати" : "Показати") + " фільтри"}>
                 <button aria-label="відкрити фільтри"

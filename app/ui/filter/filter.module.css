@@ -15,10 +15,6 @@
   flex-wrap: no-wrap;
   gap: 25px;
 }
-.Filter .inputContainer > div {
-  opacity: 0;
-  display: none;
-}
 .Filter .applyBtn {
   padding: 10px;
 }
