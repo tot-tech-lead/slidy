@@ -267,6 +267,7 @@
   }
   .PreviewPage .background .bottomBlob {
     height: 250px;
+    width: 250px;
     object-fit: contain;
     position: absolute;
     bottom: 0;

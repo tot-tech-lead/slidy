@@ -10,15 +10,14 @@ import {contentData as content} from "./content";
 
 import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {MotionPathPlugin} from "gsap/MotionPathPlugin";
 
 import AboutUsContent from "@/app/ui/page-elements/home/aboutUs/content"
 
-gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AboutUs() {
     const [headerHeight, setHeaderHeight] = useState(50);
-    const [isMobile, setIsMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(true);
 
     useEffect(() => {
         const userAgent = navigator.userAgent || navigator.vendor;
