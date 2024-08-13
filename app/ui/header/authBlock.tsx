@@ -6,9 +6,6 @@ import {roles} from "@/app/lib/data-define";
 import {deleteCookie} from "@/app/lib/cookie-parser";
 import React from "react";
 
-// import {useAppDispatch} from "@/app/lib/hooks";
-// import {logOut} from "@/app/lib/features/auth/auth";
-
 import {useAuth} from "@/app/lib/hooks/useAuth";
 
 export default function AuthBlock(

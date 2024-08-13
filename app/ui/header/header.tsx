@@ -31,8 +31,10 @@ export default function Header() {
     let updateData = useAuth(state => state.update)
 
     useEffect(() => {
-        updateData()
-    }, []);
+        if (!auth.isLogin) {
+            updateData()
+        }
+    }, [updateData, auth.isLogin]);
 
     useEffect(() => {
         let handleResize = () => {
