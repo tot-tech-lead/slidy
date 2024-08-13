@@ -3,6 +3,7 @@ import TeamSlider from "./team/team";
 import PreviewPageSkeleton from "@/app/ui/skeleton/preview-page";
 
 import dynamic from "next/dynamic";
+import {Metadata} from "next";
 
 const DynamicAboutUs = dynamic(() => import("./aboutUs/aboutUs"), {
     loading: () => <div
@@ -39,4 +40,8 @@ export default function Home() {
             <DynamicContacts/>
         </main>
     );
+}
+
+export const metadata: Metadata = {
+    title: "Домашня"
 }
