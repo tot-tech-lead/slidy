@@ -9,8 +9,9 @@ import Link from "next/link"
 import {gsap} from "gsap";
 
 import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {useAppDispatch, useAppSelector} from "@/app/lib/hooks";
-import {show, hide} from "@/app/lib/features/burger/burger";
+
+// import {useAppDispatch, useAppSelector} from "@/app/lib/hooks";
+// import {show, hide} from "@/app/lib/features/burger/burger";
 
 import Image from "next/image";
 import preStyle from "@/app/lib/ui-components.module.css"
@@ -20,16 +21,18 @@ import clsx from "clsx";
 
 import AuthBlock from "@/app/ui/header/authBlock";
 import {nunitoSans} from "@/app/ui/fonts";
-import {logIn, setData} from "@/app/lib/features/auth/auth";
+// import {logIn, setData} from "@/app/lib/features/auth/auth";
 import {useCookies} from 'next-client-cookies';
+import {useAuth} from "@/app/lib/hooks/useAuth";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Header() {
-    let dispatch = useAppDispatch()
+    // let dispatch = useAppDispatch()
     let router = useRouter()
-    let isBurgerShown = useAppSelector(state => state.burger.isShown)
-    let auth = useAppSelector(state => state.auth);
+    // let isBurgerShown = useAppSelector(state => state.burger.isShown)
+    let auth = useAuth(state => state.auth)
+    let updateData = useAuth(state => state.update)
 
     let location = usePathname()
     let cookies = useCookies()
@@ -47,61 +50,9 @@ export default function Header() {
         let token = cookies.get("TOKEN");
 
         if (token) {
-            dispatch(logIn())
+            updateData()
         }
     }, [cookies.get("TOKEN")]);
-
-
-    useEffect(() => {
-        if (auth.isLogin && typeof window !== "undefined") {
-            let fetchData = async () => {
-                try {
-                    const res = await fetch(`${window.location.origin}/api/user`, {
-                        method: "GET",
-                        credentials: "include",
-                    });
-
-                    const data = await res.json();
-
-                    if (data.status === 200) {
-                        dispatch(setData(data.body));
-                    } else {
-                        console.error("Failed to fetch data:", data);
-                    }
-                } catch (error) {
-                    console.error("Error fetching data:", error);
-                }
-            }
-
-            fetchData()
-        }
-    }, [auth.isLogin]);
-
-    useEffect(() => {
-        let tl = gsap.timeline();
-
-        if (isBurgerShown) {
-            tl.to(`.${styles.burgerBtnBullet}`, {
-                transform: "translateY(0)", duration: 0.1
-            })
-            tl.to(`.${styles.burgerBtnBullet}:nth-child(2)`, {
-                opacity: 0, duration: 0.1,
-            })
-            tl.to(`.${styles.burgerBtnBullet}`, {
-                transform: "translateY(var(--active-offset)) rotate(var(--own-ratio))", duration: 0.1
-            })
-        } else {
-            tl.to(`.${styles.burgerBtnBullet}`, {
-                transform: "translateY(var(--active-offset)) rotate(0)", duration: 0.1
-            })
-            tl.to(`.${styles.burgerBtnBullet}:nth-child(2)`, {
-                opacity: 1, duration: 0.1,
-            })
-            tl.to(`.${styles.burgerBtnBullet}`, {
-                transform: "translateY(var(--own-offset))", duration: 0.1
-            })
-        }
-    }, [isBurgerShown]);
 
 
     useEffect(() => {
@@ -109,15 +60,6 @@ export default function Header() {
             transform: "translateY(var(--own-offset))", duration: 0.1
         })
     }, [])
-
-    let handleBurgerClick = () => {
-        if (isBurgerShown) {
-            dispatch(hide());
-        } else {
-            dispatch(show());
-        }
-        console.log(isBurgerShown);
-    };
 
     useEffect(() => {
         let handleResize = () => {
@@ -194,14 +136,6 @@ export default function Header() {
                         >Реєстрація
                         </a>
                     </>}
-                    <button className={styles.burgerBtn}
-                            aria-label="Відкрити меню"
-                            onClick={handleBurgerClick}
-                    >
-                        <span className={styles.burgerBtnBullet}></span>
-                        <span className={styles.burgerBtnBullet}></span>
-                        <span className={styles.burgerBtnBullet}></span>
-                    </button>
                 </>}
             </div>
         </header>

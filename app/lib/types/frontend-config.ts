@@ -1,3 +1,6 @@
+/** A file that contain types that used when there is TypeError
+ * */
+
 export interface Swiper {
     slideTo: Function,
     autoplay: {

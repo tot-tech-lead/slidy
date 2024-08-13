@@ -6,8 +6,10 @@ import {roles} from "@/app/lib/data-define";
 import {deleteCookie} from "@/app/lib/cookie-parser";
 import React from "react";
 
-import {useAppDispatch} from "@/app/lib/hooks";
-import {logOut} from "@/app/lib/features/auth/auth";
+// import {useAppDispatch} from "@/app/lib/hooks";
+// import {logOut} from "@/app/lib/features/auth/auth";
+
+import {useAuth} from "@/app/lib/hooks/useAuth";
 
 export default function AuthBlock(
     {
@@ -22,7 +24,7 @@ export default function AuthBlock(
         role?: string
     }
 ) {
-    let dispatch = useAppDispatch()
+    let logout = useAuth(state => state.deleteData)
 
     return (
         <>
@@ -36,7 +38,7 @@ export default function AuthBlock(
                     <div className={`${styles.loginText} ${preStyle.textBig}`}>{roles[role as keyof typeof roles]}</div>
                 </div>
                 <button className={preStyle.buttonOutlined} onClick={() => {
-                    dispatch(logOut())
+                    logout()
                     deleteCookie("TOKEN")
                 }}>logout
                 </button>

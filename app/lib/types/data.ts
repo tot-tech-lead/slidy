@@ -1,3 +1,6 @@
+/** A file that contains a types of data placed in @/app/lib/data-define.ts
+ * */
+
 import {countries, currency} from "@/app/lib/data-define";
 const createEnum = <T extends string>(arr: T[]) => arr as ReadonlyArray<T>;
 

@@ -6,7 +6,6 @@ import Header from "@/app/ui/header/header"
 import Footer from "@/app/ui/footer/footer"
 import MobileMenu from "@/app/ui/mobile-menu/mobile-menu";
 
-import StoreProvider from "@/app/StoreProvider";
 import {SpeedInsights} from "@vercel/speed-insights/next"
 import {Analytics} from "@vercel/analytics/react"
 
@@ -24,7 +23,6 @@ export default function RootLayout(
 ) {
     return (
         <CookiesProvider>
-            <StoreProvider>
                 <html lang="en">
                 <body className={nunitoSans.className}>
                 <Header/>
@@ -35,7 +33,6 @@ export default function RootLayout(
                 <Analytics/>
                 </body>
                 </html>
-            </StoreProvider>
         </CookiesProvider>
     );
 }

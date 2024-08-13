@@ -6,11 +6,9 @@ import styles from "./login.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
 
 import {useActionState, useEffect, useState} from "react";
-import {useRouter} from "next/navigation";
-import {useAppDispatch} from "@/app/lib/hooks";
 import clsx from "clsx";
 import {login, State} from "@/app/lib/action/authorization";
-import {sendMessageToTelegram} from "@/app/lib/action/bot";
+import {useAuth} from "@/app/lib/hooks/useAuth";
 
 let defaultFormData = {
     loginData: "",
@@ -18,10 +16,9 @@ let defaultFormData = {
 }
 
 export default function Login() {
-    let dispatch = useAppDispatch();
-    let router = useRouter();
-
     let [formData, setFormData] = useState(defaultFormData);
+
+    let updateAuthData = useAuth(state => state.update)
 
     let setValue = (label: string) => (value: any) => {
         setFormData({
@@ -40,6 +37,7 @@ export default function Login() {
     useEffect(() => {
         if (state?.status === 200) {
             alert("Ви успіщно увійшли")
+            updateAuthData()
         }
     }, [state]);
 
