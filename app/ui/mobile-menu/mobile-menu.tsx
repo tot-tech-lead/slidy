@@ -46,7 +46,7 @@ function MenuItem({path, iconOutlined, iconFilled, label}: {
 
     return <Link href={path} className={styles.menuItem}>
         <Image src={isActive ? iconFilled : iconOutlined}
-               alt={`${label}`}
+               alt={`${label} іконка`}
                className={styles.menuItemIcon}
         />
         <p className={prestyle.textSmallSemiVisible}>{label}</p>
