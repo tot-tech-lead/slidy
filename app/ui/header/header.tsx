@@ -10,9 +10,6 @@ import {gsap} from "gsap";
 
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 
-// import {useAppDispatch, useAppSelector} from "@/app/lib/hooks";
-// import {show, hide} from "@/app/lib/features/burger/burger";
-
 import Image from "next/image";
 import preStyle from "@/app/lib/ui-components.module.css"
 import styles from "./header.module.css"
@@ -21,45 +18,21 @@ import clsx from "clsx";
 
 import AuthBlock from "@/app/ui/header/authBlock";
 import {nunitoSans} from "@/app/ui/fonts";
-// import {logIn, setData} from "@/app/lib/features/auth/auth";
-import {useCookies} from 'next-client-cookies';
 import {useAuth} from "@/app/lib/hooks/useAuth";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Header() {
-    // let dispatch = useAppDispatch()
     let router = useRouter()
-    // let isBurgerShown = useAppSelector(state => state.burger.isShown)
     let auth = useAuth(state => state.auth)
-    let updateData = useAuth(state => state.update)
 
     let location = usePathname()
-    let cookies = useCookies()
+
+    let updateData = useAuth(state => state.update)
 
     useEffect(() => {
-        gsap.set(`.${styles.burgerBtnBullet}`, {
-            transform: "translateY(var(--own-offset)) rotate(0)",
-        })
-        gsap.set(`.${styles.burgerBtnBullet}:nth-child(2)`, {
-            opacity: 1,
-        })
-    }, [])
-
-    useEffect(() => {
-        let token = cookies.get("TOKEN");
-
-        if (token) {
-            updateData()
-        }
-    }, [cookies.get("TOKEN")]);
-
-
-    useEffect(() => {
-        gsap.from(`.${styles.burgerBtnBullet}`, {
-            transform: "translateY(var(--own-offset))", duration: 0.1
-        })
-    }, [])
+        updateData()
+    }, []);
 
     useEffect(() => {
         let handleResize = () => {

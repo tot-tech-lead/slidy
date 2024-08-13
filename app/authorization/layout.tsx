@@ -29,7 +29,7 @@ export default function AuthLayout({children}: Readonly<{
                 router.push("/authorization/registration")
                 break;
         }
-    }, [tab]);
+    }, [tab, router]);
 
     useEffect(() => {
         switch (location) {

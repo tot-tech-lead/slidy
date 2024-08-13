@@ -52,7 +52,7 @@ export default function Register() {
             alert("Зареєстровано успішно!")
             router.push("/authorization/login")
         }
-    }, [state]);
+    }, [state, router]);
 
     let setPhoneNumber = (country: string) => {
         let countryObject = countries.filter(item => item.code === country.split(" - ")[0])[0]

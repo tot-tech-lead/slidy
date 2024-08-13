@@ -1,6 +1,5 @@
 "use client"
 
-
 import Input from "@/app/ui/input/input";
 import styles from "./login.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
@@ -39,7 +38,7 @@ export default function Login() {
             alert("Ви успіщно увійшли")
             updateAuthData()
         }
-    }, [state]);
+    }, [state, updateAuthData]);
 
     return (
         <form action={formAction} className={styles.Login}>

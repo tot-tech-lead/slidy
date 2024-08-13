@@ -37,7 +37,7 @@ export default function TourCard(
                     setImage(url)
                 })
         }
-    }, []);
+    }, [data.images]);
 
     useEffect(() => {
         let resizeFnc = () => {

@@ -29,16 +29,20 @@ export const useAuth = create<AuthStore>((set) => ({
         data: {}
     },
     update: async () => {
-        let response = await fetch(`/api/user`, {credentials: "include"})
-        let data = await response.json()
+        try {
+            let response = await fetch(`/api/user`, {credentials: "include"})
+            let data = await response.json()
 
-        if (data.body) {
-            set({
-                auth: {
-                    data: data.body,
-                    isLogin: true
-                }
-            })
+            if (data.body) {
+                set({
+                    auth: {
+                        data: data.body,
+                        isLogin: true
+                    }
+                })
+            }
+        } catch (e) {
+            console.log(e)
         }
     },
     deleteData: () => {
