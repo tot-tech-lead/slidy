@@ -84,6 +84,8 @@ export default function Info(
         })
     );
 
+    console.log(apiKey)
+
     return (
         <div className={styles.viewTourInfo}>
             <div className={styles.Map}>
