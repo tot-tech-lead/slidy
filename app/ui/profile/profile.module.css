@@ -1,0 +1,49 @@
+.StarRating {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.StarRating .ratingLabel {
+  line-height: 90%;
+}
+
+.GuideProfile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.GuideProfile .avatarImg {
+  min-width: 50px;
+  flex-shrink: 0;
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  object-position: center center;
+  pointer-events: none;
+  user-select: none;
+  box-shadow: 1px 2px 4px rgba(20, 20, 20, 0.1);
+  border-radius: 50%;
+}
+.GuideProfile .guideInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.GuideProfile .guideInfo .guideName {
+  color: #171717;
+}
+.GuideProfile .guideInfo .guideRaiting {
+  color: #171717;
+  opacity: 0.7;
+}
+.GuideProfile span {
+  opacity: 0.7;
+}
+
+/*# sourceMappingURL=profile.module.css.map */

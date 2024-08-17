@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["styles.module.scss","../../../ui/sass-config/variables.scss"],"names":[],"mappings":"AAGA;EACE;EACA;EACA;EACA;EACA,KCamC;EDZnC,SCQ2B;EDP3B;EACA;;AAEA;EACE,OCNG;;;ADUP;EACE;IACE,SCJa;;;ADQjB;EACE;IACE;IACA,KCP6B","file":"styles.module.css"}

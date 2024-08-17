@@ -1,0 +1,45 @@
+@import "../sass-config/variables";
+@import "../sass-config/mixins";
+
+.StarRating {
+  @include flex(baseline, flex-start, row);
+  gap: 5px;
+
+  .ratingLabel {
+    line-height: 90%;
+  }
+}
+
+.GuideProfile {
+  @include flex(center, flex-start, row);
+  gap: $gap-between-closely-placed-elements;
+
+
+  .avatarImg {
+    min-width: 50px;
+    flex-shrink: 0;
+    @include avatarStyle(50px);
+    border-radius: 50%;
+  }
+
+  .guideInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    .guideName {
+      color: $black;
+    }
+
+    .guideRaiting {
+      color: $black;
+      opacity: 0.7;
+
+    }
+  }
+
+  span {
+    opacity: 0.7;
+  }
+
+}

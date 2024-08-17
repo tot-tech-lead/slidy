@@ -73,6 +73,12 @@
     flex-wrap: wrap;
   }
 }
+@media screen and (max-width: 800px) {
+  .Footer {
+    padding: 25px;
+    margin-bottom: 75px;
+  }
+}
 @media screen and (max-width: 576px) {
   .Footer {
     padding: 25px;

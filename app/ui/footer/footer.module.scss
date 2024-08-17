@@ -67,6 +67,13 @@
   }
 }
 
+@media screen and (max-width: 800px) {
+  .Footer {
+    padding: $manual-padding;
+    margin-bottom: 75px;
+  }
+}
+
 @media screen and (max-width: 576px) {
   .Footer {
     padding: $manual-padding;

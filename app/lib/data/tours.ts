@@ -5,6 +5,7 @@ import Tour from "@/app/lib/models/tour";
 
 import {TOURS_PER_PAGE} from "@/app/lib/constants"
 import {generatePages} from "@/app/lib/data/generators";
+import mongoose from "mongoose";
 
 
 export async function getTours(
@@ -151,5 +152,78 @@ export async function getCategories() {
     } catch (e) {
         console.log(e)
         return [""]
+    }
+}
+
+export async function getTour(id: string) {
+    try {
+        let tour = await Tour.aggregate([
+            {
+                $match: {
+                    _id: new mongoose.Types.ObjectId(id)
+                }
+            },
+            {
+                $lookup: {
+                    from: 'tourguides',
+                    localField: 'guide.profile',
+                    foreignField: '_id',
+                    as: 'guideDetails'
+                }
+            }, {
+                $addFields: {
+                    "guide.profile": {$arrayElemAt: ['$guideDetails', 0]}
+                }
+            },
+            {
+                $lookup: {
+                    from: 'authdatas',
+                    localField: 'guide.profile.personalAccount',
+                    foreignField: '_id',
+                    as: 'guideDetailsAccount'
+                }
+            }, {
+                $addFields: {
+                    "guide.profile.personalAccount": {$arrayElemAt: ['$guideDetailsAccount', 0]}
+                }
+            }, {
+                $addFields: {
+                    imageLinks: {
+                        $map: {
+                            input: "$images",
+                            as: "imageId",
+                            in: {
+                                $concat: ["/api/db/get-images/", {$toString: "$$imageId"}]
+                            }
+                        }
+                    }
+                }
+            }, {
+                $project: {
+                    images: 0,
+                    guideDetailsAccount: 0,
+                    guideDetails: 0
+                }
+            }
+        ]);
+
+        if (!tour[0]) {
+            return {
+                status: 404,
+                message: `Тур не знайдено`
+            }
+        }
+
+        return {
+            status: 200,
+            message: "Ok",
+            data: JSON.parse(JSON.stringify(tour[0]))
+        }
+    } catch (e) {
+        console.log(e)
+        return {
+            status: 500,
+            message: `Помилка на сервері: ${String(e)}`
+        }
     }
 }
