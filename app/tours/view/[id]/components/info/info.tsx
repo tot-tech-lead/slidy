@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 "use client"
 
 import prestyle from "@/app/lib/ui-components.module.css"
@@ -6,10 +8,15 @@ import styles from "./styles.module.css"
 
 import Profile from "@/app/ui/profile/profile";
 import {AdvancedMarker, APIProvider, Map, Pin, useMap, useMapsLibrary} from "@vis.gl/react-google-maps";
-import {useEffect, useState} from "react";
+import {useEffect, useMemo, useState} from "react";
 import {AuthData, FeedbackSchema, Location, TourGuidePopulated} from "@/app/lib/types/mongo-models";
 import {EnumCurrency} from "@/app/lib/types/data";
 import clsx from "clsx";
+
+type Waypoint = {
+    location: google.maps.LatLng
+    stopover: boolean
+}
 
 interface GottenAuth extends Omit<AuthData, "avatar"> {
     avatar: string
@@ -49,9 +56,13 @@ export default function Info(
         guideProfile: TourGuideGotten
     }
 ) {
-    if (!locations || locations.length < 2) {
-        return <p>Недостатньо даних для побудови маршруту.</p>;
-    }
+    let apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
+
+    const rating = useMemo(() => {
+        return feedbacks.reduce((acc, value) => {
+            return acc + value.points
+        }, 0);
+    }, [feedbacks])
 
     const startLocation = {
         lat: locations[0].coordinates[0],
@@ -73,34 +84,33 @@ export default function Info(
         })
     );
 
-    const rating = feedbacks.reduce((acc, value) => {
-        return acc + value.points
-    }, 0);
-
     return (
         <div className={styles.viewTourInfo}>
             <div className={styles.Map}>
-                <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY} language={"uk"}>
-                    <div style={{width: '100%'}}>
-                        <Map
-                            defaultZoom={16}
-                            className={styles.map_frame}
-                            defaultCenter={{lat: locations[0].coordinates[0], lng: locations[0].coordinates[1]}}
-                            mapId={`APP-MAP-ID-${_id}`}
-                            fullscreenControl={false}
-                            mapTypeControl={false}
-                            streetViewControl={false}
-                        >
-                            <Directions origin={startLocation}
-                                        destination={endLocation}
-                                        waypoints={waypoints}
-                            />
-                            <AdvancedMarker>
-                                <Pin background={'#FFA800'} glyphColor={'#23214140'} borderColor={"#FFA800"}/>
-                            </AdvancedMarker>
-                        </Map>
-                    </div>
-                </APIProvider>
+                {
+                    (typeof apiKey === "string" && !!locations && locations.length > 2) &&
+                    <APIProvider apiKey={apiKey} language={"uk"}>
+                        <div style={{width: '100%'}}>
+                            <Map
+                                defaultZoom={16}
+                                className={styles.map_frame}
+                                defaultCenter={{lat: locations[0].coordinates[0], lng: locations[0].coordinates[1]}}
+                                mapId={`APP-MAP-ID-${_id}`}
+                                fullscreenControl={false}
+                                mapTypeControl={false}
+                                streetViewControl={false}
+                            >
+                                <Directions origin={startLocation}
+                                            destination={endLocation}
+                                            waypoints={waypoints}
+                                />
+                                <AdvancedMarker>
+                                    <Pin background={'#FFA800'} glyphColor={'#23214140'} borderColor={"#FFA800"}/>
+                                </AdvancedMarker>
+                            </Map>
+                        </div>
+                    </APIProvider>
+                }
             </div>
 
             <div className={styles.info_container}>
@@ -158,7 +168,7 @@ export default function Info(
                         <Profile name={guideProfile.personalAccount.name}
                                  surname={guideProfile.personalAccount.surname}
                                  avatar={guideProfile.personalAccount.avatar}
-                                 rating={5}
+                                 rating={rating}
                         />
 
                         <div className={styles.Buttons}>
@@ -172,7 +182,11 @@ export default function Info(
     );
 }
 
-export function Directions({origin, destination, waypoints}) {
+export function Directions({origin, destination, waypoints}: {
+    origin: google.maps.LatLngLiteral,
+    destination: google.maps.LatLng,
+    waypoints?: Waypoint[],
+}) {
     const map = useMap();
     const routesLibrary = useMapsLibrary("routes")
 
@@ -190,12 +204,18 @@ export function Directions({origin, destination, waypoints}) {
     useEffect(() => {
         if (!directionService || !directionRenderer) return
 
-        let routeOptions = {
+        let routeOptions: {
+            origin: LatLng,
+            destination: LatLng,
+            waypoints?: Waypoint[],
+            travelMode: any
+        } = {
             origin: origin,
             destination: destination,
-            travelMode: google.maps.TravelMode.WALKING
+            travelMode: google.maps.TravelMode.WALKING,
         }
-        if (waypoints) {
+
+        if (waypoints.length > 0) {
             routeOptions.waypoints = waypoints
         }
 

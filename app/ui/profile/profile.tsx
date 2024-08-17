@@ -18,14 +18,12 @@ export function RatingDisplay({rating}: {rating: number}) {
     return (
         <div className={clsx(styles.StarRating)}>
             <StarRatings
-                rating={roundedRating}
+                rating={rating}
                 starDimension="20px"
                 starSpacing="2px"
                 starRatedColor="#FFA800"
                 starEmptyColor="#D3D3D3"
                 starHoverColor="#FFA800"
-                starBorderColor="#FFA800"
-                starBorderRadius="50%"
                 svgIconPath={path}
             />
             <span className={clsx(styles.ratingLabel, prestyle.textSmallSemiVisible)}>
@@ -39,7 +37,7 @@ export default function Profile({avatar, name, surname, rating}: {
     avatar:  string | StaticImageData,
     name: string,
     surname: string,
-    rating: 1 | 2 | 3 | 4 | 5
+    rating: number
 }) {
     return (
         <div className={clsx(styles.GuideProfile)}>
