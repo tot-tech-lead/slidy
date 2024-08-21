@@ -64,6 +64,7 @@
   bottom: 25px;
   left: 0;
   padding: 0 25px;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 1175px) {

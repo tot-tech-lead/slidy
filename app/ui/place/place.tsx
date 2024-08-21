@@ -38,7 +38,9 @@ export default function Place({location, image}: {location: Location, image: str
                 </div>
 
                 <a href={`https://www.google.com/maps/place/${location.coordinates[0]},${location.coordinates[1]}`}
-                   target="_blank" rel="noopener noreferrer" className={styles.link}>
+                   target="_blank" rel="noopener noreferrer" className={clsx(
+                    styles.link, prestyle.textBig
+                )}>
                     Зупинка на Google maps
                 </a>
             </div>
