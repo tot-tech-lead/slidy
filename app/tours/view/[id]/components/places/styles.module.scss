@@ -1,0 +1,23 @@
+@import "../../../../../ui/sass-config/variables";
+
+.viewTourPlaces {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: $gap-between-not-connected-elements;
+
+  .headline {
+    color: $dark;
+  }
+
+  .locations {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: $gap-between-connected-elements;
+  }
+}

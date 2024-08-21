@@ -10,21 +10,25 @@ import {nunito} from "@/app/ui/fonts";
 import Info from "./components/info/info"
 import {getTour} from "@/app/lib/data/tours";
 import clsx from "clsx";
+import Places from "@/app/tours/view/[id]/components/places/place";
 
 export default async function Page({params}: { params: { id: string } }) {
     const {id} = params;
 
     const {status, data, message} = await getTour(id)
 
-    // console.log("DATA", data)
-
     return (
         <div className={styles.tourPage}>
             {
                 status === 200 ? data && <>
                     <h2 className={clsx(prestyle.textH2, nunito.className, styles.headline)}>{data.name}</h2>
-                    <Info {...{...data}} guideProfile={data.guide.profile} />
-                    {/*<ViewTourInfo {...data} />*/}
+                    <Info
+                        {...{...data}}
+                        guideProfile={data.guide.profile}
+                    />
+                    <Places images={data.images}
+                            locations={data.locations}
+                    />
                     {/*<ViewTourPlaces {...data} />*/}
                     {/*<ViewTourFeedbacks {...data} />*/}
                     <a href={data.guide?.contactLink}

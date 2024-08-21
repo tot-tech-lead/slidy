@@ -53,7 +53,7 @@ export interface Location {
     name: string,
     description: string,
     coordinates: [number, number],
-    image: Types.ObjectId,
+    image?: Types.ObjectId,
 }
 
 export interface Tour extends mongoose.Document {
