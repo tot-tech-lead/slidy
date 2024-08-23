@@ -3,7 +3,7 @@
 import styles from "./previewPage.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
 
-import {nunito, nunitoSans} from "@/app/ui/fonts";
+import {nunito, nunitoSans} from "@/app/[lang]/ui/fonts";
 
 import React, {useEffect, useMemo, useState} from "react"
 import clsx from "clsx";
@@ -16,7 +16,7 @@ import gsap from "gsap";
 import {SwiperEl, SwiperProgressEvent} from "@/app/lib/types/frontend-config";
 
 import Slides from "./slides";
-import ImageSkeleton from "@/app/ui/skeleton/image-skeleton";
+import ImageSkeleton from "@/app/[lang]/ui/skeleton/image-skeleton";
 
 register();
 

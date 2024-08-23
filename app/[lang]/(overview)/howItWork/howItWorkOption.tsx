@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import styles from './howItWorkOption.module.css';
 import prestyle from "@/app/lib/ui-components.module.css"
-import {nunito, nunitoSans} from "@/app/ui/fonts";
+import {nunito, nunitoSans} from "@/app/[lang]/ui/fonts";
 
 import arrow from "@/public/assets/SVG/arrow.svg"
 

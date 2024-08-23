@@ -2,11 +2,11 @@
 
 import HowItWorkOption from "./howItWorkOption";
 import {useState} from "react";
-import Switch from "@/app/ui/switch/switch";
+import Switch from "@/app/[lang]/ui/switch/switch";
 
 import styles from "./howItWork.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
-import {nunito} from "@/app/ui/fonts";
+import {nunito} from "@/app/[lang]/ui/fonts";
 
 export default function HowItWork() {
     let [tab, setTab] = useState('Якщо ви турист:')

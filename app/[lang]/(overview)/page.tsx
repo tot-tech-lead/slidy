@@ -1,6 +1,6 @@
 import WaitListForm from "./waitList/wait-list";
 import TeamSlider from "./team/team";
-import PreviewPageSkeleton from "@/app/ui/skeleton/preview-page";
+import PreviewPageSkeleton from "@/app/[lang]/ui/skeleton/preview-page";
 
 import dynamic from "next/dynamic";
 import {Metadata} from "next";

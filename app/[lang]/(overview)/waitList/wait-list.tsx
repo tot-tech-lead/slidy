@@ -2,7 +2,7 @@
 
 import styles from "./wait-list.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
-import {nunito, nunitoSans} from "@/app/ui/fonts";
+import {nunito, nunitoSans} from "@/app/[lang]/ui/fonts";
 
 import steps from "./SVG/steps.svg";
 import plane from "@/app/lib/icons/plane.svg";

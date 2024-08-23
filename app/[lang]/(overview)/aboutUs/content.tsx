@@ -1,6 +1,6 @@
 import styles from "../aboutUs/aboutUs.module.css";
 import prestyle from "@/app/lib/ui-components.module.css";
-import {nunito, nunitoSans} from "@/app/ui/fonts";
+import {nunito, nunitoSans} from "@/app/[lang]/ui/fonts";
 
 export const contentData = [
     {

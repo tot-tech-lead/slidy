@@ -2,7 +2,7 @@
 
 import styles from "./contact-form.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
-import {nunito, nunitoSans} from "@/app/ui/fonts";
+import {nunito, nunitoSans} from "@/app/[lang]/ui/fonts";
 
 import {sendMessageToTelegram, State} from "@/app/lib/action/bot";
 
@@ -11,8 +11,8 @@ import Image from "next/image";
 
 import clsx from "clsx";
 import plane from '@/app/lib/icons/plane.svg'
-import Input from "@/app/ui/input/input";
-import TextArea from "@/app/ui/textarea/textarea";
+import Input from "@/app/[lang]/ui/input/input";
+import TextArea from "@/app/[lang]/ui/textarea/textarea";
 
 
 export default function ContactFrom() {

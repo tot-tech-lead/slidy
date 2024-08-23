@@ -16,8 +16,8 @@ import styles from "./header.module.css"
 
 import clsx from "clsx";
 
-import AuthBlock from "@/app/ui/header/authBlock";
-import {nunitoSans} from "@/app/ui/fonts";
+import AuthBlock from "./authBlock";
+import {nunitoSans} from "@/app/[lang]/ui/fonts";
 import {useAuth} from "@/app/lib/hooks/useAuth";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -59,7 +59,7 @@ export default function Header() {
 
     return (
         <header className={clsx([styles.Header], {
-            [styles.Header_active]: location == "/"
+            [styles.Header_active]: location == "/ua"
         })}>
             <Link href={"/"}>
                 <Image src={logo.src}

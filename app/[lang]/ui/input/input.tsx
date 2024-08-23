@@ -1,6 +1,6 @@
 import styles from "./input.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
-import {nunitoSans} from "@/app/ui/fonts";
+import {nunitoSans} from "@/app/[lang]/ui/fonts";
 
 import viewIcon from "./SVG/show.svg"
 import React, {useMemo, useCallback, useState, useEffect, ChangeEvent} from "react";

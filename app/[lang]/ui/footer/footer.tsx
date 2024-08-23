@@ -14,7 +14,7 @@ import tgIcon from "./SVG/telegram.svg"
 import phoneIcon from "./SVG/phone.svg"
 import Image from "next/image";
 
-import {nunito, nunitoSans} from "@/app/ui/fonts";
+import {nunito, nunitoSans} from "@/app/[lang]/ui/fonts";
 
 export default function Footer() {
     let handleScroll = (selector: string) => {

@@ -1,8 +1,8 @@
 'use client'
 
 import styles from "./not-found.module.css"
-import {nunito} from "@/app/ui/fonts";
-import prestyle from "./lib/ui-components.module.css"
+import {nunito} from "@/app/[lang]/ui/fonts";
+import prestyle from "../lib/ui-components.module.css"
 import {usePathname} from "next/navigation";
 import {useEffect, useState} from "react";
 

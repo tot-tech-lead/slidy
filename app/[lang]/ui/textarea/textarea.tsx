@@ -1,6 +1,6 @@
 import styles from "./textarea.module.css"
 import prestyle from "@/app/lib/ui-components.module.css";
-import {nunitoSans} from "@/app/ui/fonts";
+import {nunitoSans} from "@/app/[lang]/ui/fonts";
 
 import React, {useCallback, useEffect, useMemo} from "react";
 import clsx from "clsx";

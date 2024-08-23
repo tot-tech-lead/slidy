@@ -1,16 +1,9 @@
 import "./globals.css";
 
 import type {Metadata} from "next";
-import {nunitoSans} from "@/app/ui/fonts";
-import Header from "@/app/ui/header/header"
-import Footer from "@/app/ui/footer/footer"
-import MobileMenu from "@/app/ui/mobile-menu/mobile-menu";
+import {nunitoSans} from "@/app/[lang]/ui/fonts";
 
-import {SpeedInsights} from "@vercel/speed-insights/next"
-import {Analytics} from "@vercel/analytics/react"
-
-
-const description = "Ти новенький у місті і не знаєш чим  зайнятись? Вебсайт Сліди стане твоїм помічником при виборі екскурсовода або місцевого який допоможе тобі розвіятись. Окрім цього це можливість заробітку на знанні місцевості, адже платформа дозволяє будь-кому стати екскурсоводом. Гіди доступні у таких містах: Львів. Зараз записи на екскурсії проводяться у мобільному режимі. Сліди - найкарща платформа для пошуку екскурсоводів";
+const description = "Are you new in town and don't know what to do? The Slidy website will be your assistant in choosing a guide or a local who will help you unwind. Additionally, it's an opportunity to earn money by sharing your knowledge of the area, as the platform allows anyone to become a guide. Guides are available in cities like Lviv. Currently, bookings for excursions are being made in mobile mode. Slidy is the best platform for finding guides.";
 
 export default function RootLayout(
     {
@@ -22,12 +15,7 @@ export default function RootLayout(
     return (
         <html lang="en">
         <body className={nunitoSans.className}>
-        <Header/>
-        <MobileMenu/>
         {children}
-        <Footer/>
-        <SpeedInsights/>
-        <Analytics/>
         </body>
         </html>
     );

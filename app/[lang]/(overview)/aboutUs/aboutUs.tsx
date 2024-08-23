@@ -5,7 +5,7 @@ import React, {useEffect, useMemo, useState, useCallback} from "react";
 import Image from "next/image";
 
 import styles from "../aboutUs/aboutUs.module.css";
-import headerStyles from "@/app/ui/header/header.module.css";
+import headerStyles from "@/app/[lang]/ui/header/header.module.css";
 import {contentData as content} from "./content";
 
 import {gsap} from "gsap";
