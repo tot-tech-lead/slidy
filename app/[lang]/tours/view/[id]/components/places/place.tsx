@@ -1,8 +1,8 @@
 import styles from "./styles.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
-import {nunito} from "@/app/ui/fonts";
+import {nunito} from "@/app/[lang]/ui/fonts";
 
-import Place from "@/app/ui/place/place";
+import Place from "@/app/[lang]/ui/place/place";
 import clsx from "clsx";
 import {StaticImageData} from "next/image";
 import {Location} from "@/app/lib/types/mongo-models";

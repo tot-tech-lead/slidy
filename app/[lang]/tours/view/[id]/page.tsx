@@ -1,7 +1,7 @@
 import styles from "./styles.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
 
-import {nunito} from "@/app/ui/fonts";
+import {nunito} from "@/app/[lang]/ui/fonts";
 
 // import {useEffect, useState} from "react";
 // import ViewTourInfo from "../ViewTourInfo/ViewTourInfo";
@@ -10,7 +10,7 @@ import {nunito} from "@/app/ui/fonts";
 import Info from "./components/info/info"
 import {getTour} from "@/app/lib/data/tours";
 import clsx from "clsx";
-import Places from "@/app/tours/view/[id]/components/places/place";
+import Places from "@/app/[lang]/tours/view/[id]/components/places/place";
 
 export default async function Page({params}: { params: { id: string } }) {
     const {id} = params;

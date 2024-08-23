@@ -24,7 +24,7 @@
 .Datepick .Datepick__dateField {
   width: 100%;
   padding: 15px 25px 15px 50px;
-  background-image: url("../../../public/assets/SVG/date.svg");
+  background-image: url("../../../../public/assets/SVG/date.svg");
   background-repeat: no-repeat;
   background-size: 15px 18px;
   background-position: 25px center;

@@ -1,10 +1,20 @@
 // data-define.ts
 import {Images, Country, Currency} from '@/app/lib/types/data';
+import {Dict} from "@/app/[lang]/dictionaries";
 
-export const roles: { [key: string]: string } = {
-    "TOURIST": "Турист",
-    "ADMIN": "Адміністратор",
-    "GUIDE": "Екскурсовод"
+export const roles: { [key: string]: Dict } = {
+    "TOURIST": {
+        uk: "Турист",
+        en: "Tourist",
+    },
+    "ADMIN": {
+        uk: "Адміністратор",
+        en: "Admin",
+    },
+    "GUIDE": {
+        uk: "Екскурсовод",
+        en: "Tour guide",
+    }
 };
 
 export const images: Images = {

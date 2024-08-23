@@ -13,8 +13,8 @@ import 'tippy.js/dist/tippy.css';
 import clsx from "clsx";
 import gsap from "gsap"
 
-import Input from "@/app/ui/input/input";
-import InputSelect from "@/app/ui/input-select/input-select";
+import Input from "@/app/[lang]/ui/input/input";
+import InputSelect from "@/app/[lang]/ui/input-select/input-select";
 
 import filterIcon from "./SVG/filter.svg"
 import checkicon from "./SVG/check.svg"

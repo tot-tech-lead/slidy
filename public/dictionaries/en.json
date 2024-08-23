@@ -1,0 +1,17 @@
+{
+  "page": {
+    "title": "Home",
+    "desc": "Slidy - travel like never before"
+  },
+  "header": {
+    "home": "Home",
+    "tours": "Excursions",
+    "login": "Login",
+    "signup": "Sign up",
+    "user": "User"
+  },
+  "home": {
+    "title": "Slidy",
+    "desc": "Slidy - travel like never before"
+  }
+}

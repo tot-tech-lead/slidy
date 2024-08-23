@@ -8,31 +8,41 @@ import React from "react";
 
 import {useAuth} from "@/app/lib/hooks/useAuth";
 
+import {useParams} from "next/navigation";
+import {getLocale} from "@/app/lib/utils/getLocale";
+import {Dict} from "@/app/[lang]/dictionaries";
+
 export default function AuthBlock(
     {
         avatar,
         surname,
         name,
-        role
+        role,
+        t
     } : {
         avatar?: String,
         surname?: String,
         name?: String,
         role?: string
+        t: Dict
     }
 ) {
     let logout = useAuth(state => state.deleteData)
+
+    let {lang} = useParams()
 
     return (
         <>
             <div className={styles.loginData}>
                 <Image height={50} width={50} src={avatar ? avatar : defAvatar}
-                       alt="користувач"
+                       alt={t.header.user}
                        className={styles.logo}/>
 
                 <div className={styles.loginDataText}>
                     <p className={`${styles.loginText_bold} ${preStyle.textBigBold}`}>{surname} {name}</p>
-                    <div className={`${styles.loginText} ${preStyle.textBig}`}>{roles[role as keyof typeof roles]}</div>
+                    <div className={`${styles.loginText} ${preStyle.textBig}`}>
+                        {roles[role as keyof typeof roles][getLocale(lang)]}
+                    </div>
                 </div>
                 <button className={preStyle.buttonOutlined} onClick={() => {
                     logout()

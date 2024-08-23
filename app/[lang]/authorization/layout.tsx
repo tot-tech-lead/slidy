@@ -1,14 +1,14 @@
 "use client"
 
 import {useRouter, usePathname} from "next/navigation";
-import Switch from "@/app/ui/switch/switch";
+import Switch from "@/app/[lang]/ui/switch/switch";
 import {useEffect, useState} from "react";
 
 import styles from "./layout.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
 
 import clsx from "clsx";
-import {nunito, nunitoSans} from "@/app/ui/fonts";
+import {nunito, nunitoSans} from "@/app/[lang]/ui/fonts";
 import {Metadata} from "next";
 
 export default function AuthLayout({children}: Readonly<{
@@ -17,16 +17,16 @@ export default function AuthLayout({children}: Readonly<{
     let router = useRouter();
     let location = usePathname();
     let [tab, setTab] = useState(()=>{
-        return location === "/authorization/login" ? "Вхід" : "Реєстрація"
+        return location === "/ua/authorization/login" ? "Вхід" : "Реєстрація"
     });
 
     useEffect(() => {
         switch (tab) {
             case "Вхід":
-                router.push("/authorization/login")
+                router.push("/ua/authorization/login")
                 break;
             case "Реєстрація":
-                router.push("/authorization/registration")
+                router.push("/ua/authorization/registration")
                 break;
         }
     }, [tab, router]);

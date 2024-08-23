@@ -12,7 +12,7 @@ import Image from "next/image";
 import {TourPopulated} from "@/app/lib/types/mongo-models";
 import {useRouter} from "next/navigation";
 import clsx from "clsx";
-import {nunito} from "@/app/ui/fonts";
+import {nunito} from "@/app/[lang]/ui/fonts";
 
 
 export default function TourCard(

@@ -1,9 +1,9 @@
 import styles from "../tours.module.css"
 import React, {Suspense} from "react";
 
-import Tours from "@/app/tours/[country]/[city]/(overview)/tours";
+import Tours from "@/app/[lang]/tours/[country]/[city]/(overview)/tours";
 import {getTours, getPaginationArray} from "@/app/lib/data/tours";
-import ToursPagination from "@/app/tours/[country]/[city]/(overview)/pagination";
+import ToursPagination from "@/app/[lang]/tours/[country]/[city]/(overview)/pagination";
 
 export default async function Page(
     {params, searchParams}:

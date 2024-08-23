@@ -1,6 +1,6 @@
 import styles from "./styles.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
-import {nunito} from "@/app/ui/fonts";
+import {nunito} from "@/app/[lang]/ui/fonts";
 
 import Image, {StaticImageData} from "next/image";
 

@@ -1,6 +1,6 @@
 "use client"
 
-import styles from "@/app/tours/[country]/[city]/tours.module.css";
+import styles from "@/app/[lang]/tours/[country]/[city]/tours.module.css";
 import Image from "next/image";
 import prevIcon from "@/public/assets/SVG/prev.svg";
 import clsx from "clsx";

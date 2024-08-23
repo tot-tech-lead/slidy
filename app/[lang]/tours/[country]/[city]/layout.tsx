@@ -3,9 +3,9 @@ import type {Metadata} from "next";
 import styles from "./tours.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
 
-import Filter from "@/app/ui/filter/filter"
+import Filter from "@/app/[lang]/ui/filter/filter"
 import clsx from "clsx";
-import {nunito} from "@/app/ui/fonts";
+import {nunito} from "@/app/[lang]/ui/fonts";
 import React from "react";
 import {getCategories} from "@/app/lib/data/tours";
 

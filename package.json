@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.4",
     "@react-google-maps/api": "^2.19.3",
     "@tippyjs/react": "^4.2.6",
     "@types/bcryptjs": "^2.4.6",
@@ -19,11 +20,14 @@
     "bcrypt": "^5.1.1",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
+    "formatjs": "^0.1.1",
     "gsap": "^3.12.5",
+    "i18n": "link:@/lib/i18n",
     "jsonwebtoken": "^9.0.2",
     "libphonenumber-js": "^1.11.4",
     "moment": "^2.30.1",
-    "mongoose": "^8.4.5",
+    "mongoose": "^8.5.0",
+    "negotiator": "^0.6.3",
     "next": "15.0.0-canary.59",
     "next-client-cookies": "^1.1.1",
     "node-telegram-bot-api": "^0.66.0",

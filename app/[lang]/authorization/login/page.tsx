@@ -1,6 +1,6 @@
 "use client"
 
-import Input from "@/app/ui/input/input";
+import Input from "@/app/[lang]/ui/input/input";
 import styles from "./login.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
 

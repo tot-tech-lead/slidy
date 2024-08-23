@@ -2,8 +2,8 @@
 
 import "./register.module.css"
 
-import Datepick from "@/app/ui/datepicker/datepiscker";
-import Input from "@/app/ui/input/input";
+import Datepick from "@/app/[lang]/ui/datepicker/datepiscker";
+import Input from "@/app/[lang]/ui/input/input";
 import {useActionState, useEffect, useState} from "react";
 import styles from "./register.module.css";
 import prestyle from "@/app/lib/ui-components.module.css";
@@ -11,7 +11,7 @@ import clsx from "clsx";
 
 import {createUser, State} from "@/app/lib/action/authorization";
 import {useRouter} from "next/navigation";
-import InputSelect from "@/app/ui/input-select/input-select";
+import InputSelect from "@/app/[lang]/ui/input-select/input-select";
 import {countries} from "@/app/lib/data-define";
 
 export default function Register() {

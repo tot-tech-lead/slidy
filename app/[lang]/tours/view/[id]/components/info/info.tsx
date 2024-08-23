@@ -6,7 +6,7 @@ import prestyle from "@/app/lib/ui-components.module.css"
 import styles from "./styles.module.css"
 
 
-import Profile from "@/app/ui/profile/profile";
+import Profile from "@/app/[lang]/ui/profile/profile";
 import {AdvancedMarker, APIProvider, Map, Pin, useMap, useMapsLibrary} from "@vis.gl/react-google-maps";
 import {useEffect, useMemo, useState} from "react";
 import {AuthData, FeedbackSchema, Location, TourGuidePopulated} from "@/app/lib/types/mongo-models";

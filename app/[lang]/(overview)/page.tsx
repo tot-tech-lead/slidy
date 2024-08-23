@@ -4,6 +4,7 @@ import PreviewPageSkeleton from "@/app/[lang]/ui/skeleton/preview-page";
 
 import dynamic from "next/dynamic";
 import {Metadata} from "next";
+import {getDictionary} from "@/app/[lang]/dictionaries";
 
 const DynamicAboutUs = dynamic(() => import("./aboutUs/aboutUs"), {
     loading: () => <div
@@ -29,7 +30,9 @@ const DynamicHowItWork = dynamic(() => import("./howItWork/howItWork"), {
 })
 
 
-export default function Home() {
+export default async function Home({ params: { lang } }: { params: { lang: string } }) {
+    const t = await getDictionary(lang);
+
     return (
         <main>
             <DynamicPreviewPage/>

@@ -96,6 +96,10 @@
   border-radius: 50%;
 }
 
+.button {
+  white-space: nowrap;
+}
+
 .loginDataText {
   min-width: max-content;
   display: flex;

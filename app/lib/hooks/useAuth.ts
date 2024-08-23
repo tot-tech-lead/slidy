@@ -1,4 +1,5 @@
 import {create} from "zustand";
+import {Dict, getDictionary} from "@/app/[lang]/dictionaries";
 
 
 interface AuthState {

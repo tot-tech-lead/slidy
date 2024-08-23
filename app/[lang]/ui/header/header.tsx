@@ -3,7 +3,7 @@
 import logo from "@/public/assets/SVG/logo.svg"
 
 import React, {useEffect} from "react";
-import {usePathname, useRouter} from "next/navigation";
+import {useParams, usePathname, useRouter} from "next/navigation";
 
 import Link from "next/link"
 import {gsap} from "gsap";
@@ -19,14 +19,18 @@ import clsx from "clsx";
 import AuthBlock from "./authBlock";
 import {nunitoSans} from "@/app/[lang]/ui/fonts";
 import {useAuth} from "@/app/lib/hooks/useAuth";
+import {Dict} from "@/app/[lang]/dictionaries";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Header() {
+export default function Header(
+    {t}: { t: Dict }
+) {
     let router = useRouter()
     let auth = useAuth(state => state.auth)
 
     let location = usePathname()
+    let {lang} = useParams();
 
     let updateData = useAuth(state => state.update)
 
@@ -59,13 +63,13 @@ export default function Header() {
 
     return (
         <header className={clsx([styles.Header], {
-            [styles.Header_active]: location == "/ua"
+            [styles.Header_active]: location == `/${lang}`
         })}>
-            <Link href={"/"}>
+            <Link href={`/${lang}`}>
                 <Image src={logo.src}
                        height={50}
                        width={50}
-                       alt="Сліди слайді сліді слійді слідв екскурсовод"
+                       alt="Сліди"
                        className={styles.logo}
                 />
             </Link>
@@ -75,12 +79,14 @@ export default function Header() {
                     {!location.includes("/auth") ? <>
                         <li className={styles.menuItem}>
                             <button onClick={() => router.push("/")}
-                                    className={`${styles.menuItemLink} ${preStyle.textBig} ${nunitoSans.className}`}>Головна
+                                    className={`${styles.menuItemLink} ${preStyle.textBig} ${nunitoSans.className}`}>
+                                {t.header.home}
                             </button>
                         </li>
                         <li className={styles.menuItem}>
                             <button onClick={() => router.push("/tours/all/all")}
-                                    className={`${styles.menuItemLink} ${preStyle.textBig} ${nunitoSans.className}`}>Екскурсії
+                                    className={`${styles.menuItemLink} ${preStyle.textBig} ${nunitoSans.className}`}>
+                                {t.header.tours}
                             </button>
                         </li>
                     </> : ''}
@@ -88,27 +94,28 @@ export default function Header() {
             </nav>
 
             <div className={styles.rightPart}>
-                {(auth.isLogin) ? <AuthBlock {...{...auth.data}} /> : <>
+                {(auth.isLogin) ? <AuthBlock {...{...auth.data}} t={t} /> : <>
                     {!location.includes("/authorization/") && <>
                         <a
                             href={`/authorization/login`}
-                            title={"slidy вхід"}
+                            title={`slidy ${t.header.login}}`}
                             className={`${preStyle.buttonOutlined} ${styles.button} ${nunitoSans.className}`}
                             onClick={(e) => {
                                 e.preventDefault();
                                 router.push("/authorization/login")
                             }}
                         >
-                            Вхід
+                            {t.header.login}
                         </a>
                         <a className={`${preStyle.buttonFilled} ${styles.button} ${nunitoSans.className}`}
                            href={"/authorization/login"}
-                           title={"slidy реєстрація"}
+                           title={`slidy ${t.header.signup}`}
                            onClick={(e) => {
                                e.preventDefault();
                                router.push("/authorization/registration")
                            }}
-                        >Реєстрація
+                        >
+                            {t.header.signup}
                         </a>
                     </>}
                 </>}
