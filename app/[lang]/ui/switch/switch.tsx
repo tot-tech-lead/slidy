@@ -59,7 +59,7 @@ export default function Switch({values, currentTab, setCurrentTab}: params) {
     }, [id])
 
     return (
-        <div className={`${styles.Switch} Switch_${id}`}>
+        <div className={`switch ${styles.Switch} Switch_${id}`}>
             <div className={styles.selector}></div>
             {
                 values.map((item, key) =>

@@ -1,5 +1,7 @@
 "use client"
 
+import "./howItWork.css"
+
 import HowItWorkOption from "./howItWorkOption";
 import {useState} from "react";
 import Switch from "@/app/[lang]/ui/switch/switch";
@@ -13,7 +15,7 @@ export default function HowItWork({t}: {t: Dict}) {
     let [tab, setTab] = useState(t.howItWork.tabs[0])
 
     return (
-        <div className={styles.HowItWork} id="Home-how-to-use">
+        <div className={`HowItWork ${styles.HowItWork}`} id="Home-how-to-use">
             <h2 className={`${styles.h2} ${prestyle.textH2} ${nunito.className}`}>
                 {t.howItWork.headline}
             </h2>

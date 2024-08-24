@@ -1,4 +1,4 @@
-@import "../../sass-config/variables.scss";
+@import "../../ui/sass-config/variables.scss";
 
 .HowItWork {
   width: 100%;
@@ -9,15 +9,7 @@
   gap: $gap-between-connected-elements;
   padding: $manual-padding 0;
 
-  .tabs {
-    width: 100%;
-    padding: $padding-for-page-component;
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-
   .h2 {
-    //@extend %h2;
     color: $dark;
     text-align: center;
 
@@ -26,14 +18,8 @@
     }
 
   }
-}
 
-@media screen and (max-width: 800px) {
-  .HowToUse {
-    .tabs {
-      padding: $manual-padding;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
+  .tabs {
+    width: 100%;
   }
 }

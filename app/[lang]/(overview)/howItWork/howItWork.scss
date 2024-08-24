@@ -1,0 +1,22 @@
+@import "../../ui/sass-config/variables.scss";
+
+.HowItWork {
+  .switch {
+    width: 100%;
+    padding: $padding-for-page-component;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+
+@media screen and (max-width: 800px) {
+  .HowItWork {
+    .switch {
+      width: 100%;
+      padding: $manual-padding;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+.HowItWork .switch {
+  width: 100%;
+  padding: 25px 125px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .HowItWork .switch {
+    width: 100%;
+    padding: 25px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+/*# sourceMappingURL=howItWork.css.map */

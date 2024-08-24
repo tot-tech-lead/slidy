@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["howItWork.module.scss","../../sass-config/variables.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;EACA;EACA;EACA,KCS+B;EDR/B;;AAEA;EACE;EACA,SCCyB;EDAzB;EACA;;AAGF;EAEE,OCdG;EDeH;;AAEA;EACE;;;AAMN;EAEI;IACE,SCpBW;IDqBX;IACA","file":"howItWork.module.css"}
+{"version":3,"sourceRoot":"","sources":["howItWork.module.scss","../../ui/sass-config/variables.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;EACA;EACA;EACA,KCY+B;EDX/B;;AAEA;EACE,OCJG;EDKH;;AAEA;EACE;;AAKJ;EACE","file":"howItWork.module.css"}
