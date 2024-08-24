@@ -1,5 +1,5 @@
 // data-define.ts
-import {Images, Country, Currency} from '@/app/lib/types/data';
+import {Country, Currency, Images} from '@/app/lib/types/data';
 import {Dict} from "@/app/[lang]/dictionaries";
 
 export const roles: { [key: string]: Dict } = {
@@ -16,6 +16,29 @@ export const roles: { [key: string]: Dict } = {
         en: "Tour guide",
     }
 };
+
+export const homeImagesCityTranslation = {
+    "Львів": {
+        en: "Lviv",
+        uk: "Львів"
+    },
+    "Київ": {
+        en: "Kyiv",
+        uk: "Київ"
+    },
+    "Лондон": {
+        en: "London",
+        uk: "Лондон"
+    },
+    "Копенгаген": {
+        en: "Copenhagen",
+        uk: "Копенгаген"
+    },
+    "Париж": {
+        en: "Paris",
+        uk: "Париж"
+    },
+}
 
 export const images: Images = {
     "Львів": [
@@ -140,7 +163,13 @@ export const countries: Country[] = [
     {"name": "Angola", "code": "AO", "localeUA": "Ангола", "phoneCode": "244", "numberLength": 9},
     {"name": "Anguilla", "code": "AI", "localeUA": "Ангілья", "phoneCode": "1-264", "numberLength": 7},
     {"name": "Antarctica", "code": "AQ", "localeUA": "Антарктида", "phoneCode": "", "numberLength": 0},
-    {"name": "Antigua and Barbuda", "code": "AG", "localeUA": "Антигуа і Барбуда", "phoneCode": "1-268", "numberLength": 7},
+    {
+        "name": "Antigua and Barbuda",
+        "code": "AG",
+        "localeUA": "Антигуа і Барбуда",
+        "phoneCode": "1-268",
+        "numberLength": 7
+    },
     {"name": "Argentina", "code": "AR", "localeUA": "Аргентина", "phoneCode": "54", "numberLength": 10},
     {"name": "Armenia", "code": "AM", "localeUA": "Вірменія", "phoneCode": "374", "numberLength": 8},
     {"name": "Aruba", "code": "AW", "localeUA": "Аруба", "phoneCode": "297", "numberLength": 7},
@@ -157,11 +186,23 @@ export const countries: Country[] = [
     {"name": "Bermuda", "code": "BM", "localeUA": "Бермуди", "phoneCode": "1-441", "numberLength": 7},
     {"name": "Bhutan", "code": "BT", "localeUA": "Бутан", "phoneCode": "975", "numberLength": 8},
     {"name": "Bolivia", "code": "BO", "localeUA": "Болівія", "phoneCode": "591", "numberLength": 8},
-    {"name": "Bosnia and Herzegovina", "code": "BA", "localeUA": "Боснія і Герцеговина", "phoneCode": "387", "numberLength": 8},
+    {
+        "name": "Bosnia and Herzegovina",
+        "code": "BA",
+        "localeUA": "Боснія і Герцеговина",
+        "phoneCode": "387",
+        "numberLength": 8
+    },
     {"name": "Botswana", "code": "BW", "localeUA": "Ботсвана", "phoneCode": "267", "numberLength": 7},
     {"name": "Bouvet Island", "code": "BV", "localeUA": "Острів Буве", "phoneCode": "", "numberLength": 0},
     {"name": "Brazil", "code": "BR", "localeUA": "Бразилія", "phoneCode": "55", "numberLength": 11},
-    {"name": "British Indian Ocean Territory", "code": "IO", "localeUA": "Британська територія в Індійському океані", "phoneCode": "", "numberLength": 0},
+    {
+        "name": "British Indian Ocean Territory",
+        "code": "IO",
+        "localeUA": "Британська територія в Індійському океані",
+        "phoneCode": "",
+        "numberLength": 0
+    },
     {"name": "Brunei Darussalam", "code": "BN", "localeUA": "Бруней", "phoneCode": "673", "numberLength": 7},
     {"name": "Bulgaria", "code": "BG", "localeUA": "Болгарія", "phoneCode": "359", "numberLength": 8},
     {"name": "Burkina Faso", "code": "BF", "localeUA": "Буркіна-Фасо", "phoneCode": "226", "numberLength": 8},
@@ -171,16 +212,34 @@ export const countries: Country[] = [
     {"name": "Canada", "code": "CA", "localeUA": "Канада", "phoneCode": "1", "numberLength": 10},
     {"name": "Cape Verde", "code": "CV", "localeUA": "Кабо-Верде", "phoneCode": "238", "numberLength": 7},
     {"name": "Cayman Islands", "code": "KY", "localeUA": "Кайманові острови", "phoneCode": "1-345", "numberLength": 7},
-    {"name": "Central African Republic", "code": "CF", "localeUA": "Центральноафриканська Республіка", "phoneCode": "236", "numberLength": 8},
+    {
+        "name": "Central African Republic",
+        "code": "CF",
+        "localeUA": "Центральноафриканська Республіка",
+        "phoneCode": "236",
+        "numberLength": 8
+    },
     {"name": "Chad", "code": "TD", "localeUA": "Чад", "phoneCode": "235", "numberLength": 8},
     {"name": "Chile", "code": "CL", "localeUA": "Чилі", "phoneCode": "56", "numberLength": 9},
     {"name": "China", "code": "CN", "localeUA": "Китай", "phoneCode": "86", "numberLength": 11},
     {"name": "Christmas Island", "code": "CX", "localeUA": "Острів Різдва", "phoneCode": "61", "numberLength": 9},
-    {"name": "Cocos (Keeling) Islands", "code": "CC", "localeUA": "Острови Кокос", "phoneCode": "61", "numberLength": 9},
+    {
+        "name": "Cocos (Keeling) Islands",
+        "code": "CC",
+        "localeUA": "Острови Кокос",
+        "phoneCode": "61",
+        "numberLength": 9
+    },
     {"name": "Colombia", "code": "CO", "localeUA": "Колумбія", "phoneCode": "57", "numberLength": 10},
     {"name": "Comoros", "code": "KM", "localeUA": "Комори", "phoneCode": "269", "numberLength": 7},
     {"name": "Congo", "code": "CG", "localeUA": "Конго", "phoneCode": "242", "numberLength": 9},
-    {"name": "Congo, The Democratic Republic of the", "code": "CD", "localeUA": "Конго, Демократична Республіка", "phoneCode": "243", "numberLength": 9},
+    {
+        "name": "Congo, The Democratic Republic of the",
+        "code": "CD",
+        "localeUA": "Конго, Демократична Республіка",
+        "phoneCode": "243",
+        "numberLength": 9
+    },
     {"name": "Cook Islands", "code": "CK", "localeUA": "Острови Кука", "phoneCode": "682", "numberLength": 7},
     {"name": "Costa Rica", "code": "CR", "localeUA": "Коста-Ріка", "phoneCode": "506", "numberLength": 8},
     {"name": "Croatia", "code": "HR", "localeUA": "Хорватія", "phoneCode": "385", "numberLength": 9},
@@ -191,22 +250,46 @@ export const countries: Country[] = [
     {"name": "Denmark", "code": "DK", "localeUA": "Данія", "phoneCode": "45", "numberLength": 8},
     {"name": "Djibouti", "code": "DJ", "localeUA": "Джибуті", "phoneCode": "253", "numberLength": 6},
     {"name": "Dominica", "code": "DM", "localeUA": "Домініка", "phoneCode": "1-767", "numberLength": 7},
-    {"name": "Dominican Republic", "code": "DO", "localeUA": "Домініканська Республіка", "phoneCode": "1-809", "numberLength": 10},
+    {
+        "name": "Dominican Republic",
+        "code": "DO",
+        "localeUA": "Домініканська Республіка",
+        "phoneCode": "1-809",
+        "numberLength": 10
+    },
     {"name": "Ecuador", "code": "EC", "localeUA": "Еквадор", "phoneCode": "593", "numberLength": 9},
     {"name": "Egypt", "code": "EG", "localeUA": "Єгипет", "phoneCode": "20", "numberLength": 10},
     {"name": "El Salvador", "code": "SV", "localeUA": "Сальвадор", "phoneCode": "503", "numberLength": 8},
-    {"name": "Equatorial Guinea", "code": "GQ", "localeUA": "Екваторіальна Гвінея", "phoneCode": "240", "numberLength": 9},
+    {
+        "name": "Equatorial Guinea",
+        "code": "GQ",
+        "localeUA": "Екваторіальна Гвінея",
+        "phoneCode": "240",
+        "numberLength": 9
+    },
     {"name": "Eritrea", "code": "ER", "localeUA": "Еритрея", "phoneCode": "291", "numberLength": 8},
     {"name": "Estonia", "code": "EE", "localeUA": "Естонія", "phoneCode": "372", "numberLength": 8},
     {"name": "Eswatini", "code": "SZ", "localeUA": "Есватіні", "phoneCode": "268", "numberLength": 9},
     {"name": "Ethiopia", "code": "ET", "localeUA": "Ефіопія", "phoneCode": "251", "numberLength": 10},
-    {"name": "Falkland Islands", "code": "FK", "localeUA": "Фолклендські острови", "phoneCode": "500", "numberLength": 4},
+    {
+        "name": "Falkland Islands",
+        "code": "FK",
+        "localeUA": "Фолклендські острови",
+        "phoneCode": "500",
+        "numberLength": 4
+    },
     {"name": "Faroe Islands", "code": "FO", "localeUA": "Фарерські острови", "phoneCode": "298", "numberLength": 6},
     {"name": "Fiji", "code": "FJ", "localeUA": "Фіджі", "phoneCode": "679", "numberLength": 7},
     {"name": "Finland", "code": "FI", "localeUA": "Фінляндія", "phoneCode": "358", "numberLength": 8},
     {"name": "France", "code": "FR", "localeUA": "Франція", "phoneCode": "33", "numberLength": 9},
     {"name": "French Guiana", "code": "GF", "localeUA": "Французька Гвіана", "phoneCode": "594", "numberLength": 9},
-    {"name": "French Polynesia", "code": "PF", "localeUA": "Французька Полінезія", "phoneCode": "689", "numberLength": 6},
+    {
+        "name": "French Polynesia",
+        "code": "PF",
+        "localeUA": "Французька Полінезія",
+        "phoneCode": "689",
+        "numberLength": 6
+    },
     {"name": "Gabon", "code": "GA", "localeUA": "Габон", "phoneCode": "241", "numberLength": 8},
     {"name": "Gambia", "code": "GM", "localeUA": "Гамбія", "phoneCode": "220", "numberLength": 7},
     {"name": "Georgia", "code": "GE", "localeUA": "Грузія", "phoneCode": "995", "numberLength": 9},
@@ -242,11 +325,29 @@ export const countries: Country[] = [
     {"name": "Kazakhstan", "code": "KZ", "localeUA": "Казахстан", "phoneCode": "7", "numberLength": 10},
     {"name": "Kenya", "code": "KE", "localeUA": "Кенія", "phoneCode": "254", "numberLength": 10},
     {"name": "Kiribati", "code": "KI", "localeUA": "Кірибаті", "phoneCode": "686", "numberLength": 7},
-    {"name": "Korea, Democratic People's Republic of", "code": "KP", "localeUA": "Корея, Народна Республіка", "phoneCode": "850", "numberLength": 8},
-    {"name": "Korea, Republic of", "code": "KR", "localeUA": "Корея, Республіка", "phoneCode": "82", "numberLength": 11},
+    {
+        "name": "Korea, Democratic People's Republic of",
+        "code": "KP",
+        "localeUA": "Корея, Народна Республіка",
+        "phoneCode": "850",
+        "numberLength": 8
+    },
+    {
+        "name": "Korea, Republic of",
+        "code": "KR",
+        "localeUA": "Корея, Республіка",
+        "phoneCode": "82",
+        "numberLength": 11
+    },
     {"name": "Kuwait", "code": "KW", "localeUA": "Кувейт", "phoneCode": "965", "numberLength": 8},
     {"name": "Kyrgyzstan", "code": "KG", "localeUA": "Киргизстан", "phoneCode": "996", "numberLength": 9},
-    {"name": "Lao People's Democratic Republic", "code": "LA", "localeUA": "Лаос", "phoneCode": "856", "numberLength": 8},
+    {
+        "name": "Lao People's Democratic Republic",
+        "code": "LA",
+        "localeUA": "Лаос",
+        "phoneCode": "856",
+        "numberLength": 8
+    },
     {"name": "Latvia", "code": "LV", "localeUA": "Латвія", "phoneCode": "371", "numberLength": 8},
     {"name": "Lebanon", "code": "LB", "localeUA": "Ліван", "phoneCode": "961", "numberLength": 8},
     {"name": "Lesotho", "code": "LS", "localeUA": "Лесото", "phoneCode": "266", "numberLength": 8},
@@ -267,7 +368,13 @@ export const countries: Country[] = [
     {"name": "Mauritius", "code": "MU", "localeUA": "Маврикій", "phoneCode": "230", "numberLength": 8},
     {"name": "Mayotte", "code": "YT", "localeUA": "Майотта", "phoneCode": "262", "numberLength": 9},
     {"name": "Mexico", "code": "MX", "localeUA": "Мексика", "phoneCode": "52", "numberLength": 10},
-    {"name": "Micronesia (Federated States of)", "code": "FM", "localeUA": "Мікронезія", "phoneCode": "691", "numberLength": 7},
+    {
+        "name": "Micronesia (Federated States of)",
+        "code": "FM",
+        "localeUA": "Мікронезія",
+        "phoneCode": "691",
+        "numberLength": 7
+    },
     {"name": "Moldova", "code": "MD", "localeUA": "Молдова", "phoneCode": "373", "numberLength": 8},
     {"name": "Monaco", "code": "MC", "localeUA": "Монако", "phoneCode": "377", "numberLength": 8},
     {"name": "Mongolia", "code": "MN", "localeUA": "Монголія", "phoneCode": "976", "numberLength": 8},
@@ -288,13 +395,25 @@ export const countries: Country[] = [
     {"name": "Niue", "code": "NU", "localeUA": "Ніуе", "phoneCode": "683", "numberLength": 5},
     {"name": "Norfolk Island", "code": "NF", "localeUA": "Острів Норфолк", "phoneCode": "672", "numberLength": 6},
     {"name": "North Macedonia", "code": "MK", "localeUA": "Північна Македонія", "phoneCode": "389", "numberLength": 8},
-    {"name": "Northern Mariana Islands", "code": "MP", "localeUA": "Північні Маріанські острови", "phoneCode": "1-670", "numberLength": 7},
+    {
+        "name": "Northern Mariana Islands",
+        "code": "MP",
+        "localeUA": "Північні Маріанські острови",
+        "phoneCode": "1-670",
+        "numberLength": 7
+    },
     {"name": "Norway", "code": "NO", "localeUA": "Норвегія", "phoneCode": "47", "numberLength": 8},
     {"name": "Oman", "code": "OM", "localeUA": "Оман", "phoneCode": "968", "numberLength": 8},
     {"name": "Pakistan", "code": "PK", "localeUA": "Пакистан", "phoneCode": "92", "numberLength": 10},
     {"name": "Palau", "code": "PW", "localeUA": "Палау", "phoneCode": "680", "numberLength": 7},
     {"name": "Panama", "code": "PA", "localeUA": "Панама", "phoneCode": "507", "numberLength": 8},
-    {"name": "Papua New Guinea", "code": "PG", "localeUA": "Папуа - Нова Гвінея", "phoneCode": "675", "numberLength": 7},
+    {
+        "name": "Papua New Guinea",
+        "code": "PG",
+        "localeUA": "Папуа - Нова Гвінея",
+        "phoneCode": "675",
+        "numberLength": 7
+    },
     {"name": "Paraguay", "code": "PY", "localeUA": "Парагвай", "phoneCode": "595", "numberLength": 9},
     {"name": "Peru", "code": "PE", "localeUA": "Перу", "phoneCode": "51", "numberLength": 9},
     {"name": "Philippines", "code": "PH", "localeUA": "Філіппіни", "phoneCode": "63", "numberLength": 10},
@@ -308,14 +427,38 @@ export const countries: Country[] = [
     {"name": "Rwanda", "code": "RW", "localeUA": "Руанда", "phoneCode": "250", "numberLength": 9},
     {"name": "Saint Barthelemy", "code": "BL", "localeUA": "Сен-Бартелемі", "phoneCode": "590", "numberLength": 9},
     {"name": "Saint Helena", "code": "SH", "localeUA": "Свята Олена", "phoneCode": "290", "numberLength": 4},
-    {"name": "Saint Kitts and Nevis", "code": "KN", "localeUA": "Сент-Кітс і Невіс", "phoneCode": "1-869", "numberLength": 7},
+    {
+        "name": "Saint Kitts and Nevis",
+        "code": "KN",
+        "localeUA": "Сент-Кітс і Невіс",
+        "phoneCode": "1-869",
+        "numberLength": 7
+    },
     {"name": "Saint Lucia", "code": "LC", "localeUA": "Сент-Люсія", "phoneCode": "1-758", "numberLength": 7},
     {"name": "Saint Martin", "code": "MF", "localeUA": "Сен-Мартен", "phoneCode": "590", "numberLength": 9},
-    {"name": "Saint Pierre and Miquelon", "code": "PM", "localeUA": "Сен-П'єр і Мікелон", "phoneCode": "508", "numberLength": 6},
-    {"name": "Saint Vincent and the Grenadines", "code": "VC", "localeUA": "Сент-Вінсент і Гренадини", "phoneCode": "1-784", "numberLength": 7},
+    {
+        "name": "Saint Pierre and Miquelon",
+        "code": "PM",
+        "localeUA": "Сен-П'єр і Мікелон",
+        "phoneCode": "508",
+        "numberLength": 6
+    },
+    {
+        "name": "Saint Vincent and the Grenadines",
+        "code": "VC",
+        "localeUA": "Сент-Вінсент і Гренадини",
+        "phoneCode": "1-784",
+        "numberLength": 7
+    },
     {"name": "Samoa", "code": "WS", "localeUA": "Самоа", "phoneCode": "685", "numberLength": 7},
     {"name": "San Marino", "code": "SM", "localeUA": "Сан-Марино", "phoneCode": "378", "numberLength": 10},
-    {"name": "Sao Tome and Principe", "code": "ST", "localeUA": "Сан-Томе і Принсіпі", "phoneCode": "239", "numberLength": 6},
+    {
+        "name": "Sao Tome and Principe",
+        "code": "ST",
+        "localeUA": "Сан-Томе і Принсіпі",
+        "phoneCode": "239",
+        "numberLength": 6
+    },
     {"name": "Saudi Arabia", "code": "SA", "localeUA": "Саудівська Аравія", "phoneCode": "966", "numberLength": 9},
     {"name": "Senegal", "code": "SN", "localeUA": "Сенегал", "phoneCode": "221", "numberLength": 9},
     {"name": "Serbia", "code": "RS", "localeUA": "Сербія", "phoneCode": "381", "numberLength": 8},
@@ -327,11 +470,23 @@ export const countries: Country[] = [
     {"name": "Slovenia", "code": "SI", "localeUA": "Словенія", "phoneCode": "386", "numberLength": 8},
     {"name": "Solomon Islands", "code": "SB", "localeUA": "Соломонові Острови", "phoneCode": "677", "numberLength": 7},
     {"name": "Somalia", "code": "SO", "localeUA": "Сомалі", "phoneCode": "252", "numberLength": 7},
-    {"name": "South Africa", "code": "ZA", "localeUA": "Південноафриканська Республіка", "phoneCode": "27", "numberLength": 10},
+    {
+        "name": "South Africa",
+        "code": "ZA",
+        "localeUA": "Південноафриканська Республіка",
+        "phoneCode": "27",
+        "numberLength": 10
+    },
     {"name": "South Sudan", "code": "SS", "localeUA": "Південний Судан", "phoneCode": "211", "numberLength": 9},
     {"name": "Spain", "code": "ES", "localeUA": "Іспанія", "phoneCode": "34", "numberLength": 9},
     {"name": "Sri Lanka", "code": "LK", "localeUA": "Шрі-Ланка", "phoneCode": "94", "numberLength": 10},
-    {"name": "State of Palestine", "code": "PS", "localeUA": "Держава Палестина", "phoneCode": "970", "numberLength": 9},
+    {
+        "name": "State of Palestine",
+        "code": "PS",
+        "localeUA": "Держава Палестина",
+        "phoneCode": "970",
+        "numberLength": 9
+    },
     {"name": "Suriname", "code": "SR", "localeUA": "Суринам", "phoneCode": "597", "numberLength": 7},
     {"name": "Sweden", "code": "SE", "localeUA": "Швеція", "phoneCode": "46", "numberLength": 10},
     {"name": "Switzerland", "code": "CH", "localeUA": "Швейцарія", "phoneCode": "41", "numberLength": 9},
@@ -344,16 +499,34 @@ export const countries: Country[] = [
     {"name": "Togo", "code": "TG", "localeUA": "Того", "phoneCode": "228", "numberLength": 8},
     {"name": "Tokelau", "code": "TK", "localeUA": "Токелау", "phoneCode": "690", "numberLength": 7},
     {"name": "Tonga", "code": "TO", "localeUA": "Тонга", "phoneCode": "676", "numberLength": 6},
-    {"name": "Trinidad and Tobago", "code": "TT", "localeUA": "Тринідад і Тобаго", "phoneCode": "1-868", "numberLength": 7},
+    {
+        "name": "Trinidad and Tobago",
+        "code": "TT",
+        "localeUA": "Тринідад і Тобаго",
+        "phoneCode": "1-868",
+        "numberLength": 7
+    },
     {"name": "Tunisia", "code": "TN", "localeUA": "Туніс", "phoneCode": "216", "numberLength": 8},
     {"name": "Turkey", "code": "TR", "localeUA": "Туреччина", "phoneCode": "90", "numberLength": 10},
     {"name": "Turkmenistan", "code": "TM", "localeUA": "Туркменістан", "phoneCode": "993", "numberLength": 8},
     {"name": "Tuvalu", "code": "TV", "localeUA": "Тувалу", "phoneCode": "688", "numberLength": 7},
     {"name": "Uganda", "code": "UG", "localeUA": "Уганда", "phoneCode": "256", "numberLength": 10},
     {"name": "Ukraine", "code": "UA", "localeUA": "Україна", "phoneCode": "380", "numberLength": 9},
-    {"name": "United Arab Emirates", "code": "AE", "localeUA": "Об'єднані Арабські Емірати", "phoneCode": "971", "numberLength": 9},
+    {
+        "name": "United Arab Emirates",
+        "code": "AE",
+        "localeUA": "Об'єднані Арабські Емірати",
+        "phoneCode": "971",
+        "numberLength": 9
+    },
     {"name": "United Kingdom", "code": "GB", "localeUA": "Велика Британія", "phoneCode": "44", "numberLength": 5},
-    {"name": "United States of America", "code": "US", "localeUA": "Сполучені Штати Америки", "phoneCode": "1", "numberLength": 10},
+    {
+        "name": "United States of America",
+        "code": "US",
+        "localeUA": "Сполучені Штати Америки",
+        "phoneCode": "1",
+        "numberLength": 10
+    },
     {"name": "Uruguay", "code": "UY", "localeUA": "Уругвай", "phoneCode": "598", "numberLength": 8},
     {"name": "Uzbekistan", "code": "UZ", "localeUA": "Узбекистан", "phoneCode": "998", "numberLength": 9},
     {"name": "Vanuatu", "code": "VU", "localeUA": "Вануату", "phoneCode": "678", "numberLength": 7},

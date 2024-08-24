@@ -9,7 +9,7 @@ import React, {useEffect, useMemo, useState} from "react"
 import clsx from "clsx";
 import {images} from "@/app/lib/data-define"
 import {register} from 'swiper/element/bundle';
-import {useRouter} from "next/navigation";
+import {useParams, useRouter} from "next/navigation";
 import Image from 'next/image';
 
 import gsap from "gsap";
@@ -17,12 +17,18 @@ import {SwiperEl, SwiperProgressEvent} from "@/app/lib/types/frontend-config";
 
 import Slides from "./slides";
 import ImageSkeleton from "@/app/[lang]/ui/skeleton/image-skeleton";
+import {Dict} from "@/app/[lang]/dictionaries";
+
+import {homeImagesCityTranslation} from "@/app/lib/data-define";
+import {getLocale} from "@/app/lib/utils/getLocale";
 
 register();
 
 
-function PreviewPage() {
+function PreviewPage({t}: { t: Dict }) {
     let router = useRouter();
+
+    let {lang} = useParams()
 
     let [currentPage, setCurrentPage] = useState("Львів");
     let [swiperPending, setSwiperPending] = useState(true)
@@ -153,7 +159,7 @@ function PreviewPage() {
                     style={{width: "auto", height: "auto"}}
                 >
                     {swiperPending && <ImageSkeleton/>}
-                    <Slides setSwiperPending={setSwiperPending} currentPage={currentPage}/>
+                    <Slides t={t} setSwiperPending={setSwiperPending} currentPage={currentPage}/>
                 </swiper-container>
             </div>
 
@@ -161,18 +167,17 @@ function PreviewPage() {
                 <div className={styles.welcomeText}>
                     <div className={styles.headlineContainer}>
                         <div className={`${styles.headline} ${prestyle.textH1}`}><h1
-                            className={nunito.className}>Slidy</h1>
+                            className={nunito.className}>{t.title}</h1>
                         </div>
                         <div
-                            className={`${prestyle.textSubheadline} ${styles.subheadline} ${nunitoSans.className}`}>Подорожуй
-                            улюбленим містом
-                            без обмежень!
+                            className={`${prestyle.textSubheadline} ${styles.subheadline} ${nunitoSans.className}`}>
+                            {t.desc}
                         </div>
                     </div>
                     <div className={styles.buttonContainer}>
                         <button className={`${prestyle.buttonFilled} ${nunitoSans.className}`}
                                 onClick={() => router.push("/tours/all/all")}
-                        >Шукати екскурсію
+                        >{t.action}
                         </button>
                     </div>
                 </div>
@@ -188,18 +193,20 @@ function PreviewPage() {
                         >
                             <div className={styles.btnContainer}>
                                 <button onClick={handleControlClick(item)}
-                                        aria-label={`Перегляд фото міста ${item}`}
+                                        aria-label={`${t.slider.buttonCaption} ${homeImagesCityTranslation[item][getLocale(lang)] || ""}`}
                                         className={styles.iconsContainerIcon}>
                                     <Image className={styles.iconsContainerIconPhoto}
                                            src={images[item][0]["125"]}
-                                           alt={item}
+                                           alt={homeImagesCityTranslation[item][getLocale(lang)] || item}
                                            height={80}
                                            width={150}
                                     />
                                 </button>
                             </div>
 
-                            <p className={`${styles.iconsContainerIconPhotoName} ${prestyle.textSmallSemiVisible} ${nunitoSans.className}`}>{item}</p>
+                            <p className={`${styles.iconsContainerIconPhotoName} ${prestyle.textSmallSemiVisible} ${nunitoSans.className}`}>
+                                {homeImagesCityTranslation[item][getLocale(lang)] || ""}
+                            </p>
                         </div>
                     )
                 }

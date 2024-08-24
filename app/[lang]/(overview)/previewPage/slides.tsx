@@ -2,8 +2,9 @@ import {images} from "@/app/lib/data-define";
 import styles from "./previewPage.module.css";
 import Image from "next/image";
 import React from "react";
+import {Dict} from "@/app/[lang]/dictionaries";
 
-export default function Slides({currentPage, setSwiperPending}: { currentPage: string, setSwiperPending: Function }) {
+export default function Slides({currentPage, setSwiperPending, t}: { currentPage: string, setSwiperPending: Function, t: Dict }) {
     return (
         images[currentPage].map((slide, idx) =>
             <swiper-slide
@@ -14,7 +15,7 @@ export default function Slides({currentPage, setSwiperPending}: { currentPage: s
                 <Image
                     className={styles.swiperImage}
                     src={slide.Photo}
-                    alt={`Огляд міста ${currentPage} ${idx + 1}`}
+                    alt={`${t.slider.buttonCaption} ${currentPage} ${idx + 1}`}
                     fill={true}
                     sizes="100vw"
                     priority={idx === 0}

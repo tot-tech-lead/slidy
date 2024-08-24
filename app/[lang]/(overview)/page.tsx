@@ -33,9 +33,12 @@ const DynamicHowItWork = dynamic(() => import("./howItWork/howItWork"), {
 export default async function Home({ params: { lang } }: { params: { lang: string } }) {
     const t = await getDictionary(lang);
 
+    console.log(t)
+    console.log("OKKKKK")
+
     return (
         <main>
-            <DynamicPreviewPage/>
+            <DynamicPreviewPage t={t.home}/>
             <DynamicAboutUs/>
             <DynamicHowItWork/>
             <WaitListForm/>

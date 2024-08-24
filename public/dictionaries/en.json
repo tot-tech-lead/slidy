@@ -12,6 +12,10 @@
   },
   "home": {
     "title": "Slidy",
-    "desc": "Slidy - travel like never before"
+    "desc": "Travel your favorite city without restrictions!",
+    "action": "Get excursion",
+    "slider": {
+      "buttonCaption": "View city"
+    }
   }
 }
