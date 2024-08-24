@@ -55,7 +55,7 @@ export default function AboutUsContent({t}: {
                         <div className={styles.animScrollHintInner}></div>
                     </div>
                     <div
-                        className={`${styles.animScrollHintText} ${prestyle.textPlain} ${nunitoSans.className}`}>Гортай!
+                        className={`${styles.animScrollHintText} ${prestyle.textPlain} ${nunitoSans.className}`}>{t.scrollDownAction}
                     </div>
                 </div>
             </div>
