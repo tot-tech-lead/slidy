@@ -13,6 +13,22 @@
     "signup": "Sign up",
     "user": "User"
   },
+  "footer": {
+    "navigationHeadline": "Navigation",
+    "aboutUs": "About us",
+    "contacts": "Contacts",
+    "howToUse": "How to use",
+    "home": "Home",
+    "socialsHeadline": "Social media"
+  },
+  "mobileNav": {
+    "home": "Home",
+    "chat": "Chat",
+    "trips": "Trips",
+    "cabinet": "Profile",
+    "search": "Search",
+    "searchLabel": "Search for excursion"
+  },
   "home": {
     "title": "Slidy",
     "desc": "Travel your favorite city without restrictions!",

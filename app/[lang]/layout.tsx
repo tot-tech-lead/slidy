@@ -31,9 +31,9 @@ export default async function RootLayout(
     return (
         <>
             <Header t={t}/>
-            <MobileMenu/>
+            <MobileMenu t={t.mobileNav}/>
             {children}
-            <Footer/>
+            <Footer t={t.footer}/>
             <SpeedInsights/>
             <Analytics/>
         </>

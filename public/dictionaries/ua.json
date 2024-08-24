@@ -13,6 +13,22 @@
     "signup": "Реєстрація",
     "user": "Користувач"
   },
+  "footer": {
+    "navigationHeadline": "Навігація по сайту",
+    "aboutUs": "Про нас",
+    "contacts": "Контакти",
+    "howToUse": "Як користуватись",
+    "home": "Головна",
+    "socialsHeadline": "Ми у соц мережах"
+  },
+  "mobileNav": {
+    "home": "Домашня",
+    "chat": "Чати",
+    "trips": "Подорожі",
+    "cabinet": "Кабінет",
+    "search": "Пошук",
+    "searchLabel": "Знайти екскурсію"
+  },
   "home": {
     "title": "Slidy",
     "desc": "Подорожуй улюбленим містом без обмежень!",

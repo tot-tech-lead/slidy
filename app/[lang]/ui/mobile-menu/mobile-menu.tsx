@@ -24,6 +24,7 @@ import Image from "next/image";
 import {usePathname} from "next/navigation";
 import {useEffect, useState} from "react";
 import {StaticImport} from "next/dist/shared/lib/get-img-props";
+import {Dict} from "@/app/[lang]/dictionaries";
 
 
 function MenuItem({path, iconOutlined, iconFilled, label}: {
@@ -54,31 +55,31 @@ function MenuItem({path, iconOutlined, iconFilled, label}: {
 }
 
 
-export default function MobileMenu() {
+export default function MobileMenu({t}: { t: Dict }) {
     return (
         <nav className={styles.mobileMenu}>
             <MenuItem path={"/"}
                       iconOutlined={homeIconOutlined}
                       iconFilled={homeIconFilled}
-                      label={"Домашня"}/>
+                      label={t.home}/>
             <MenuItem path={"/chat"}
                       iconOutlined={messagesIconOutlined}
                       iconFilled={messagesIconFilled}
-                      label={"Чати"}/>
-            <Link href={'/tours/all/all'} className={styles.searchButton} aria-label={"Шукати екскурсії"}>
+                      label={t.chat}/>
+            <Link href={'/tours/all/all'} className={styles.searchButton} aria-label={t.searchLabel}>
                 <Image src={searchIcon}
-                       alt={"Пошук"}
+                       alt={t.search}
                        className={styles.searchButtonIcon}
                 />
             </Link>
             <MenuItem path={"/profile/trips"}
                       iconOutlined={tripsIconOutlined}
                       iconFilled={tripsIconFilled}
-                      label={"Подорожі"}/>
+                      label={t.trips}/>
             <MenuItem path={"/profile"}
                       iconOutlined={profileIconOutlined}
                       iconFilled={profileIconFilled}
-                      label={"Кабінет"}/>
+                      label={t.cabinet}/>
         </nav>
     )
 }
