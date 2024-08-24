@@ -11,9 +11,10 @@ import Image from "next/image";
 import {appendUser, State} from "@/app/lib/action/wait-list";
 import {useActionState, useEffect} from "react"
 import clsx from "clsx";
+import {Dict} from "@/app/[lang]/dictionaries";
 
 
-export default function WaitListForm() {
+export default function WaitListForm({t}: {t: Dict}) {
     let initialState: State = { message: null, errors: {} };
     let [state, formAction, pending] = useActionState(appendUser, initialState)
 
@@ -31,14 +32,11 @@ export default function WaitListForm() {
             </div>
             <div className={styles.wrapper}>
                 <h2 className={`${styles.h2} ${prestyle.textH2} ${nunito.className}`}>
-                    ⚡️ Вже кортить все спробувати?
+                    ⚡️ {t.waitList.headline}
                 </h2>
 
                 <p className={`${styles.paragraph} ${prestyle.textBig} ${nunitoSans.className}`}>
-                    Поки що, наш сайт перебуває на стадії розробки. Ми активно працюємо заради того, щоб ви могли
-                    покращити свої подорожі якомога швидше. Якщо ви хочете дізнатись про завершення робіт першими,
-                    зашилште свою електронну адресу у полі нижче.
-                    <br/>Після того як все буде готово, ми зв&apos;яжемося з вами за цією адресою.
+                    {t.waitList.description}
                 </p>
 
                 <form className={styles.form}
@@ -46,10 +44,12 @@ export default function WaitListForm() {
                       aria-describedby="email-error"
                 >
                     <input
-                        className={`${styles.input} ${prestyle.textPlain}`} type="email" placeholder="Ваша електронна адреса" name="email" required={true}
+                        className={`${styles.input} ${prestyle.textPlain}`} type="email" placeholder={t.waitList.input.placeholder} name="email" required={true}
                     />
                     <button aria-disabled={pending} disabled={pending} className={`${styles.button} ${prestyle.buttonFilled} ${nunitoSans.className}`} type="submit">
-                        <span className={styles.buttonText}>Сповістіть мене!</span>
+                        <span className={styles.buttonText}>
+                            {t.waitList.input.action}
+                        </span>
                         <Image className={styles.btnImg} src={plane} alt="plane" height="25" width="25"/>
                     </button>
                 </form>

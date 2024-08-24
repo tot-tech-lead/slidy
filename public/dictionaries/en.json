@@ -66,6 +66,14 @@
         "headline": "EARN!",
         "caption": "By conducting tours, earn some extra cash while having a great time with new people!"
       }
+    },
+    "waitList": {
+      "headline": "Eager to Try It All?",
+      "description": "Our site is currently under development. We're working hard to enhance your travel experiences as soon as possible. If you want to be the first to know when we're ready, please leave your email address in the field below.\nOnce everything is set, we'll contact you at that address.",
+      "input": {
+        "placeholder": "Your Email Address",
+        "action": "Notify Me!"
+      }
     }
   }
 }
