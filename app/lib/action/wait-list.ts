@@ -3,7 +3,8 @@
 import WaitListUser from "@/app/lib/models/wait-list-user";
 
 import {z} from "zod"
-import {Dict} from "@/app/[lang]/dictionaries";
+import {Dict, getDictionary} from "@/app/[lang]/dictionaries";
+import {cookies} from "next/headers";
 
 const FormData = z.object({
     email: z.string({
@@ -23,7 +24,11 @@ export type State = {
 
 
 export async function appendUser(prevState: State, formData: FormData) {
+
     try {
+        let lang = await cookies().get("lang")?.value || "en"
+        let t = await getDictionary(lang)
+
         let validatedFields = FormData.safeParse({
             email: formData.get("email")
         })
@@ -33,8 +38,8 @@ export async function appendUser(prevState: State, formData: FormData) {
                 status: 400,
                 errors: validatedFields.error.flatten().fieldErrors,
                 message: {
-                    uk: 'Не вдалось додати вас у список очікування. ' + validatedFields.error?.errors.map(item => item.message).join(". "),
-                    en: 'Failed to add you to wait list. ' + validatedFields.error?.errors.map(item => item.message).join(". "),
+                    uk: 'Не вдалось додати вас у список очікування. ' + validatedFields.error?.errors.map(item => t.errors[item.message] || item.message).join(". "),
+                    en: 'Failed to add you to wait list. ' + validatedFields.error?.errors.map(item => t.errors[item.message] || item.message).join(". "),
                 },
             };
         }

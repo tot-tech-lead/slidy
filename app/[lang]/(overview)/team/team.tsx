@@ -25,23 +25,23 @@ function TeamSlider({t}: { t: Dict }) {
     let teamData = [
         {
             name: t.whoWeAre.mates.viktorK.name,
-            role: <>{t.whoWeAre.mates.viktorK.positions.map(position => <>{position} <br/></>)}</>,
+            role: <>{t.whoWeAre.mates.viktorK.positions.map((position, idx) => <div key={`pos-${position}-${idx}`}>{position} <br/></div>)}</>,
             avatar: VKavatar,
         }, {
             name: t.whoWeAre.mates.dariaZ.name,
-            role: <>{t.whoWeAre.mates.dariaZ.positions.map(position => <>{position} <br/></>)}</>,
+            role: <>{t.whoWeAre.mates.dariaZ.positions.map((position, idx) => <div key={`pos-${position}-${idx}`}>{position} <br/></div>)}</>,
             avatar: DZavatar,
         }, {
             name: t.whoWeAre.mates.vitaliiD.name,
-            role: <>{t.whoWeAre.mates.vitaliiD.positions.map(position => <>{position} <br/></>)}</>,
+            role: <>{t.whoWeAre.mates.vitaliiD.positions.map((position, idx) => <div key={`pos-${position}-${idx}`}>{position} <br/></div>)}</>,
             avatar: VDavatar,
         }, {
             name: t.whoWeAre.mates.vitaliiV.name,
-            role: <>{t.whoWeAre.mates.vitaliiV.positions.map(position => <>{position} <br/></>)}</>,
+            role: <>{t.whoWeAre.mates.vitaliiV.positions.map((position, idx) => <div key={`pos-${position}-${idx}`}>{position} <br/></div>)}</>,
             avatar: VVavatar,
         }, {
             name: t.whoWeAre.mates.ostapB.name,
-            role: <>{t.whoWeAre.mates.ostapB.positions.map(position => <>{position} <br/></>)}</>,
+            role: <>{t.whoWeAre.mates.ostapB.positions.map(position => <div key={`pos-${position}`}>{position} <br/></div>)}</>,
             avatar: BOavatar,
         },
     ]
@@ -93,7 +93,7 @@ function TeamSlider({t}: { t: Dict }) {
                     {
                         teamData.map((teamMate, idx) =>
                             <swiper-slide key={`${idx}-tmmt`}>
-                                <TeamMateSlide data={teamMate}/>
+                                <TeamMateSlide key={`${idx}-tmmt-slide`} data={teamMate}/>
                             </swiper-slide>
                         )
                     }

@@ -3,6 +3,9 @@
     "title": "Home",
     "desc": "Slidy - travel like never before"
   },
+  "errors": {
+    "email": "Enter valid email"
+  },
   "header": {
     "home": "Home",
     "tours": "Excursions",
