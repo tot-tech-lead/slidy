@@ -3,12 +3,13 @@
 import WaitListUser from "@/app/lib/models/wait-list-user";
 
 import {z} from "zod"
+import {Dict} from "@/app/[lang]/dictionaries";
 
 const FormData = z.object({
     email: z.string({
         invalid_type_error: "Add email"
     }).email({
-        message: "Введіть правильний email"
+        message: "email"
     })
 });
 
@@ -17,7 +18,7 @@ export type State = {
     errors?: {
         email?: string[]
     };
-    message?: string | null;
+    message?: string | null | Dict;
 };
 
 
@@ -31,7 +32,10 @@ export async function appendUser(prevState: State, formData: FormData) {
             return {
                 status: 400,
                 errors: validatedFields.error.flatten().fieldErrors,
-                message: 'Не вдалось додати вас у список очікування. ' + validatedFields.error?.errors.map(item => item.message).join(". "),
+                message: {
+                    uk: 'Не вдалось додати вас у список очікування. ' + validatedFields.error?.errors.map(item => item.message).join(". "),
+                    en: 'Failed to add you to wait list. ' + validatedFields.error?.errors.map(item => item.message).join(". "),
+                },
             };
         }
 
@@ -44,7 +48,10 @@ export async function appendUser(prevState: State, formData: FormData) {
         if (waitListUserThatExist) {
             return {
                 status: 409,
-                message: `Email вже у списку очікування! Незабаром ми звяжемось із вами 🚀`
+                message: {
+                    uk: `Email вже у списку очікування! Незабаром ми звяжемось із вами 🚀`,
+                    en: `Email are already on a wait list! We will reach you soon 🚀`
+                }
             }
         }
 
@@ -61,7 +68,10 @@ export async function appendUser(prevState: State, formData: FormData) {
     } catch (e) {
         return {
             status: 500,
-            message: `Помилка сервера. ${String(e)}`
+            message: {
+                uk: `Помилка сервера. ${String(e)}`,
+                en: `Server error. ${String(e)}`
+            }
         }
     }
 }

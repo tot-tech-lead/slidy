@@ -115,6 +115,14 @@
           ]
         }
       }
+    },
+    "contact": {
+      "headline": "Contact Us",
+      "street": "Lviv, Stepana Bandery St. 28a",
+      "namePlaceholder": "Your Name",
+      "emailPlaceholder": "Email Address",
+      "messagePlaceholder": "Message",
+      "sendButton": "Send"
     }
   }
 }

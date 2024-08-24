@@ -12,9 +12,12 @@ import {appendUser, State} from "@/app/lib/action/wait-list";
 import {useActionState, useEffect} from "react"
 import clsx from "clsx";
 import {Dict} from "@/app/[lang]/dictionaries";
+import {useParams} from "next/navigation";
 
 
 export default function WaitListForm({t}: {t: Dict}) {
+    let {lang} = useParams()
+
     let initialState: State = { message: null, errors: {} };
     let [state, formAction, pending] = useActionState(appendUser, initialState)
 
@@ -56,7 +59,7 @@ export default function WaitListForm({t}: {t: Dict}) {
                 <div className={clsx(`${styles.alarm} ${prestyle.textPlain} ${nunitoSans.className}`, {
                     [styles.alarmGreen] : state.status === 409
                 })} id="email-error" aria-live="polite" aria-atomic="true">
-                    {(state.status !== 200 && state.message) ? state.message : ""}
+                    {(state.status !== 200 && state.message) ? state.message[lang] : ""}
                 </div>
             </div>
         </div>

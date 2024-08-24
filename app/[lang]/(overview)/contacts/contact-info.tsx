@@ -6,9 +6,10 @@ import prestyle from "@/app/lib/ui-components.module.css"
 import mail from "./SVG/mail.svg"
 import phone from "./SVG/phone.svg"
 import tag from "./SVG/tag.svg"
+import {Dict} from "@/app/[lang]/dictionaries";
 
 
-export default function ContactInfo() {
+export default function ContactInfo({t}: { t: Dict }) {
     return (
         <div className={styles.ContactInfo}>
             <a className={`${styles.infoMail} ${prestyle.textBig}`}
@@ -21,13 +22,13 @@ export default function ContactInfo() {
                href='tel:+380980240265'
             >
                 <Image className={`${styles.imgPhone}`} src={phone} height="34" alt='телефон'/>
-                098 0240 265
+                098 **** ** 5
             </a>
             <a className={`${styles.infoTag} ${prestyle.textBig}`}
                href='https://t.me/mexicancat228'
             >
                 <Image className={`${styles.imgTag}`} src={tag} height="35" alt='локація'/>
-                м. Львів, вул. Степана Бандери 28а
+                {t.street}
             </a>
         </div>
     )

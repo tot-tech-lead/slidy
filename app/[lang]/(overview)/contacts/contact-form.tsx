@@ -6,21 +6,22 @@ import {nunito, nunitoSans} from "@/app/[lang]/ui/fonts";
 
 import {sendMessageToTelegram, State} from "@/app/lib/action/bot";
 
-import {useState, useActionState, useEffect} from "react";
+import {useActionState, useEffect, useState} from "react";
 import Image from "next/image";
 
 import clsx from "clsx";
 import plane from '@/app/lib/icons/plane.svg'
 import Input from "@/app/[lang]/ui/input/input";
 import TextArea from "@/app/[lang]/ui/textarea/textarea";
+import {Dict} from "@/app/[lang]/dictionaries";
 
 
-export default function ContactFrom() {
+export default function ContactFrom({t}: { t: Dict }) {
     let [name, setName] = useState('');
     let [email, setEmail] = useState('');
     let [message, setProblem] = useState('');
 
-    let initialState: State = { message: null, errors: {} };
+    let initialState: State = {message: null, errors: {}};
 
     let [state, formAction, pending] = useActionState(sendMessageToTelegram, initialState);
 
@@ -38,7 +39,7 @@ export default function ContactFrom() {
         <div className={`${styles.ContactForm}`}>
 
             <div className={styles.headlineGroup}>
-                <h2 className={`${styles.h2} ${prestyle.textH2} ${nunito.className}`}>ЗВОРОТНІЙ ЗВ`ЯЗОК</h2>
+                <h2 className={`${styles.h2} ${prestyle.textH2} ${nunito.className}`}>{t.headline}</h2>
                 <div className={clsx(`${styles.alarm} ${prestyle.textPlain} ${nunitoSans.className}`, {
                     [styles.alarmGreen]: false
                 })} id="manual-error" aria-live="polite" aria-atomic="true">
@@ -47,10 +48,9 @@ export default function ContactFrom() {
             </div>
 
 
-
             <form className={`${styles.form}`} action={formAction}>
                 <div className={styles.inputGroup}>
-                    <Input disabled={pending} value={name} setValue={setName} type={"text"} label={"Ваше ім'я"}
+                    <Input disabled={pending} value={name} setValue={setName} type={"text"} label={t.namePlaceholder}
                            maxLength={100}
                            attributes={{
                                name: "name",
@@ -64,7 +64,7 @@ export default function ContactFrom() {
                 </div>
 
                 <div className={styles.inputGroup}>
-                    <Input disabled={pending} value={email} setValue={setEmail} type={"text"} label={"Ел адреса"}
+                    <Input disabled={pending} value={email} setValue={setEmail} type={"text"} label={t.emailPlaceholder}
                            maxLength={150}
                            attributes={{
                                name: "email",
@@ -79,7 +79,7 @@ export default function ContactFrom() {
                 </div>
                 <div className={styles.inputGroup}>
                     <TextArea disabled={pending} value={message} setValue={setProblem}
-                              label={"Повідомлення"}
+                              label={t.messagePlaceholder}
                               maxLength={480}
                               attributes={{
                                   name: "message",
@@ -92,8 +92,9 @@ export default function ContactFrom() {
                     </div>
                 </div>
 
-                <button disabled={pending} className={`${prestyle.buttonFilledWithImg} ${nunitoSans.className}`} type='submit'>
-                    Надіслати
+                <button disabled={pending} className={`${prestyle.buttonFilledWithImg} ${nunitoSans.className}`}
+                        type='submit'>
+                    {t.sendButton}
                     <Image src={plane}
                            alt="plane"
                            height="25"

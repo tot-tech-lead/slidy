@@ -43,7 +43,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
             <DynamicHowItWork t={t.home}/>
             <WaitListForm t={t.home}/>
             <TeamSlider t={t.home}/>
-            <DynamicContacts/>
+            <DynamicContacts t={t.home.contact}/>
         </main>
     );
 }
