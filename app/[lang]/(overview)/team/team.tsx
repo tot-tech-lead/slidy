@@ -16,31 +16,32 @@ import BOavatar from "./images/BO.webp"
 import {register} from 'swiper/element/bundle';
 import {useEffect} from "react";
 import {SwiperHTML} from "@/app/lib/types/frontend-config";
+import {Dict} from "@/app/[lang]/dictionaries";
 
 
 register();
 
-function TeamSlider() {
+function TeamSlider({t}: { t: Dict }) {
     let teamData = [
         {
-            name: "Віктор",
-            role: <>Tech лід,<br/>Full-stack розробник</>,
+            name: t.whoWeAre.mates.viktorK.name,
+            role: <>{t.whoWeAre.mates.viktorK.positions.map(position => <>{position} <br/></>)}</>,
             avatar: VKavatar,
         }, {
-            name: "Дарія",
-            role: <>Дизайнер,<br/>Дизайнер</>,
+            name: t.whoWeAre.mates.dariaZ.name,
+            role: <>{t.whoWeAre.mates.dariaZ.positions.map(position => <>{position} <br/></>)}</>,
             avatar: DZavatar,
         }, {
-            name: "Віталій",
-            role: <>Бізнес аналітик,<br/>Front-end розробник</>,
+            name: t.whoWeAre.mates.vitaliiD.name,
+            role: <>{t.whoWeAre.mates.vitaliiD.positions.map(position => <>{position} <br/></>)}</>,
             avatar: VDavatar,
         }, {
-            name: "Віталій",
-            role: <>Тестувальник,<br/>Front-end розробник</>,
+            name: t.whoWeAre.mates.vitaliiV.name,
+            role: <>{t.whoWeAre.mates.vitaliiV.positions.map(position => <>{position} <br/></>)}</>,
             avatar: VVavatar,
         }, {
-            name: "Остап",
-            role: <>Team лід,<br/>Дизайнер</>,
+            name: t.whoWeAre.mates.ostapB.name,
+            role: <>{t.whoWeAre.mates.ostapB.positions.map(position => <>{position} <br/></>)}</>,
             avatar: BOavatar,
         },
     ]
@@ -73,17 +74,15 @@ function TeamSlider() {
 
             swiperElement.swiper.slideTo(Math.round(teamData.length / 2), 0)
             swiperElement.initialize();
-
-            console.log("ASIGNED")
         }
     }, [teamData.length])
 
     return (
         <div className={styles.TeamSlider}>
             <div className={styles.headlineGroup}>
-                <h2 className={`${styles.headline} ${prestyle.textH2} ${nunito.className}`}>Хто ми?</h2>
+                <h2 className={`${styles.headline} ${prestyle.textH2} ${nunito.className}`}>{t.whoWeAre.headline}</h2>
                 <p className={`${prestyle.textPlain} ${styles.subHeadline}`}>
-                    Ми – команда студентів-програмістів які нещодавно прибули до Львова і стикнулись із тим, що ми зовсім не знаємо місцевості! Саме тоді ми знайшли одне одного і почали прауювати над слідами.
+                    {t.whoWeAre.description}
                 </p>
             </div>
             <div className={styles.wrapper}>

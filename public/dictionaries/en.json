@@ -74,6 +74,47 @@
         "placeholder": "Your Email Address",
         "action": "Notify Me!"
       }
+    },
+    "whoWeAre": {
+      "headline": "Who Are We?",
+      "description": "We are a team of student programmers who recently arrived in Lviv and realized we didn't know the area at all! That's when we found each other and started working on Slidy.",
+      "mates": {
+        "viktorK": {
+          "name": "Viktor",
+          "positions": [
+            "Tech Lead",
+            "Full-stack Developer"
+          ]
+        },
+        "dariaZ": {
+          "name": "Daria",
+          "positions": [
+            "Designer",
+            "Designer"
+          ]
+        },
+        "vitaliiD": {
+          "name": "Vitalii",
+          "positions": [
+            "Business Analyst",
+            "Front-end Developer"
+          ]
+        },
+        "vitaliiV": {
+          "name": "Vitalii",
+          "positions": [
+            "Tester",
+            "Front-end Developer"
+          ]
+        },
+        "ostapB": {
+          "name": "Ostap",
+          "positions": [
+            "Team Lead",
+            "Designer"
+          ]
+        }
+      }
     }
   }
 }

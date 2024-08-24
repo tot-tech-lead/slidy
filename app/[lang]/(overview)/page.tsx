@@ -42,7 +42,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
             <DynamicAboutUs t={t.home}/>
             <DynamicHowItWork t={t.home}/>
             <WaitListForm t={t.home}/>
-            <TeamSlider/>
+            <TeamSlider t={t.home}/>
             <DynamicContacts/>
         </main>
     );
