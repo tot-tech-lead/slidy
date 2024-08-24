@@ -31,6 +31,41 @@
         "text": "<blockquote cite=\"https://docs.google.com/spreadsheets/d/1gGDGWMLYRPCpzBTCq6aq5QgUr3wMW785CnO_2esWR8U/edit?usp=sharing\">If you are a guide or wish to become one, you can upload your offers to our site! After registering as a tourist, you can apply to be verified as a guide. Then, you need to fill out your personal page with your excursions and wait for messages from clients. By the way, anyone can become a guide on our platform! According to our statistics, more than 40% of people are willing to guide tourists in their city in their free time. This not only helps break the monotony of daily life but also allows you to earn some money using your local knowledge!</blockquote>"
       }
     ],
-    "scrollDownAction": "Scroll"
+    "scrollDownAction": "Scroll",
+    "howItWork": {
+      "headline": "How It Works",
+      "tabs": [
+        "If You Are a Tourist:",
+        "If You Are a Guide:"
+      ],
+      "register": {
+        "headline": "Register!",
+        "caption": "Fill out a simple form providing your information, which we will use to connect you with the best guides in the city!"
+      },
+      "filter": {
+        "headline": "FILTER!",
+        "caption": "Our site allows you to choose the most convenient time and the best location using filters and a calendar!"
+      },
+      "choose": {
+        "headline": "CHOOSE!",
+        "caption": "Find the best guide for your journey and get to know the locals!"
+      },
+      "wander": {
+        "headline": "WANDER!",
+        "caption": "Immerse yourself in your dream trip and discover the city through the eyes of a local!"
+      },
+      "join": {
+        "headline": "JOIN!",
+        "caption": "By uploading the necessary documents, tourists will be more inclined to book your excursions!"
+      },
+      "create": {
+        "headline": "CREATE!",
+        "caption": "Use our proposal builder to describe your future excursion to tourists!"
+      },
+      "earn": {
+        "headline": "EARN!",
+        "caption": "By conducting tours, earn some extra cash while having a great time with new people!"
+      }
+    }
   }
 }

@@ -7,22 +7,23 @@ import Switch from "@/app/[lang]/ui/switch/switch";
 import styles from "./howItWork.module.css"
 import prestyle from "@/app/lib/ui-components.module.css"
 import {nunito} from "@/app/[lang]/ui/fonts";
+import {Dict} from "@/app/[lang]/dictionaries";
 
-export default function HowItWork() {
-    let [tab, setTab] = useState('Якщо ви турист:')
+export default function HowItWork({t}: {t: Dict}) {
+    let [tab, setTab] = useState(t.howItWork.tabs[0])
 
     return (
         <div className={styles.HowItWork} id="Home-how-to-use">
             <h2 className={`${styles.h2} ${prestyle.textH2} ${nunito.className}`}>
-                Як це працює?
+                {t.howItWork.headline}
             </h2>
 
             <div className={styles.tabs}>
-                <Switch setCurrentTab={setTab} values={["Якщо ви турист:", "Якщо ви екскурсовод:"]} currentTab={tab}/>
+                <Switch setCurrentTab={setTab} values={t.howItWork.tabs} currentTab={tab}/>
             </div>
 
             <div className={styles.info}>
-                <HowItWorkOption state={tab} />
+                <HowItWorkOption t={t} state={tab} />
             </div>
         </div>
     )

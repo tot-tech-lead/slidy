@@ -2,7 +2,7 @@ import 'server-only';
 import React from "react";
 
 export type Dict = {
-    [key: string]: string | Dict | Dict[]
+    [key: string]: string | Dict | Dict[] | string[]
 }
 
 interface D {
