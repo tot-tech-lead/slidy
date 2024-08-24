@@ -12,10 +12,11 @@ import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 
 import AboutUsContent from "../aboutUs/content"
+import {Dict} from "@/app/[lang]/dictionaries";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function AboutUs() {
+export default function AboutUs({t}: {t: Dict}) {
     const [headerHeight, setHeaderHeight] = useState(50);
     const [isMobile, setIsMobile] = useState(true);
 
@@ -233,7 +234,7 @@ export default function AboutUs() {
                 <div className={`${styles.backgroundStatic} ${styles.backgroundStatic1}`}></div>
                 <div className={`${styles.backgroundStatic} ${styles.backgroundStatic2}`}></div>
             </div>
-            <AboutUsContent/>
+            <AboutUsContent t={t}/>
         </div>
     );
 }

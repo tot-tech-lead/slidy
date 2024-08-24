@@ -39,7 +39,7 @@ export default async function Home({ params: { lang } }: { params: { lang: strin
     return (
         <main>
             <DynamicPreviewPage t={t.home}/>
-            <DynamicAboutUs/>
+            <DynamicAboutUs t={t.home}/>
             <DynamicHowItWork/>
             <WaitListForm/>
             <TeamSlider/>

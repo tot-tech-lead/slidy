@@ -1,6 +1,7 @@
 import styles from "../aboutUs/aboutUs.module.css";
 import prestyle from "@/app/lib/ui-components.module.css";
 import {nunito, nunitoSans} from "@/app/[lang]/ui/fonts";
+import {Dict} from "@/app/[lang]/dictionaries";
 
 export const contentData = [
     {
@@ -35,19 +36,27 @@ export const contentData = [
     },
 ]
 
-export default function AboutUsContent() {
-    return contentData.map((data, idx) =>
+export default function AboutUsContent({t}: {
+    t: Dict
+}) {
+    return t.aboutUs?.map((data, idx) =>
         <div key={`home-content-${idx}`} className={`${styles.container} ${styles.container}${idx + 1}`}>
             <div className={`${styles.anim} ${styles.anim}${idx + 1}`}>
                 <h2 className={`${styles.animHeadline} ${prestyle.textH2} ${nunito.className}`}>{data.headline}</h2>
-                <div className={`${styles.animParagraph} ${prestyle.textBig} ${nunitoSans.className}`}>
-                    {data.text}
+                <div className={`${styles.animParagraph} ${prestyle.textBig} ${nunitoSans.className}`}
+                     dangerouslySetInnerHTML={
+                         {
+                             __html: data.text
+                         }
+                     }>
                 </div>
                 <div className={styles.animScrollHint}>
                     <div className={styles.animScrollHintBody}>
                         <div className={styles.animScrollHintInner}></div>
                     </div>
-                    <div className={`${styles.animScrollHintText} ${prestyle.textPlain} ${nunitoSans.className}`}>Гортай!</div>
+                    <div
+                        className={`${styles.animScrollHintText} ${prestyle.textPlain} ${nunitoSans.className}`}>Гортай!
+                    </div>
                 </div>
             </div>
         </div>
