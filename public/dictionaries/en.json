@@ -54,8 +54,8 @@
     "howItWork": {
       "headline": "How It Works",
       "tabs": [
-        "If You Are a Tourist:",
-        "If You Are a Guide:"
+        "If you are a tourist:",
+        "If you are a guide:"
       ],
       "register": {
         "headline": "Register!",
@@ -143,5 +143,23 @@
       "messagePlaceholder": "Message",
       "sendButton": "Send"
     }
+  },
+  "authorization": {
+    "login": "Login",
+    "signUp": "Sign Up",
+    "requiredField": "Required field",
+    "loginField": "Username / Email / Phone number",
+    "password": "Password",
+    "loginAction": "Log In",
+    "registerAction": "Sign Up",
+    "surname": "Surname",
+    "name": "First Name",
+    "country": "Country",
+    "phone": "Phone number",
+    "dateOfBirth": "Date of Birth",
+    "confirmPassword": "Confirm Password",
+    "email": "Email",
+    "loginFieldReg": "Username",
+    "profession": "Profession"
   }
 }

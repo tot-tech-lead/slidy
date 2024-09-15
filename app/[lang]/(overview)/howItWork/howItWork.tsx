@@ -14,6 +14,8 @@ import {Dict} from "@/app/[lang]/dictionaries";
 export default function HowItWork({t}: {t: Dict}) {
     let [tab, setTab] = useState(t.howItWork.tabs[0])
 
+    console.log(tab)
+
     return (
         <div className={`HowItWork ${styles.HowItWork}`} id="Home-how-to-use">
             <h2 className={`${styles.h2} ${prestyle.textH2} ${nunito.className}`}>

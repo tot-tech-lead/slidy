@@ -78,13 +78,13 @@ export default function Header(
                 <ul className={styles.menu}>
                     {!location.includes("/auth") ? <>
                         <li className={styles.menuItem}>
-                            <button onClick={() => router.push("/")}
+                            <button onClick={() => router.push(`/${lang}`)}
                                     className={`${styles.menuItemLink} ${preStyle.textBig} ${nunitoSans.className}`}>
                                 {t.header.home}
                             </button>
                         </li>
                         <li className={styles.menuItem}>
-                            <button onClick={() => router.push("/tours/all/all")}
+                            <button onClick={() => router.push(`/${lang}/tours/all/all`)}
                                     className={`${styles.menuItemLink} ${preStyle.textBig} ${nunitoSans.className}`}>
                                 {t.header.tours}
                             </button>
@@ -97,22 +97,22 @@ export default function Header(
                 {(auth.isLogin) ? <AuthBlock {...{...auth.data}} t={t} /> : <>
                     {!location.includes("/authorization/") && <>
                         <a
-                            href={`/authorization/login`}
+                            href={`${lang}/authorization/login`}
                             title={`slidy ${t.header.login}}`}
                             className={`${preStyle.buttonOutlined} ${styles.button} ${nunitoSans.className}`}
                             onClick={(e) => {
                                 e.preventDefault();
-                                router.push("/authorization/login")
+                                router.push(`/${lang}/authorization/login`)
                             }}
                         >
                             {t.header.login}
                         </a>
                         <a className={`${preStyle.buttonFilled} ${styles.button} ${nunitoSans.className}`}
-                           href={"/authorization/login"}
+                           href={`${lang}/authorization/login`}
                            title={`slidy ${t.header.signup}`}
                            onClick={(e) => {
                                e.preventDefault();
-                               router.push("/authorization/registration")
+                               router.push(`/${lang}/authorization/registration`)
                            }}
                         >
                             {t.header.signup}

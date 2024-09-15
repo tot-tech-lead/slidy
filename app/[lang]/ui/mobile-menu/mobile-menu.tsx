@@ -21,7 +21,7 @@ import searchIcon from "./SVG/search.svg"
 import Link from "next/link";
 import Image from "next/image";
 
-import {usePathname} from "next/navigation";
+import {useParams, usePathname} from "next/navigation";
 import {useEffect, useState} from "react";
 import {StaticImport} from "next/dist/shared/lib/get-img-props";
 import {Dict} from "@/app/[lang]/dictionaries";
@@ -37,15 +37,18 @@ function MenuItem({path, iconOutlined, iconFilled, label}: {
 
     let pathname = usePathname()
 
+    let {lang} = useParams()
+
     useEffect(() => {
-        if (path === pathname) {
+        console.log(`/${lang}${path}`)
+        if (pathname === `/${lang}${path}` || pathname === `/${lang}${path}/` || pathname === `/${lang}${path.slice(1)}`) {
             setIsActive(true)
         } else {
             setIsActive(false)
         }
     }, [pathname, path]);
 
-    return <Link href={path} className={styles.menuItem}>
+    return <Link href={`/${lang}${path}`} className={styles.menuItem}>
         <Image src={isActive ? iconFilled : iconOutlined}
                alt={`${label} іконка`}
                className={styles.menuItemIcon}

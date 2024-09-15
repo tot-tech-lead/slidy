@@ -143,5 +143,23 @@
       "messagePlaceholder": "Повідомлення",
       "sendButton": "Надіслати"
     }
+  },
+  "authorization": {
+    "login": "Вхід",
+    "signUp": "Реєстрація",
+    "requiredField": "Обов'язкове поле",
+    "loginField": "Псевдонім / email / номер телефону ",
+    "password": "Пароль",
+    "loginAction": "Увійти",
+    "registerAction": "Зареєструватись",
+    "surname": "Прізвище",
+    "name": "Ім'я",
+    "country": "Країна",
+    "phone": "Номер телефону",
+    "dateOfBirth": "Дата народження",
+    "confirmPassword": "Повторити пароль",
+    "email": "Email",
+    "loginFieldReg": "Псевдонім",
+    "profession": "Професія"
   }
 }

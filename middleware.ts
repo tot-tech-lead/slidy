@@ -20,7 +20,7 @@ function getLocale(request: NextRequest) {
 export function middleware(request: NextRequest) {
     const {pathname} = request.nextUrl;
 
-    if (pathname.includes("_next")) return
+    if (pathname.includes("_next") || pathname.includes("/api")) return
 
     const pathnameHasLocale = locales.some(
         (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
@@ -52,5 +52,6 @@ export const config = {
         '/authorization/:path*',
         '/tours/:path*',
         '/((?!_next).*)',
+        '/((?!api).*)',
     ],
 };

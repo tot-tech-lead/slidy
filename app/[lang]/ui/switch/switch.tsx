@@ -27,7 +27,7 @@ export default function Switch({values, currentTab, setCurrentTab}: params) {
                 }
 
                 gsap.to(`.Switch_${id} .${styles.selector}`, {
-                    ...properties, duration: 0.7, ease: "elastic.out(1,0.3)"
+                    ...properties, duration: 0.3, ease: "back.inOut(1.7)"
                 })
             }
         }
@@ -46,7 +46,7 @@ export default function Switch({values, currentTab, setCurrentTab}: params) {
                 }
 
                 gsap.to(`.Switch_${id} .${styles.selector}`, {
-                    ...properties, duration: 0.7, ease: "elastic.out(1,0.3)"
+                    ...properties, duration: 0.3, ease: "back.inOut(1.7)"
                 })
             }
         }

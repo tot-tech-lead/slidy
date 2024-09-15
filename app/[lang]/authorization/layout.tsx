@@ -1,65 +1,21 @@
-"use client"
-
-import {useRouter, usePathname} from "next/navigation";
-import Switch from "@/app/[lang]/ui/switch/switch";
-import {useEffect, useState} from "react";
-
 import styles from "./layout.module.css"
-import prestyle from "@/app/lib/ui-components.module.css"
+import {getDictionary} from "@/app/[lang]/dictionaries";
+import AuthorizationInterface from "@/app/[lang]/authorization/authorizationInterface";
 
-import clsx from "clsx";
-import {nunito, nunitoSans} from "@/app/[lang]/ui/fonts";
-import {Metadata} from "next";
-
-export default function AuthLayout({children}: Readonly<{
+export default async function AuthLayout({children, params}: {
     children: React.ReactNode;
-}>) {
-    let router = useRouter();
-    let location = usePathname();
-    let [tab, setTab] = useState(()=>{
-        return location === "/ua/authorization/login" ? "Вхід" : "Реєстрація"
-    });
-
-    useEffect(() => {
-        switch (tab) {
-            case "Вхід":
-                router.push("/ua/authorization/login")
-                break;
-            case "Реєстрація":
-                router.push("/ua/authorization/registration")
-                break;
-        }
-    }, [tab, router]);
-
-    useEffect(() => {
-        switch (location) {
-            case "/authorization/login":
-                setTab("Вхід")
-                break;
-            case "/authorization/registration":
-                setTab("Реєстрація")
-                break;
-        }
-    }, [location]);
-
+    params: {
+        lang: string
+    }
+}) {
+    let {lang} = params
+    let t = await getDictionary(lang)
 
     return (
         <>
             <div className={styles.Authorization}>
                 <div className={styles.wrapper}>
-                    <Switch setCurrentTab={setTab} values={["Вхід", "Реєстрація"]} currentTab={tab}/>
-
-                    <div className={styles.headlineGroup}>
-                        <h2 className={clsx(styles.headline, prestyle.textH2, nunito.className)}>
-                            {
-                                location === "/authorization/registration" ?
-                                    "Реєстрація" : "Вхід"
-                            }
-                        </h2>
-                        <p className={clsx(styles.subHeadline, prestyle.textBigBold, nunitoSans.className)}>
-                            Обов’язкове поле - <span style={{color: "#FF0000"}}>*</span>
-                        </p>
-                    </div>
+                    <AuthorizationInterface t={t.authorization}/>
                     {children}
                 </div>
             </div>

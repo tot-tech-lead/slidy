@@ -80,7 +80,9 @@ function TeamSlider({t}: { t: Dict }) {
     return (
         <div className={styles.TeamSlider}>
             <div className={styles.headlineGroup}>
-                <h2 className={`${styles.headline} ${prestyle.textH2} ${nunito.className}`}>{t.whoWeAre.headline}</h2>
+                <h2 className={`${styles.headline} ${prestyle.textH2} ${nunito.className}`}>
+                    {t.whoWeAre.headline}
+                </h2>
                 <p className={`${prestyle.textPlain} ${styles.subHeadline}`}>
                     {t.whoWeAre.description}
                 </p>
