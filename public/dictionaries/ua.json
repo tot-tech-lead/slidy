@@ -150,16 +150,20 @@
     "requiredField": "Обов'язкове поле",
     "loginField": "Псевдонім / email / номер телефону ",
     "password": "Пароль",
+    "passwordPlaceholder": "Ваш пароль",
     "loginAction": "Увійти",
     "registerAction": "Зареєструватись",
     "surname": "Прізвище",
     "name": "Ім'я",
+    "namePlaceholder": "Так вас назвали батьки",
     "country": "Країна",
     "phone": "Номер телефону",
     "dateOfBirth": "Дата народження",
     "confirmPassword": "Повторити пароль",
+    "confirmPasswordPlaceholder": "Пароль ще раз",
     "email": "Email",
     "loginFieldReg": "Псевдонім",
+    "loginFieldRegPlaceholder": "Буде видимий для інших користувачів",
     "profession": "Професія"
   }
 }

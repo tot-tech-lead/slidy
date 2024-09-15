@@ -8,14 +8,13 @@ let authSchema = new mongoose.Schema<AuthData>({
     email: {
         type: String, validate: {
             validator: function (v) {
-                return /^[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/gi.test(v);
+                return typeof v !== "undefined" ? /^[\w.%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/gi.test(v) : true;
             },
             message: props => `${props.value} is not a valid email!`
         }
     },
     name: {type: String, required: [true, "Name is required!"]},
     surname: {type: String, required: [true, "Surname is required!"]},
-    patronymic: {type: String, required: [true, "Patronymic is required!"]},
     phoneNumber: {
         type: String, required: [true, "Phone number is required!"],
         validate: {
@@ -41,7 +40,6 @@ let authSchema = new mongoose.Schema<AuthData>({
             message: () => `Password must have at least 8 symbols!`
         }
     },
-    profession: {type: String},
     role: {
         type: String, required: true, default: "TOURIST", enum: {
             values: ["TOURIST", "GUIDE", "ADMIN"],

@@ -150,16 +150,20 @@
     "requiredField": "Required field",
     "loginField": "Username / Email / Phone number",
     "password": "Password",
+    "passwordPlaceholder": "Your password",
     "loginAction": "Log In",
     "registerAction": "Sign Up",
-    "surname": "Surname",
+    "surname": "Last name",
     "name": "First Name",
+    "namePlaceholder": "How your parents call you?",
     "country": "Country",
     "phone": "Phone number",
     "dateOfBirth": "Date of Birth",
     "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Password again",
     "email": "Email",
     "loginFieldReg": "Username",
+    "loginFieldRegPlaceholder": "Will be visible for all users",
     "profession": "Profession"
   }
 }
