@@ -15,8 +15,9 @@ import InputSelect from "@/app/[lang]/ui/input-select/input-select";
 import {countries} from "@/app/lib/data-define";
 import {Dict} from "@/app/[lang]/dictionaries";
 
-export default function Register({t}: {
-    t: Dict
+export default function Register({t, errorT}: {
+    t: Dict,
+    errorT: Dict,
 }) {
     let router = useRouter()
 
@@ -51,6 +52,7 @@ export default function Register({t}: {
     let [state, formAction, pending] = useActionState(createUser, defState)
 
     useEffect(() => {
+        console.log(state)
         if (state?.status === 200) {
             alert("Зареєстровано успішно!")
             router.push("/authorization/login")
@@ -102,7 +104,7 @@ export default function Register({t}: {
                            }}
                     />
                     <div className={styles.alarm} id="surname-error" aria-live="polite" aria-atomic="true">
-                        {state?.status !== 200 && state?.errors?.surname ? state.errors.surname.join(", ") : ""}
+                        {state?.status !== 200 && state?.errors?.surname ? state.errors.surname.map(err => errorT[err] ? errorT[err] : err).join(", ") : ""}
                     </div>
                 </div>
                 <div className={styles.inputGroup}>
@@ -115,7 +117,7 @@ export default function Register({t}: {
                            }}
                     />
                     <div className={styles.alarm} id="name-error" aria-live="polite" aria-atomic="true">
-                        {state?.status !== 200 && state?.errors?.name ? state.errors.name.join(", ") : ""}
+                        {state?.status !== 200 && state?.errors?.name ? state.errors.name.map(err => errorT[err] ? errorT[err] : err).join(", ") : ""}
                     </div>
                 </div>
             </div>
@@ -136,7 +138,7 @@ export default function Register({t}: {
                              iconPattern={"https://flagsapi.com/%%pattern%%/flat/32.png"}
                 />
                 <div className={styles.alarm} id="country-error" aria-live="polite" aria-atomic="true">
-                    {state?.status !== 200 && state?.errors?.country ? state.errors.country.join(", ") : ""}
+                    {state?.status !== 200 && state?.errors?.country ? state.errors.country.map(err => errorT[err] ? errorT[err] : err).join(", ") : ""}
                 </div>
             </div>
             <div className={styles.inputGroup}>
@@ -152,7 +154,7 @@ export default function Register({t}: {
                        }}
                 />
                 <div className={styles.alarm} id="phoneNumber-error" aria-live="polite" aria-atomic="true">
-                    {state?.status !== 200 && state?.errors?.phoneNumber ? state.errors.phoneNumber.join(", ") : ""}
+                    {state?.status !== 200 && state?.errors?.phoneNumber ? state.errors.phoneNumber.map(err => errorT[err] ? errorT[err] : err).join(", ") : ""}
                 </div>
             </div>
             <div className={styles.inputGroup}>
@@ -164,7 +166,7 @@ export default function Register({t}: {
                           }}
                 />
                 <div className={styles.alarm} id="dateOfBirth-error" aria-live="polite" aria-atomic="true">
-                    {state?.status !== 200 && state?.errors?.dateOfBirth ? state.errors.dateOfBirth.join(", ") : ""}
+                    {state?.status !== 200 && state?.errors?.dateOfBirth ? state.errors.dateOfBirth.map(err => errorT[err] ? errorT[err] : err).join(", ") : ""}
                 </div>
             </div>
             <div className={styles.inputGroup}>
@@ -177,7 +179,7 @@ export default function Register({t}: {
                        }}
                 />
                 <div className={styles.alarm} id="password-error" aria-live="polite" aria-atomic="true">
-                    {state?.status !== 200 && state?.errors?.password ? state.errors.password.join(", ") : ""}
+                    {state?.status !== 200 && state?.errors?.password ? state.errors.password.map(err => errorT[err] ? errorT[err] : err).join(", ") : ""}
                 </div>
             </div>
             <div className={styles.inputGroup}>
@@ -191,7 +193,7 @@ export default function Register({t}: {
                        }}
                 />
                 <div className={styles.alarm} id="passwordAgain-error" aria-live="polite" aria-atomic="true">
-                    {state?.status !== 200 && state?.errors?.passwordAgain ? state.errors.passwordAgain.join(", ") : ""}
+                    {state?.status !== 200 && state?.errors?.passwordAgain ? state.errors.passwordAgain.map(err => errorT[err] ? errorT[err] : err).join(", ") : ""}
                 </div>
             </div>
             <div className={styles.inputGroup}>
@@ -204,7 +206,7 @@ export default function Register({t}: {
                        }}
                 />
                 <div className={styles.alarm} id="email-error" aria-live="polite" aria-atomic="true">
-                    {state?.status !== 200 && state?.errors?.email ? state.errors.email.join(", ") : ""}
+                    {state?.status !== 200 && state?.errors?.email ? state.errors.email.map(err => errorT[err] ? errorT[err] : err).join(", ") : ""}
                 </div>
             </div>
             <div className={styles.inputGroup}>
@@ -217,7 +219,7 @@ export default function Register({t}: {
                        }}
                 />
                 <div className={styles.alarm} id="username-error" aria-live="polite" aria-atomic="true">
-                    {state?.status !== 200 && state?.errors?.username ? state.errors.username.join(", ") : ""}
+                    {state?.status !== 200 && state?.errors?.username ? state.errors.username.map(err => errorT[err] ? errorT[err] : err).join(", ") : ""}
                 </div>
             </div>
             <button disabled={pending} className={clsx(styles.button, prestyle.buttonFilled)} type="submit">

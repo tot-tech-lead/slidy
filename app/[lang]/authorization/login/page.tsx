@@ -9,7 +9,7 @@ export default async function Page({params}: {params: {
 
     return (
         <>
-            <Login t={t.authorization} />
+            <Login t={t.authorization} errorT={t.errors} />
         </>
     )
 }

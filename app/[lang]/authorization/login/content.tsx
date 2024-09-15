@@ -15,7 +15,7 @@ let defaultFormData = {
     password: ""
 }
 
-export default function Login({t}: { t: Dict }) {
+export default function Login({t, errorT}: { t: Dict, errorT: Dict }) {
     let [formData, setFormData] = useState(defaultFormData);
 
     let updateAuthData = useAuth(state => state.update)
@@ -60,7 +60,7 @@ export default function Login({t}: { t: Dict }) {
                 />
                 <div className={styles.alarm} id="login-error" aria-live="polite" aria-atomic="true">
                     {
-                        (state?.status !== 200 && state?.errors?.login) ? state?.errors?.login.join(", ") : ""
+                        (state?.status !== 200 && state?.errors?.login) ? state?.errors?.login.map(err => errorT[err] ? errorT[err] : err).join(", ") : ""
                     }
                 </div>
             </div>
@@ -76,7 +76,7 @@ export default function Login({t}: { t: Dict }) {
                 />
                 <div className={styles.alarm} id="password-error" aria-live="polite" aria-atomic="true">
                     {
-                        (state?.status !== 200 && state?.errors?.password) ? state?.errors?.password.join(", ") : ""
+                        (state?.status !== 200 && state?.errors?.password) ? state?.errors?.password.map(err => errorT[err] ? errorT[err] : err).join(", ") : ""
                     }
                 </div>
             </div>

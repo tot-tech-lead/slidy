@@ -4,7 +4,21 @@
     "desc": "Slidy - travel like never before"
   },
   "errors": {
-    "email": "Enter valid email"
+    "email": "Enter valid email",
+    "loginMin": "Please enter your login, email, or phone number",
+    "passwordMin": "Password must be at least 8 characters long",
+    "nameMin": "Name cannot be shorter than 2 characters",
+    "surnameMin": "Surname cannot be shorter than 2 characters",
+    "emailValid": "Please enter a valid email",
+    "dateFuture": "Are you sure you were born after today?",
+    "ageLimit": "You must be at least 16 years old to use our service",
+    "usernameMin": "Username must be at least 3 characters long",
+    "usernameInvalid": "Username can only contain numbers, letters, and the symbol \"_\"",
+    "passwordMismatch": "Passwords do not match",
+    "countryInvalid": "This country does not exist!",
+    "phoneInvalid": "Please enter a valid phone number",
+    "usernameAlreadyExist": "User with the same username already exist",
+    "emailOrPhoneNumberAlreadyExist": "An account with this email or phone number already exists"
   },
   "header": {
     "home": "Home",

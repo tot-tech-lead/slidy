@@ -22,36 +22,39 @@ const sixteenYearsAgo = moment.utc().subtract(16, 'years').startOf('day').toDate
 
 let LoginFormData = z.object({
     login: z.string()
-        .min(3, "Будь ласка, введіть свій логін, email або номер телефону"),
-    password: z.string().min(8, "Довжина паролю повинна бути більшою ніж 8 символів")
+        .min(3, "loginMin"),
+    password: z.string().min(8, "passwordMin")
 })
 
 let RegisterFormData = z.object({
-    name: z.string().min(2, "Ім'я не може бути коротшим ніж 2 символи"),
-    surname: z.string().min(2, "Прізчище не може бути коротшим ніж 2 символи"),
-    patronymic: z.string().min(2, "По-батькові не може бути коротшим ніж 2 символи"),
-    email: z.string().email("Введіть валідний email"),
+    name: z.string().min(2, "nameMin"),
+    surname: z.string().min(2, "surnameMin"),
+    email: z.string()
+        .trim()
+        .optional()
+        .refine(val => val === undefined || val === "", "emailValid")
+        .or(z.string().email("emailValid")),
     phoneNumber: z.string().refine(isPossiblePhoneNumber),
     country: z.string(),
     dateOfBirth: z.date()
-        .refine(d => d.getTime() < today.getTime(), "Ви впевнені що народились пізніше ніж сьогодні?")
-        .refine(d => d.getTime() < sixteenYearsAgo.getTime(), "Для того щоб користуватись нашим сервісом вам повинно бути мінімум 16 років"),
-    username: z.string().min(3, "Мінімальна довжина псевдоніму 3 літрери").regex(/^[a-zA-Z0-9a_]*$/, {
-        message: "Псевдонім може містити лише цифри, латинські літери та символ \"_\"",
+        .refine(d => d.getTime() < today.getTime(), "dateFuture")
+        .refine(d => d.getTime() < sixteenYearsAgo.getTime(), "ageLimit"),
+    username: z.string().min(3, "usernameMin").regex(/^[a-zA-Z0-9_]*$/, {
+        message: "usernameInvalid",
     }),
-    password: z.string().min(8, "Пароль повинен містити хоча б 8 символів"),
+    password: z.string().min(8, "passwordMin"),
     passwordAgain: z.string(),
-    profession: z.string(),
 }).refine(data => data.password === data.passwordAgain, {
-    message: "Паролі не збігаються",
+    message: "passwordMismatch",
     path: ["passwordAgain"]
 }).refine(data => enumCountries.includes(data.country.split(" - ")[0]), {
-    message: "Такої країни не існує!",
+    message: "countryInvalid",
     path: ["country"]
 }).refine(data => isPossiblePhoneNumber(data.phoneNumber, data.country.split(" - ")[0] as CountryCode), {
-    message: "Введіть правильний номер телефону",
+    message: "phoneInvalid",
     path: ["phoneNumber"]
 })
+
 
 
 export type State = {
@@ -61,14 +64,12 @@ export type State = {
         login?: string[],
         name?: string[],
         surname?: string[],
-        patronymic?: string[],
         email?: string[],
         phoneNumber?: string[],
         country?: string[],
         dateOfBirth?: string[],
         username?: string[],
         password?: string[],
-        profession?: string[],
         passwordAgain?: string[]
     };
     message?: string | null;
@@ -151,15 +152,13 @@ export async function createUser(state: State | undefined, formData: FormData): 
         let validate = RegisterFormData.safeParse({
             name: formData.get("name"),
             surname: formData.get("surname"),
-            patronymic: formData.get("patronymic"),
-            email: formData.get("email"),
+            email: formData.get("email") || "",
             phoneNumber: formData.get("phoneNumber"),
             country: formData.get("country"),
             dateOfBirth: moment.utc(formData.get("dateOfBirth") as MomentInput, "DD/MM/YYYY").toDate(),
             username: formData.get("username"),
             password: formData.get("password"),
             passwordAgain: formData.get("passwordAgain"),
-            profession: formData.get("profession"),
         })
 
         if (!validate.success) {
@@ -184,7 +183,7 @@ export async function createUser(state: State | undefined, formData: FormData): 
             return {
                 status: 400,
                 errors: {
-                    username: ["Користувач із таким псевдонімом вже існує"]
+                    username: ["usernameAlreadyExist"]
                 },
                 message: `Account with the same email or phone number or username already exist`
             }
@@ -201,7 +200,7 @@ export async function createUser(state: State | undefined, formData: FormData): 
             return {
                 status: 400,
                 errors: {
-                    manual: "Обліковий запис із таким email або номером телефону вже існує"
+                    manual: "emailOrPhoneNumberAlreadyExist"
                 },
                 message: `Account with the same email or phone number or username already exist`
             }
